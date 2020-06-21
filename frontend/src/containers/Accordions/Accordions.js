@@ -1,9 +1,14 @@
 import React, {Component} from 'react';
+import Accordion from '../../components/Accordion/Accordion';
 
 class Accordions extends Component{
     state = {}
     render(){
-        return(null);
+        return(
+            <React.Fragment>
+                <Accordion name='Placeholder'/>
+            </React.Fragment>
+        );
     }
 }
 

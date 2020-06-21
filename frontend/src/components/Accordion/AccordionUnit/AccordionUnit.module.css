@@ -1,0 +1,35 @@
+.Image{
+    border-radius: 900px;
+    height: 100px;
+    width: 100px;
+
+}
+.Wrapper{
+    padding: 4vw;
+    display: inline-block;
+    overflow: hidden;
+    
+}
+
+@media (max-width: 500px){
+    .Image{
+        height: max(7vw, 10vh);
+        width: max(7vw, 10vh);
+        padding: 0px;
+    
+    }
+    .Wrapper{
+        display: inline-block;
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 1000px){
+    .Image{
+        height: 90px;
+        width: 90px;
+    }
+    .Wrapper{
+        padding: 5%;
+    }
+}

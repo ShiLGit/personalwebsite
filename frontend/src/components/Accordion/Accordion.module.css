@@ -1,0 +1,20 @@
+.BarClick{
+    background-color: #415CEA;
+    width: 55%;
+    color: white;
+    padding: 2px;
+
+    font-size: 3rem;
+    text-align: center;
+
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.Body{
+    background-color: #FFF5BF;
+    width: 55%;
+    height: max(200px, 15vw);
+    min-height: 150px;
+    text-align: center;
+}
