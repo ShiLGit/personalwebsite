@@ -9,6 +9,10 @@
 
     cursor: pointer;
     box-sizing: border-box;
+    margin: auto;
+    margin-top: 50px;
+
+    display: block;
 }
 
 .Body{
@@ -17,6 +21,7 @@
     height: max(250px, 15vw);
     min-height: 200px;
     text-align: center;
+    margin: auto;
 }
 
 .TechStack{

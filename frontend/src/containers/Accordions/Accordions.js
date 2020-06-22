@@ -3,23 +3,29 @@ import Accordion from '../../components/Accordion/Accordion';
 
 class Accordions extends Component{
     state = {
-        active: null,
+        active: -1,
         accordions: [
             {
                 displayName:"Placeholder",
-                desc:"Node.js, React.js, MongoDB, SQL"
+                desc:"Node.js, React.js, MongoDB, SQL",
+                key: 0
             },
             {
                 displayName:"School",
-                desc:"C, Java, Data Structures, Algorithms"
+                desc:"C, Java, Data Structures, Algorithms",
+                key: 1
             }
         ]
     }
-    render(){
+    accordionClickHandler=(key)=>{
+        console.log(key);
+        this.setState(prev=>({active: prev.active===key?-1:key}));
+    }
+    render(){    
         return(
             <React.Fragment>
-                {this.state.accordions.map(accordion=>{
-                    return <Accordion {...accordion}/>
+                {this.state.accordions.map(acc=>{
+                    return <Accordion {...acc} active={this.state.active ===acc.key} clickHandler={()=>this.accordionClickHandler(acc.key)}/>
                 })}
             </React.Fragment>
         );
