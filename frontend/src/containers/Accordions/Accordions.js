@@ -2,11 +2,25 @@ import React, {Component} from 'react';
 import Accordion from '../../components/Accordion/Accordion';
 
 class Accordions extends Component{
-    state = {}
+    state = {
+        active: null,
+        accordions: [
+            {
+                displayName:"Placeholder",
+                desc:"Node.js, React.js, MongoDB, SQL"
+            },
+            {
+                displayName:"School",
+                desc:"C, Java, Data Structures, Algorithms"
+            }
+        ]
+    }
     render(){
         return(
             <React.Fragment>
-                <Accordion name='Placeholder'/>
+                {this.state.accordions.map(accordion=>{
+                    return <Accordion {...accordion}/>
+                })}
             </React.Fragment>
         );
     }

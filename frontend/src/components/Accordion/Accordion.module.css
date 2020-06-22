@@ -14,7 +14,21 @@
 .Body{
     background-color: #FFF5BF;
     width: 55%;
-    height: max(200px, 15vw);
-    min-height: 150px;
+    height: max(250px, 15vw);
+    min-height: 200px;
     text-align: center;
+}
+
+.TechStack{
+    padding-top: 10px;
+    font-weight: bold;
+}
+
+@media (max-width: 760px){
+    .BarClick{
+        width: 80%;
+    }
+    .Body{
+        width: 80%;
+    }
 }

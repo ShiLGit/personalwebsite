@@ -2,26 +2,18 @@
     border-radius: 900px;
     height: 100px;
     width: 100px;
+    box-sizing: border-box;
 
+    transition: 0.05s;
+}
+.Image:hover{
+    border: 3px solid #5B71E1;
 }
 .Wrapper{
     padding: 4vw;
     display: inline-block;
     overflow: hidden;
-    
-}
-
-@media (max-width: 500px){
-    .Image{
-        height: max(7vw, 10vh);
-        width: max(7vw, 10vh);
-        padding: 0px;
-    
-    }
-    .Wrapper{
-        display: inline-block;
-        overflow: hidden;
-    }
+    padding-bottom: 100px;
 }
 
 @media (max-width: 1000px){
@@ -31,5 +23,16 @@
     }
     .Wrapper{
         padding: 5%;
+    }
+}
+
+@media (max-width: 500px){
+    .Image{
+        height: 70px;
+        width: 70px;
+    
+    }
+    .Wrapper{
+        padding: 3%px;
     }
 }
