@@ -18,7 +18,6 @@ class Accordions extends Component{
         ]
     }
     accordionClickHandler=(key)=>{
-        console.log(key);
         this.setState(prev=>({active: prev.active===key?-1:key}));
     }
     render(){    

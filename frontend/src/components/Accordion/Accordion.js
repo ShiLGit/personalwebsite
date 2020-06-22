@@ -4,7 +4,6 @@ import classes from './Accordion.module.css';
 import ProjUnit from './AccordionUnit/AccordionUnit';
 
 const Accordion = (props)=>{
-    console.log(props);
     return(
         <React.Fragment>
         <div className={classes.BarClick} onClick={props.clickHandler}>
