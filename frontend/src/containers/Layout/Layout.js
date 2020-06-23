@@ -8,9 +8,11 @@ class Layout extends Component{
                 <div className={classes.Navbar}>
                     <h3>Navbar/Hamburger!!</h3>                
                 </div>
-                <main className={classes.Body}>
-                    <Accordions/>
-                </main>
+                <div className={classes.Body}>
+                    <div className={classes.Accordions}>
+                        <Accordions/>
+                    </div>
+                </div>
             </React.Fragment>
         )
     }

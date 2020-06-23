@@ -6,3 +6,21 @@
     border: 1px solid grey;
 
 }
+
+.Body{
+    display: grid;
+    background-color: red;
+    height: 100vh;
+    width: 100vw;
+
+}
+
+@media (min-width:1000px){
+   .Body{
+       grid-template-columns: 30vw 70vw;
+       background-color: aqua;
+   }
+   .Accordions{
+       grid-column-start: 2;
+   }
+}

@@ -17,13 +17,13 @@
     padding-bottom: 100px;
 }
 
-@media (max-width: 1000px){
+@media (min-width: 1000px){
     .Image{
         height: 90px;
         width: 90px;
     }
     .Wrapper{
-        padding: 5%;
+        padding: 2%;
     }
 }
 

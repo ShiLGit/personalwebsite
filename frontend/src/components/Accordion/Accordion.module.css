@@ -1,6 +1,6 @@
 .BarClick{
     background-color: #415CEA;
-    width: 55%;
+    width: 60%;
     color: white;
     padding: 2px;
 
@@ -17,7 +17,7 @@
 
 .Body{
     background-color: #FFF5BF;
-    width: 55%;
+    width: 60%;
     height: max(250px, 15vw);
     min-height: 200px;
     text-align: center;
