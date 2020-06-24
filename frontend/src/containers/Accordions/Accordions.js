@@ -14,6 +14,11 @@ class Accordions extends Component{
                 displayName:"School",
                 desc:"C, Java, Data Structures, Algorithms",
                 key: 1
+            },
+            {
+                displayName: "Other",
+                desc: "I stoopid",
+                key: 2
             }
         ]
     }
