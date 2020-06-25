@@ -1,0 +1,40 @@
+.LineStyle{
+    background-color: black;
+    height: 2px;
+    width: 40px;
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+.ButtonWrapper{
+    cursor: pointer;
+    box-sizing: border-box;
+    padding: 10px;
+    height: 50px;
+    vertical-align: center;
+    margin: auto;
+    margin-top: 15px;
+
+    display: inline-block;
+
+}
+.Wrapper{
+    display: grid;
+    grid-template-columns: 15vw 70vw 15vw;
+    height: 10vh;
+
+    margin-bottom: 60px;
+}
+.Wrapper h1{
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    font-size: 60px;
+    font-weight: normal;
+    grid-column-start: 2;
+}
+.ButtonWrapper:hover > .LineStyle{
+    transition: 0.1s ease-in;
+    height: 5px;
+    margin: 8px;
+}
