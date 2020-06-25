@@ -1,0 +1,20 @@
+.LineStyle{
+    background-color: black;
+    height: 2px;
+    width: 40px;
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+.Wrapper{
+    cursor: pointer;
+    box-sizing: border-box;
+    padding: 10px;
+    height: 50px;
+}
+
+.Wrapper:hover > .LineStyle{
+    transition: 0.1s ease-in;
+    height: 5px;
+    margin: 8px;
+}
