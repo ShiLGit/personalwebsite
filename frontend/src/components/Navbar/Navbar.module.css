@@ -1,0 +1,34 @@
+.Navbar h3{
+    font-size: min(30px);
+    display: inline-block;
+    color: #ADADAD;
+    margin: 2vw 3vw;
+    font-weight: lighter;
+
+    cursor: pointer;
+
+    transition: 0.3s ease-out;
+
+   
+}
+.Navbar h3:after{
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    background: #919191;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+.Navbar h3:hover:after{
+    width: 100%; 
+    left: 0; 
+}
+.Navbar h3:hover{
+    color: #919191;
+}
+.Navbar{
+    float: right;
+
+}
