@@ -6,6 +6,42 @@
     box-sizing: border-box;
 }
 
+.TopLine{
+    height: 5px;
+    margin: 8px;
+    animation: rotateRight 0.3s forwards;    
+    display: absolute;
+}
+.MiddleLine{
+    opacity: 0;
+}
+.BottomLine{
+    height: 5px;
+    margin: 8px;
+    animation: rotateLeft 0.3s forwards;    
+    display: absolute;
+}
+@keyframes rotateLeft{
+    20%{
+        transform: rotate(-30deg) translate(5px, -10px);
+    }
+    100%{
+        transform: rotate(-45deg) translate(8px, -15px);
+    }
+}
+@keyframes rotateRight{
+    20%{
+        transform: rotate(30deg) translate(5px, 10px);
+    }
+    100%{
+        transform: rotate(45deg) translate(5px, 10px);
+    }
+}
+
+
+
+
+
 .ButtonWrapper{
     cursor: pointer;
     box-sizing: border-box;
