@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Accordion from '../../components/Accordion/Accordion';
-
+import styles from './Accordions.module.css'
 class Accordions extends Component{
     state = {
         active: -1,
@@ -27,11 +27,11 @@ class Accordions extends Component{
     }
     render(){    
         return(
-            <React.Fragment>
+            <div className={styles.Wrapper}>
                 {this.state.accordions.map(acc=>{
                     return <Accordion {...acc} active={this.state.active ===acc.key} clickHandler={()=>this.accordionClickHandler(acc.key)}/>
                 })}
-            </React.Fragment>
+            </div>
         );
     }
 }

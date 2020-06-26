@@ -1,0 +1,20 @@
+.Wrapper{
+    display: none;
+
+}
+
+.Wrapper h1{
+    margin: 0px;
+    text-align: center;
+    font-size:  90px;
+    margin-bottom: -3%;
+}
+.Wrapper h3{
+    margin: 0px;
+    text-align: center;
+}
+@media(min-width: 1000px){
+    .Wrapper{
+        display: block;
+    }
+}
