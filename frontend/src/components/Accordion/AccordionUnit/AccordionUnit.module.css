@@ -19,7 +19,11 @@
     overflow: hidden;
     padding-bottom: 100px;
 }
-
+.Wrapper h5{
+    margin: 1.3em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+}
 @media (min-width: 1000px){
     .Image{
         height: 5vw;

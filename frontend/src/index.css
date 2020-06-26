@@ -10,7 +10,7 @@ body {
   -ms-user-select: none; /* IE10+/Edge */
   user-select: none; /* Standard */
 
-  overflow: hidden;
+ overflow: auto;
   height: 100vh;
   width: 100vw;
 }

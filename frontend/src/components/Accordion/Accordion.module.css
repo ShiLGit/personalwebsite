@@ -1,6 +1,6 @@
 .BarClick{
     background-color: #415CEA;
-    width: 60%;
+    width: 80%;
     color: white;
     padding: 2px;
 
@@ -21,8 +21,8 @@
 
 .Body{
     background-color: #FFF5BF;
-    width: 60%;
-    height: max(200px, 12vw);
+    width: 80%;
+    height: max(250px, 15vw);
     min-height: 200px;
     text-align: center;
     margin: auto;
@@ -40,12 +40,13 @@
     grid-row-end: 3;
 }
 
-@media (max-width: 760px){
-    .BarClick{
-        width: 80%;
-    }
+@media(min-width:1000px){
     .Body{
-        width: 80%;
+        height: max(200px, 12vw);
+        width: 60%;
+    }
+    .BarClick{
+        width: 60%;
     }
 }
 

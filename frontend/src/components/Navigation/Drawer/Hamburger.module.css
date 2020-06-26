@@ -38,3 +38,9 @@
     height: 5px;
     margin: 8px;
 }
+
+@media (min-width: 1000px){
+    .Wrapper{
+        display: none;
+    }
+}
