@@ -1,13 +1,18 @@
 .Wrapper{
     position: fixed;
-    top: 95px;
-    border-top: 5px solid #415CEA;
+    top: 105px;
+    border-top: 10px solid #697ee7;
     width: 100vw;
 
-    color: #383636;
+    color: #6d6d6d;
     font-size: 20px;
     padding: 5px;
-    padding-left: 5%;
+    padding-left: 10%;
     background-color: white;
     z-index: 200;
+    transition: 0.1s ease-out;
+}
+
+.Wrapper h3:hover{
+    color: #3f3f3f;
 }
