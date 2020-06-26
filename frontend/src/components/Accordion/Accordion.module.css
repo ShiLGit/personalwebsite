@@ -22,17 +22,22 @@
 .Body{
     background-color: #FFF5BF;
     width: 60%;
-    height: max(250px, 15vw);
+    height: max(200px, 12vw);
     min-height: 200px;
     text-align: center;
     margin: auto;
 
     animation: slideIn 0.5s forwards;
 }
-
+.Body div{
+    grid-row-start: 0;
+}
 .TechStack{
     padding-top: 10px;
     font-weight: bold;
+    grid-column-start: 1;
+    grid-row-start: 1;
+    grid-row-end: 3;
 }
 
 @media (max-width: 760px){

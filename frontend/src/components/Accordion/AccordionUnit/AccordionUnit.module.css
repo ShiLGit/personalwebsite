@@ -11,7 +11,10 @@
     border: 4px solid #5B71E1;
 }
 .Wrapper{
+    padding-top: 0px;
     padding: 4vw;
+    width: 100px;
+    height: 100%;
     display: inline-block;
     overflow: hidden;
     padding-bottom: 100px;
@@ -19,10 +22,11 @@
 
 @media (min-width: 1000px){
     .Image{
-        height: 8vw;
-        width: 8vw;
+        height: 5vw;
+        width: 5vw;
     }
     .Wrapper{
+        width: 5vw;
         padding: 5%;
     }
 }
