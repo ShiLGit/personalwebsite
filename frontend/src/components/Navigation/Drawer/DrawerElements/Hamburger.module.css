@@ -22,8 +22,12 @@
     display: grid;
     grid-template-columns: 15vw 70vw 15vw;
     height: 10vh;
-
+    z-index: 900;
     margin-bottom: 60px;
+
+    background-color: white;
+    box-sizing: border-box;
+    position: fixed;
 }
 .Wrapper h1{
     color: black;
