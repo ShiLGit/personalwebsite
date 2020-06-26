@@ -3,6 +3,8 @@ import classes from './Layout.module.css';
 import Accordions from '../Accordions/Accordions';
 import Navbar from '../../components/Navigation/Navbar/Navbar';
 import Hamburger from '../../components/Navigation/Drawer/Hamburger';
+
+import portrait from '../../pictures/vectorhead.png';
 class Layout extends Component{
     state = {
         active: '/'
@@ -15,7 +17,9 @@ class Layout extends Component{
                     <Navbar/>
                     <Hamburger/>
                 </div>
-                <div className={classes.Body}>
+                <div className={classes.Body} >
+                <img className={classes.Picture} alt="MY HEAD" src={portrait}/>
+
                     <div className={classes.Accordions}>
                         <Accordions/>
                     </div>

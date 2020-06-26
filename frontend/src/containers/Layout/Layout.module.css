@@ -13,10 +13,23 @@
     width: 100vw;
 
 }
+.Picture{
+    background-color: grey;
+    border: 3px solid grey;
+    border-radius: 9000px;
+    width: 300px;
+    margin: auto;
+}
 
 @media (min-width:1000px){
    .Body{
-       grid-template-columns: 30vw 70vw;
+       grid-template-columns: 50vw 50vw;
+   }
+   .Picture{
+       grid-column-start: 1;
+       width: 400px;
+       vertical-align: center;
+       margin-top: 10px;
    }
    .Accordions{
        grid-column-start: 2;
