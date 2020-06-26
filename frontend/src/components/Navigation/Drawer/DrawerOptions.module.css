@@ -1,0 +1,12 @@
+.Wrapper{
+    position: absolute;
+    top: 87px;
+    border-top: 5px solid #415CEA;
+    width: 100vw;
+
+    color: #383636;
+    font-size: 20px;
+    padding: 5px;
+    padding-left: 5%;
+    background-color: white;
+}

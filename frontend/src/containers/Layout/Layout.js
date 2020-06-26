@@ -9,16 +9,20 @@ import DrawerOptions from '../../components/Navigation/Drawer/DrawerOptions';
 
 class Layout extends Component{
     state = {
-        active: '/'
+        active: '/',
+        drawerOpen: false
     };
-    
+    toggleDrawer=()=>{
+        this.setState(prev=>({drawerOpen: !prev.drawerOpen}));
+    }
+
     render(){
         return(
             <React.Fragment>
                 <div>
                     <Navbar/>
-                    <Hamburger/>
-                    <DrawerOptions/>
+                    <Hamburger clickHandler={this.toggleDrawer}/>
+                    <DrawerOptions open={this.state.drawerOpen}/>
                 </div>
                 <div className={classes.Body} >
                 <img className={classes.Picture} alt="MY HEAD" src={portrait}/>
