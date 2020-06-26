@@ -1,7 +1,7 @@
 .Wrapper{
     position: fixed;
-    top: 105px;
-    border-top: 10px solid #697ee7;
+    top: 95px;
+    border-top: 10px solid rgb(255, 183, 49);
     width: 100vw;
 
     color: #6d6d6d;
@@ -15,4 +15,10 @@
 
 .Wrapper h3:hover{
     color: #3f3f3f;
+}
+
+@media(min-width: 1000px){
+    .All{
+        display: none !important;
+    }
 }
