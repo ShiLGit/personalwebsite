@@ -2,7 +2,7 @@
     background-color: #415CEA;
     width: 80%;
     color: white;
-    padding: 2px;
+    padding: 10px;
 
     font-size: 3rem;
     text-align: center;
@@ -42,11 +42,11 @@
 
 @media(min-width:1000px){
     .Body{
-        height: max(200px, 12vw);
-        width: 60%;
+        height: max(250px, 13vw);
+        width: 70%;
     }
     .BarClick{
-        width: 60%;
+        width: 70%;
     }
 }
 

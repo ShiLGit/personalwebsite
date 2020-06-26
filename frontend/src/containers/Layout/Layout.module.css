@@ -5,27 +5,9 @@
     width: 100vw;
 
 }
-.Picture{
-    background-color: #d1d8ff;
-    border-radius: 9000px;
-    width: 300px;
-    margin: auto;
-    margin-top: 120px;
-
-}
 
 @media (min-width:1000px){
    .Body{
        grid-template-columns: 40vw 60vw;
-   }
-   .Picture{
-       grid-column-start: 1;
-       width: 400px;
-       vertical-align: center;
-       margin-top: 30px;
-       
-   }
-   .Accordions{
-       grid-column-start: 2;
    }
 }
