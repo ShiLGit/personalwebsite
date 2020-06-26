@@ -1,6 +1,6 @@
 .Wrapper{
     position: fixed;
-    top: 87px;
+    top: 95px;
     border-top: 5px solid #415CEA;
     width: 100vw;
 
@@ -9,5 +9,5 @@
     padding: 5px;
     padding-left: 5%;
     background-color: white;
-    z-index: 100;
+    z-index: 200;
 }

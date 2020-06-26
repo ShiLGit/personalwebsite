@@ -11,7 +11,7 @@ const DrawerOptions = (props)=>{
         <h3>Suggestion Box</h3>
         <h3>Email</h3>
     </div>
-    <Backdrop zIndex={50} show={props.drawerOpen}/>
+    <Backdrop zIndex={50} show={props.drawerOpen} onClickHandler={props.onClickHandler}/>
 
     </React.Fragment>
     )

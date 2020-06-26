@@ -7,7 +7,7 @@ const Drawer = (props)=>{
     return(
         <div style ={{backgroundColor:'red'}}>       
             <Hamburger clickHandler={props.toggleDrawer}/>
-            <DrawerOptions drawerOpen={props.drawerOpen}/>
+            <DrawerOptions drawerOpen={props.drawerOpen} onClickHandler={props.onClickHandler}/>
         </div>
     )
 }

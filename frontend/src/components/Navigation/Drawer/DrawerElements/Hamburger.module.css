@@ -21,8 +21,9 @@
 .Wrapper{
     display: grid;
     grid-template-columns: 15vw 70vw 15vw;
-    height: 10vh;
+    height: 15vh;
     z-index: 900;
+
     margin-bottom: 60px;
 
     background-color: white;

@@ -19,7 +19,7 @@ class Layout extends Component{
             <React.Fragment>
                 <div>
                     <Navbar/>
-                    <Drawer toggleDrawer={this.toggleDrawer} drawerOpen={this.state.drawerOpen}/>
+                    <Drawer toggleDrawer={this.toggleDrawer} drawerOpen={this.state.drawerOpen} onClickHandler={this.toggleDrawer}/>
                 </div>
                 <div className={classes.Body} >
                 <img className={classes.Picture} alt="MY HEAD" src={portrait}/>

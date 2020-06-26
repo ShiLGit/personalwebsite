@@ -12,7 +12,7 @@ const Backdrop=(props)=>{
         zIndex: props.zIndex
     }
     return(
-        <div style={{...style, display:props.show?'block':'none'}}>
+        <div style={{...style, display:props.show?'block':'none'}} onClick ={props.onClickHandler}>
         </div>
     )
 }
