@@ -5,6 +5,8 @@ import Navbar from '../../components/Navigation/Navbar/Navbar';
 import Hamburger from '../../components/Navigation/Drawer/Hamburger';
 import Heading from '../../components/Decoration/Heading';
 import portrait from '../../pictures/vectorhead.png';
+import DrawerOptions from '../../components/Navigation/Drawer/DrawerOptions';
+
 class Layout extends Component{
     state = {
         active: '/'
@@ -16,6 +18,7 @@ class Layout extends Component{
                 <div>
                     <Navbar/>
                     <Hamburger/>
+                    <DrawerOptions/>
                 </div>
                 <div className={classes.Body} >
                 <img className={classes.Picture} alt="MY HEAD" src={portrait}/>
