@@ -1,10 +1,9 @@
 .Picture{
     background-color: #d1d8ff;
     border-radius: 9000px;
-    width: 300px;
+    width: 50vw;
     margin: auto;
-    margin-top: 120px;
-
+    margin-top: 200px;
 }
 
 @media (min-width: 1000px){

@@ -1,6 +1,6 @@
 
 .Navbar h3{
-    font-size: 30px;
+    font-size: 35px;
     display: inline-block;
     color: #ADADAD;
     margin: 1vw 3vw 2vw 3vw;
@@ -13,6 +13,7 @@
 .Navbar{
     float: none;
     display: none;
+    padding: 10px;
 }
 /*Everything for big screens*/
 @media (min-width: 1000px){
