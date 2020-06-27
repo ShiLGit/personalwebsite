@@ -8,7 +8,6 @@ class Drawer extends React.Component{
     }
     toggleDrawer=()=>{
         this.setState(prev=>({drawerOpen: !prev.drawerOpen}));
-        console.log(this.state.drawerOpen)
     }
     render(){
         return(

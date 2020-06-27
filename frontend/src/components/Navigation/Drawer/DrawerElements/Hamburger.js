@@ -7,7 +7,7 @@ const Hamburger = (props)=>{
     return(
         <div className ={styles.Wrapper} >
             LILIAN SHI
-            <a href="https://github.com/ShiLGit" target="_blank">
+            <a href="https://github.com/ShiLGit" target="_blank" alt="GITHUB">
                 <img src={GithubIcon} className={styles.Image}/>
             </a>
             <div className={styles.ButtonWrapper} onClick={props.clickHandler}>    

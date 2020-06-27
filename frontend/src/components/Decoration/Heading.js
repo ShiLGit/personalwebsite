@@ -7,7 +7,7 @@ const Heading = ()=>{
         <div className={styles.Wrapper}>
             <div className={styles.Text}>
                 LILIAN SHI
-                <a href="https://github.com/ShiLGit" target="_blank">
+                <a alt ="GITHUB" href="https://github.com/ShiLGit" target="_blank">
                     <img src={GithubIcon} className={styles.Image}/>
                 </a>
             </div>

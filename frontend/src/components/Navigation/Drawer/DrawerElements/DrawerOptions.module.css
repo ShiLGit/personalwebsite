@@ -13,13 +13,18 @@
     transition: 0.1s ease-out;
     text-decoration: none;
 }
-.Wrapper h3{
+.Wrapper a{
      text-decoration: none;
+     color: #6d6d6d;
 }
 .Wrapper h3:hover{
-    color: #3f3f3f;
+    color: #505050;
 }
-
+.Active h3{
+    color: #272727;
+    font-weight: bold;
+    transition: 0.3s;
+}
 @media(min-width: 1000px){
     .All{
         display: none !important;

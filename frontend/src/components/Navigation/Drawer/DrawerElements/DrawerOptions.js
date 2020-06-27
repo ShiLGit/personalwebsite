@@ -7,16 +7,16 @@ const DrawerOptions = (props)=>{
     return(
 <div className={styles.All}>
     <div className = {styles.Wrapper} style={{display: props.drawerOpen?'block':'none'}}>
-        <NavLink to='/'>
+        <NavLink to='/' activeClassName={styles.Active} exact>
             <h3 onClick={props.toggleDrawer}>About</h3>
         </NavLink>
-        <NavLink to ='/projects'>
+        <NavLink to ='/projects' activeClassName={styles.Active}>
             <h3 onClick={props.toggleDrawer}>Projects</h3>
         </NavLink>
-        <NavLink to ='/suggestions'>
+        <NavLink to ='/suggestions' activeClassName={styles.Active}>
             <h3 onClick={props.toggleDrawer}>Suggestion Box</h3>
         </NavLink>
-        <NavLink to ='/Email'>
+        <NavLink to ='/Email' activeClassName={styles.Active}>
             <h3 onClick={props.toggleDrawer}>Email</h3>
         </NavLink>
     </div>

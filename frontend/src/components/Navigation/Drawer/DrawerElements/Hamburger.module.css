@@ -60,7 +60,6 @@
     grid-column-start: 3;
 }
 .Wrapper{
-
     display: grid;
     height: 80px;
 
@@ -80,7 +79,6 @@
 
     padding-left: 10%;
     display: inline-block;
-
 }
 
 .ButtonWrapper:hover > .LineStyle{
