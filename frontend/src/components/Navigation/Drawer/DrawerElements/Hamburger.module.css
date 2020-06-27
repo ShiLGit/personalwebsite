@@ -5,7 +5,11 @@
     margin: 10px;
     box-sizing: border-box;
 }
-
+.Image{
+    height: 40px;
+    display: inline-block;
+    padding-left: 1%;
+}
 .TopLine{
     height: 5px;
     margin: 8px;
@@ -50,30 +54,33 @@
     vertical-align: center;
     margin: auto;
     margin-top: 15px;
-
-    display: inline-block;
-
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    grid-column-start: 3;
 }
 .Wrapper{
+
     display: grid;
-    grid-template-columns: 15vw 70vw 15vw;
-    height: 15vh;
+    height: 12vh;
     z-index: 900;
 
     margin-bottom: 60px;
-
+    width: 100vw;
     background-color: white;
     box-sizing: border-box;
     position: fixed;
-}
-.Wrapper h1{
+
     color: black;
-    margin-top: 10px;
     margin-bottom: 0px;
     font-size: 60px;
     font-weight: normal;
     grid-column-start: 2;
+
+    padding-left: 10%;
+    display: inline-block;
 }
+
 .ButtonWrapper:hover > .LineStyle{
     transition: 0.1s ease-in;
     height: 5px;

@@ -20,6 +20,11 @@
     height: 30px;
     display: inline-block;
     transform: translate(5px, -15px);
+    border-radius: 100%;
+    transition: 0.3s;
+}
+.Image:hover{
+    background-color: orange;
 }
 .Text{
     font-size:6rem;
