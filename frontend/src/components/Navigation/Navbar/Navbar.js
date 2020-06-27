@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Navbar.module.css';
+
 import {Link} from 'react-router-dom';
 const Navbar = ()=>{
     return(
@@ -16,6 +17,7 @@ const Navbar = ()=>{
         <Link to ='/Email'>
             <h3>Email</h3>
         </Link>
+
         </div>
     )
 }
