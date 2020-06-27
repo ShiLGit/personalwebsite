@@ -62,7 +62,8 @@
 .Wrapper{
 
     display: grid;
-    height: 12vh;
+    height: 80px;
+
     z-index: 900;
 
     margin-bottom: 60px;
@@ -79,6 +80,7 @@
 
     padding-left: 10%;
     display: inline-block;
+
 }
 
 .ButtonWrapper:hover > .LineStyle{

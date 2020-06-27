@@ -2,26 +2,25 @@ import React from 'react';
 import styles from './DrawerOptions.module.css';
 import Backdrop from '../../../UI/Backdrop';
 
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 const DrawerOptions = (props)=>{
-    console.log(props)
     return(
 <div className={styles.All}>
     <div className = {styles.Wrapper} style={{display: props.drawerOpen?'block':'none'}}>
-        <Link to='/'>
-            <h3>About</h3>
-        </Link>
-        <Link to ='/projects'>
-            <h3>Projects</h3>
-        </Link>
-        <Link to ='/suggestions'>
-            <h3>Suggestion Box</h3>
-        </Link>
-        <Link to ='/Email'>
-            <h3>Email</h3>
-        </Link>
+        <NavLink to='/'>
+            <h3 onClick={props.toggleDrawer}>About</h3>
+        </NavLink>
+        <NavLink to ='/projects'>
+            <h3 onClick={props.toggleDrawer}>Projects</h3>
+        </NavLink>
+        <NavLink to ='/suggestions'>
+            <h3 onClick={props.toggleDrawer}>Suggestion Box</h3>
+        </NavLink>
+        <NavLink to ='/Email'>
+            <h3 onClick={props.toggleDrawer}>Email</h3>
+        </NavLink>
     </div>
-    <Backdrop zIndex={50} show={props.drawerOpen} onClickHandler={props.onClickHandler} />
+    <Backdrop zIndex={50} show={props.drawerOpen} onClickHandler={props.toggleDrawer} />
 </div>
     )
 }

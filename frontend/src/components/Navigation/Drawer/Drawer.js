@@ -2,13 +2,22 @@ import React from 'react';
 
 import DrawerOptions from './DrawerElements/DrawerOptions';
 import Hamburger from './DrawerElements/Hamburger';
-const Drawer = (props)=>{
-    return(
+class Drawer extends React.Component{
+    state={
+        drawerOpen: false
+    }
+    toggleDrawer=()=>{
+        this.setState(prev=>({drawerOpen: !prev.drawerOpen}));
+        console.log(this.state.drawerOpen)
+    }
+    render(){
+        return(
         <div style ={{backgroundColor:'red'}}>       
-            <Hamburger clickHandler={props.toggleDrawer} active ={props.drawerOpen}/>
-            <DrawerOptions drawerOpen={props.drawerOpen} onClickHandler={props.onClickHandler}/>
+            <Hamburger clickHandler={this.toggleDrawer} active ={this.state.drawerOpen}/>
+            <DrawerOptions drawerOpen={this.state.drawerOpen} toggleDrawer={this.toggleDrawer}/>
         </div>
-    )
+        );
+    }
 }
 
 export default Drawer;

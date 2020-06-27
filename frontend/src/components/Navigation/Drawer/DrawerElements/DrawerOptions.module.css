@@ -1,6 +1,6 @@
 .Wrapper{
     position: fixed;
-    top: 12vh;
+    top: 80px;
     border-top: 10px solid rgb(255, 183, 49);
     width: 100vw;
 
@@ -11,8 +11,11 @@
     background-color: white;
     z-index: 200;
     transition: 0.1s ease-out;
+    text-decoration: none;
 }
-
+.Wrapper h3{
+     text-decoration: none;
+}
 .Wrapper h3:hover{
     color: #3f3f3f;
 }

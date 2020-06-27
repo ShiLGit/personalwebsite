@@ -10,18 +10,13 @@ import Landing from '../Pages/Landing/Landing';
 class Layout extends Component{
     state = {
         active: '/',
-        drawerOpen: false
     };
-    toggleDrawer=()=>{
-        this.setState(prev=>({drawerOpen: !prev.drawerOpen}));
-    }
-
     render(){
         return(
             <React.Fragment>
                 <div>
                     <Navbar/>
-                    <Drawer toggleDrawer={this.toggleDrawer} drawerOpen={this.state.drawerOpen} onClickHandler={this.toggleDrawer}/>
+                    <Drawer/>
                 </div>
                 <div className={classes.Body} >
                     <Switch>
