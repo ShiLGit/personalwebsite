@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
+import {Switch, Route} from 'react-router-dom';
+
 import classes from './Layout.module.css';
 import Navbar from '../../components/Navigation/Navbar/Navbar';
 import Drawer from '../../components/Navigation/Drawer/Drawer';
 
 import Landing from '../Pages/Landing/Landing';
+
 class Layout extends Component{
     state = {
         active: '/',
@@ -21,7 +24,11 @@ class Layout extends Component{
                     <Drawer toggleDrawer={this.toggleDrawer} drawerOpen={this.state.drawerOpen} onClickHandler={this.toggleDrawer}/>
                 </div>
                 <div className={classes.Body} >
-                    <Landing/>
+                    <Switch>
+                        <Route path = '/' exact component = {Landing}/>
+                        <Route path = '/' exact component = {Landing}/>
+                    </Switch>
+
                 </div>
             </React.Fragment>
         )

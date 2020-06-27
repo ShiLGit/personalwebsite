@@ -16,4 +16,13 @@
     .Accordions{
         grid-column-start: 2;
     }
+    .BottomBar{
+        position: absolute;
+        bottom: 0px;
+        display: 'block';
+    }
+}
+
+.BottomBar{
+    display: none;
 }

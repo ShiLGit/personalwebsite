@@ -13,7 +13,10 @@ const Landing =()=>{
             <div className={styles.Accordions}>
                 <Accordions/>
             </div>
+            <div className={styles.BottomBar}>
+                © Me 2020
             </div>
+        </div>
     </React.Fragment>
     );
 }
