@@ -11,14 +11,22 @@
     transition: 0.3s ease-out;
 }
 .Navbar{
-    float: none;
     display: none;
     padding: 10px;
+
 }
 .Active h3{
     color: #757575;
     font-weight:bold;
     transition: 0.3s ease-in;
+}
+.Wrapper{
+    position: fixed;
+    display: none;
+    width: 100%;
+    background-color:white;
+    z-index: 900;
+    height: 10vh;
 }
 .Navbar h3:after{
     background: none repeat scroll 0 0 transparent;
@@ -45,5 +53,7 @@
         float: right;
         display: block;
     }
-    
+    .Wrapper{
+        display: block;
+    }   
 }

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Switch, Route} from 'react-router-dom';
 
-import classes from './Layout.module.css';
+import styles from './Layout.module.css';
 import Navbar from '../../components/Navigation/Navbar/Navbar';
 import Drawer from '../../components/Navigation/Drawer/Drawer';
 
@@ -13,19 +13,19 @@ class Layout extends Component{
     };
     render(){
         return(
-            <React.Fragment>
+            <div className={styles.All}>
                 <div>
                     <Navbar/>
                     <Drawer/>
                 </div>
-                <div className={classes.Body} >
+                <div className={styles.Body} >
                     <Switch>
                         <Route path = '/' exact component = {Landing}/>
                         <Route path = '/' exact component = {Landing}/>
                     </Switch>
 
                 </div>
-            </React.Fragment>
+            </div>
         )
     }
 }

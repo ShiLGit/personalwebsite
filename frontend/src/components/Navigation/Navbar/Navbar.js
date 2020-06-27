@@ -4,6 +4,7 @@ import styles from './Navbar.module.css';
 import {NavLink} from 'react-router-dom';
 const Navbar = ()=>{
     return(
+        <div className={styles.Wrapper}>
         <div className={styles.Navbar}>
         <NavLink to='/' activeClassName={styles.Active} exact>
             <h3>About</h3>
@@ -18,6 +19,7 @@ const Navbar = ()=>{
             <h3>Email</h3>
         </NavLink>
 
+        </div>
         </div>
     )
 }
