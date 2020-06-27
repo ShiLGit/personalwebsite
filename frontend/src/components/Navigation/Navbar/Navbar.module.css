@@ -15,26 +15,32 @@
     display: none;
     padding: 10px;
 }
+.Active h3{
+    color: #757575;
+    font-weight:bold;
+    transition: 0.3s ease-in;
+}
+.Navbar h3:after{
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 3px;
+    background: #757575;
+    transition: width 0.3s ease 0s;
+    width: 0;
+    margin: 0 auto;
+}
+.Navbar h3:hover:after{
+    width: 100%; 
+    left: 0; 
+}
+.Navbar h3:hover{
+    color: #757575;
+}
+
 /*Everything for big screens*/
 @media (min-width: 1000px){
-    .Navbar h3:after{
-        background: none repeat scroll 0 0 transparent;
-        bottom: 0;
-        content: "";
-        display: block;
-        height: 3px;
-        background: #919191;
-        transition: width 0.3s ease 0s;
-        width: 0;
-        margin: 0 auto;
-    }
-    .Navbar h3:hover:after{
-        width: 100%; 
-        left: 0; 
-    }
-    .Navbar h3:hover{
-        color: #919191;
-    }
     .Navbar{
         float: right;
         display: block;
