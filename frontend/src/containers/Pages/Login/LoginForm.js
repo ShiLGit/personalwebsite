@@ -5,11 +5,11 @@ const LoginForm=()=>{
     return(
         <form className={styles.Form}>
             <label>Email</label>
-            <input type = "text"></input>
+            <input type = "text" required></input>
             <br/>
             <label>Password</label>
-            <input type = "text"></input>
-            <input type="submit" value="Login"/>
+            <input type = "password" required></input>
+            <input type="submit" value="Login" />
         </form>
     );
 }

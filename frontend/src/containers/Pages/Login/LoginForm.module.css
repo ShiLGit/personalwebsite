@@ -1,4 +1,4 @@
-.Form input[type=text]{
+.Form input[type=text], input[type=password]{
     padding: 8px;
     width: 300px;
     margin: auto;
@@ -9,9 +9,10 @@
     text-align: center;
 }
 .Form input[type=submit]{
+    margin: auto;
     margin-top: 30px;
     padding: 10px;
-
+    width: 400px;
     background-color: rgb(49, 49, 49);
     border: 2px solid black;
     font-weight: bold;

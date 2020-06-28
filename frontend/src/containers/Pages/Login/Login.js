@@ -8,7 +8,8 @@ const Login=()=>{
         boxSizing: 'border-box',
         margin: 'auto',
         textAlign: 'center',
-        marginTop: '10vh'
+        marginTop: '15vh',
+        gridRowStart: '2'
 
     }
     return(
