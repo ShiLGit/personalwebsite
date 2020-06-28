@@ -6,7 +6,7 @@ import Navbar from '../../components/Navigation/Navbar/Navbar';
 import Drawer from '../../components/Navigation/Drawer/Drawer';
 
 import Landing from '../Pages/Landing/Landing';
-
+import Login from '../Pages/Login/Login';
 class Layout extends Component{
     state = {
         active: '/',
@@ -22,8 +22,8 @@ class Layout extends Component{
                     <Switch>
                         <Route path = '/' exact component = {Landing}/>
                         <Route path = '/' exact component = {Landing}/>
+                        <Route path = '/login' exact component={Login}/>
                     </Switch>
-
                 </div>
             </div>
         )

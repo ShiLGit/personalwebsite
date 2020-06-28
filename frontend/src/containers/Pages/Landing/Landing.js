@@ -6,9 +6,9 @@ import Heading from '../../../components/Decoration/Heading';
 import Accordions from '../../Accordions/Accordions';
 const Landing =()=>{
     return(
-    <React.Fragment>
+    <div className={styles.Body}>
         <img className={styles.Picture} alt="MY HEAD" src={portrait}/>
-            <div>
+            <div classNames={styles.RightHalf}>
             <Heading/>
             <div className={styles.Accordions}>
                 <Accordions/>
@@ -17,7 +17,7 @@ const Landing =()=>{
                 © Me 2020
             </div>
         </div>
-    </React.Fragment>
+    </div>
     );
 }
 

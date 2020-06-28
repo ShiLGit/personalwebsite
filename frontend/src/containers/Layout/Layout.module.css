@@ -1,18 +1,8 @@
 
-.Body{
-    display: grid;
-    height: 100vh;
-    width: 100vw;
-
-}
 .All{
     
 }
 @media (min-width:1000px){
-   .Body{
-       grid-template-columns: 40vw 60vw;
-       grid-row-start: 2;
-   }
    .All{
         display:grid;
         grid-template-rows: 10vh 90vh;
