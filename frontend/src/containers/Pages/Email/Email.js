@@ -5,9 +5,9 @@ class Email extends React.Component{
     render(){
         return(
         <div className={styles.Wrapper}>
-            <h1>SEND A MESSAGE</h1>
+            <h1 className={styles.Heading}>SEND AN EMAIL</h1>
             <form className={styles.Form}>
-            <label>Name</label>
+            <label>Your Name</label>
             <input type = "text" required></input>
             <br/>
             <label>Your Email (Optional)</label>
@@ -18,7 +18,7 @@ class Email extends React.Component{
             <textarea required className={styles.TextArea} rows={10}></textarea>
             <br/>
 
-            <input type="submit" value="Send Message" />
+            <input type="submit" value="Send Email" />
             </form>
         </div>
         )
