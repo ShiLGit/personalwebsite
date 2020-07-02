@@ -7,6 +7,7 @@ import Drawer from '../../components/Navigation/Drawer/Drawer';
 
 import Landing from '../Pages/Landing/Landing';
 import Login from '../Pages/Login/Login';
+import Email from '../Pages/Email/Email';
 class Layout extends Component{
     state = {
         active: '/',
@@ -21,7 +22,7 @@ class Layout extends Component{
                 <div className={styles.Body} >
                     <Switch>
                         <Route path = '/' exact component = {Landing}/>
-                        <Route path = '/' exact component = {Landing}/>
+                        <Route path = '/email' exact component = {Email}/>
                         <Route path = '/login' exact component={Login}/>
                     </Switch>
                 </div>

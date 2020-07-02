@@ -15,7 +15,7 @@ const Navbar = ()=>{
         <NavLink to ='/suggestions' activeClassName={styles.Active}>
             <h3>Suggestion Box</h3>
         </NavLink>
-        <NavLink to ='/Email' activeClassName={styles.Active}>
+        <NavLink to ='/email' activeClassName={styles.Active}>
             <h3>Email</h3>
         </NavLink>
 
