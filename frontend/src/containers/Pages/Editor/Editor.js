@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {Component} from 'react';
+
 import AddProj from './AddProj';
-class Editor extends React.Component{
+class Editor extends Component{
 
     render(){
         return(

@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {Component} from 'react';
+
 import styles from './EmailForm.module.css';
-class Email extends React.Component{
+class Email extends Component{
     state = {}
     render(){
         return(

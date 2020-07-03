@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {Component} from 'react';
 import axios from 'axios'
 import styles from './LoginForm.module.css'
-class LoginForm extends React.Component{
+class LoginForm extends Component{
     state = {
         email: "",
         password: ""
@@ -12,9 +12,10 @@ class LoginForm extends React.Component{
     updatePassword=(e)=>{
         this.setState({password: e.target.value});
     }
-    loginAttempt=()=>{
+    loginAttempt=(e)=>{
+        e.preventDefault();
+
         alert(">>>>>>>>>>>");
-        
         axios.post('/login', this.state)
         .then(res=>{
             console.log(res);
@@ -28,11 +29,11 @@ class LoginForm extends React.Component{
     return(
         <form className={styles.Form}>
             <label>Email</label>
-            <input type = "text" required onChange={this.updateEmail}></input>
+            <input type = "text" required onChange={this.updateEmail} autoComplete="off"></input>
             <br/>
             <label>Password</label>
-            <input type = "password" required onChange={this.updatePassword}></input>
-            <input type="submit" value="Login" onClick={this.loginAttempt}/>
+            <input type = "password" required onChange={this.updatePassword} autoComplete="off"></input>
+            <input type="submit" value="Login" onSubmit={this.loginAttempt}/>
         </form>
     );
     }

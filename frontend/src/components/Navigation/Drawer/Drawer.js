@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 import DrawerOptions from './DrawerElements/DrawerOptions';
 import Hamburger from './DrawerElements/Hamburger';
-class Drawer extends React.Component{
+class Drawer extends Component{
     state={
         drawerOpen: false
     }
