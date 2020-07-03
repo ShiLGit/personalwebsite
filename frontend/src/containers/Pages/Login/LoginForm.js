@@ -15,8 +15,9 @@ class LoginForm extends React.Component{
     loginAttempt=()=>{
         alert(">>>>>>>>>>>");
         
-        axios.post('https://localhost:5000/login')
+        axios.post('/login', this.state)
         .then(res=>{
+            console.log(res);
             alert(res);
         })
         .catch(err=>{

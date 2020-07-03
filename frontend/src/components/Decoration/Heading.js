@@ -7,8 +7,8 @@ const Heading = ()=>{
         <div className={styles.Wrapper}>
             <div className={styles.Text}>
                 LILIAN SHI
-                <a alt ="GITHUB" href="https://github.com/ShiLGit" target="_blank">
-                    <img src={GithubIcon} className={styles.Image}/>
+                <a alt ="GITHUB" href="https://github.com/ShiLGit" target="_blank" rel="noopener noreferrer">
+                    <img src={GithubIcon} className={styles.Image} alt="github link"/>
                 </a>
             </div>
             

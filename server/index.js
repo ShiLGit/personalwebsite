@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 5000;
 const authRouter = require('./routers/authRouter');
 const cors = require('cors');
 
-//app.use(cors);
+app.use(cors);
 
 app.use('/login', authRouter);
 app.listen(PORT, ()=>{

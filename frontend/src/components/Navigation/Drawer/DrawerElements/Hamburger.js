@@ -7,8 +7,8 @@ const Hamburger = (props)=>{
     return(
         <div className ={styles.Wrapper} >
             LILIAN SHI
-            <a href="https://github.com/ShiLGit" target="_blank" alt="GITHUB">
-                <img src={GithubIcon} className={styles.Image}/>
+            <a href="https://github.com/ShiLGit" target="_blank" rel="noopener noreferrer">
+                <img src={GithubIcon} className={styles.Image} alt="github link"/>
             </a>
             <div className={styles.ButtonWrapper} onClick={props.clickHandler}>    
                 <div className={`${styles.LineStyle}` + (props.active? ` ${styles.TopLine}`:"")}></div>
