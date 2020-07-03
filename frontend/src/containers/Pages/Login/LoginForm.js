@@ -18,7 +18,7 @@ class LoginForm extends Component{
 
         alert(">>>>>>>>>>>");
 
-        axios.post('/login', this.state)
+        axios.post('http://localhost:5000/login', this.state)
         .then(res=>{
             console.log(res);
             alert(res);
