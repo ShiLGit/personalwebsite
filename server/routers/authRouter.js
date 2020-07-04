@@ -9,13 +9,11 @@ authRouter.route('/').post((req,res)=>{
     }
     
     if(req.body.username === loginData.username && req.body.password === loginData.password){
-        console.log("yay");
+        //generate token
         const token = jwt.sign({_id: req.body.username}, "1234");
-        console.log(token);
-        jwt.verify(token, "1234")
-        res.send("HI");
+        res.status(201).send({token});
     }else{
-        res.send({fail: "Login information incorrect."});
+        res.status(201).send({fail: "Login failure: username and password incorrect.", token: null});
     }
 
 })
