@@ -4,11 +4,11 @@ import styles from './LoginForm.module.css'
 
 class LoginForm extends Component{
     state = {
-        email: "",
+        username: "",
         password: ""
     }
-    updateEmail=(e)=>{
-        this.setState({email: e.target.value});
+    updateName=(e)=>{
+        this.setState({username: e.target.value});
     }
     updatePassword=(e)=>{
         this.setState({password: e.target.value});
@@ -17,7 +17,7 @@ class LoginForm extends Component{
         e.preventDefault();
 
         alert(">>>>>>>>>>>");
-
+        console.log(this.state);
         axios.post('http://localhost:5000/login', this.state)
         .then(res=>{
             console.log(res);
@@ -30,8 +30,8 @@ class LoginForm extends Component{
     render(){
     return(
         <form className={styles.Form}  onSubmit={this.loginAttempt}>
-            <label>Email</label>
-            <input type = "text" required onChange={this.updateEmail} autoComplete="off"></input>
+            <label>Admin Name</label>
+            <input type = "text" required onChange={this.updateName} autoComplete="off"></input>
             <br/>
             <label>Password</label>
             <input type = "text" required onChange={this.updatePassword} autoComplete="off"></input>
