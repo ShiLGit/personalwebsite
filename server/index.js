@@ -7,8 +7,13 @@ const PORT = process.env.PORT || 5000;
 const authRouter = require('./routers/authRouter');
 const cors = require('cors');
 
+//middleware
+app.use(cors());
+app.use(express.json());
+app.use('/admin', authRouter);
+
+//db connection
 try{
-    
     mongoose.connect(CONFIG.DB_URI, {
         //avoid deprecation warnings
         useNewUrlParser: true,
@@ -22,11 +27,6 @@ try{
 }catch(e){
     console.log("FFS", e);
 }
-
-//middleware
-app.use(cors());
-app.use(express.json());
-app.use('/login', authRouter);
 
 app.listen(PORT, ()=>{
     console.log('Running on port ' + PORT);
