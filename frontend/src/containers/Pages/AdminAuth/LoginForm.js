@@ -29,7 +29,6 @@ class LoginForm extends Component{
             }else{
                 this.props.updateToken(res.data.token);
                 this.setState({redirect: true});
-                localStorage.setItem('token', res.data.token);
             }
         })
         .catch(err=>{
