@@ -2,7 +2,20 @@ import React from 'react';
 import styles from './Navbar.module.css';
 
 import {NavLink} from 'react-router-dom';
-const Navbar = ()=>{
+import {connect} from 'react-redux';
+const Navbar = (props)=>{
+    let extras = [];
+    if(props.token){
+        extras = [
+            <NavLink to ='/logout' activeClassName={styles.Active}>
+                <h3>Logout</h3>
+            </NavLink>,
+            <NavLink to ='/editproj' activeClassName={styles.Active}>
+                <h3>Edit Projects</h3>
+            </NavLink>
+
+        ];
+    }
     return(
         <div className={styles.Wrapper}>
         <div className={styles.Navbar}>
@@ -18,10 +31,12 @@ const Navbar = ()=>{
         <NavLink to ='/email' activeClassName={styles.Active}>
             <h3>Email</h3>
         </NavLink>
-
+        {extras}
         </div>
         </div>
     )
 }
-
-export default Navbar;
+const stateToProps = (state)=>{
+    return {token: state.authReducer.token};
+}
+export default connect(stateToProps)(Navbar);
