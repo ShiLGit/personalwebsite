@@ -1,12 +1,12 @@
 import React from 'react';
 import styles from '../FormStyles.module.css'
-
+import {Redirect} from 'react-router';
 import {connect} from 'react-redux';
 import * as actionTypes from '../../../redux/actions/actionTypes';
 const LogoutForm = (props)=>{
     console.log(props)
     let logoutForm = (
-        <h1 style={{margin: '20vh 30vw', textAlign:'center'}}>You are not logged in.</h1>
+        <Redirect to = "/notlogged"></Redirect>
     )
     if(props.token){
         logoutForm=(

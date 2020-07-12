@@ -23,19 +23,23 @@ class EditProj extends Component{
         this.setState({titleDesc: ""});   
     }
     iconChangeHandler = (e)=>{
-        this.setState({icon: e.target.value});   
+        this.setState({icon: e.target.files[0]});  
+        console.log(this.state.icon) 
     }
     demoImageChangeHandler = (e)=>{
-        this.setState({demoImage: e.target.value});   
+        this.setState({demoImage: e.target.files[0]});
     }
     bodyChangeHandler = (e)=>{
         this.setState({body: e.target.value});   
     }
     render(){
-        let toRender = <Redirect to = '/unauthorized'/>
-        if(this.props.token){
-            toRender = 
-            (
+        let toRender = null;
+        if(!this.props.token)
+            toRender = <Redirect to = '/unauthorized'/>;
+            
+        return(
+            <React.Fragment>
+                {toRender}
                 <form className = {styles.Form} style ={{marginTop: '90px', minWidth: 'fit-content'}}>
                     <label style ={{marginBottom: '-20px'}}>Project Name</label>
                     <input type ="text" required onChange={this.projChangeHandler} value = {this.state.projName}></input>
@@ -47,19 +51,16 @@ class EditProj extends Component{
                     <input type ="text" required onChange={this.titleChangeHandler} value = {this.state.title}></input>
                     <br/>
                     <label>Icon</label>
-                    <input type ="file" style = {{margin: 'auto'}} required onChange={this.iconChangeHandler} value = {this.state.Icon}></input>
+                    <input type ="file" style = {{margin: 'auto'}} required onChange={this.iconChangeHandler}></input>
                     <br/>
                     <label>Demo Image</label>
-                    <input type = "file" style = {{margin: 'auto'}} required onChange={this.demoImageChangeHandler} value = {this.state.demoImage}></input>
+                    <input type = "file" style = {{margin: 'auto'}} required onChange={this.demoImageChangeHandler}></input>
                     <br/>
                     <label>Body (Markup)</label>
                     <textarea rows = {10} required onChange={this.bodyChangeHandler} value = {this.state.body}></textarea>
                     <input type = "submit" value = "Save"/>
                 </form>
-            );
-        }
-        return(
-            toRender
+                </React.Fragment>
         );
     }
     

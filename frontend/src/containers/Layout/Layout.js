@@ -10,7 +10,7 @@ import Login from '../Pages/AdminAuth/Login';
 import Logout from '../Pages/AdminAuth/Logout';
 import Email from '../Pages/Email/Email';
 import Editor from '../Pages/Editor/Editor';
-import Unauthorized from '../Pages/Unauthorized';
+import MessagePage from '../../components/UI/MessagePage';
 class Layout extends Component{
     state = {
         active: '/',
@@ -29,7 +29,11 @@ class Layout extends Component{
                         <Route path = '/login' exact component={Login}/>
                         <Route path = '/editproj' exact component = {Editor}/>
                         <Route path = '/logout' exact component = {Logout}/>
-                        <Route path = '/unauthorized' exact component = {Unauthorized}/>
+                        
+                        
+                        <Route path = '/unauthorized' exact render={(props)=>(<MessagePage message="You are not authorized to access this route!!!"></MessagePage>)}/>
+                        <Route path = '/notlogged' render ={(props)=>(<MessagePage message="You are not logged in."></MessagePage>)}/>
+                        <Route path = '/' render ={(props)=>(<MessagePage message="This route does not exist."></MessagePage>)}/>
                     </Switch>
                 </div>
             </div>
