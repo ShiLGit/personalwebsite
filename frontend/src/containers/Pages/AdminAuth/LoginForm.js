@@ -32,7 +32,8 @@ class LoginForm extends Component{
             }
         })
         .catch(err=>{
-            alert(err);
+            this.setState({username: "", password: ""})
+            alert("ERROR" + err);
         })
     }
     render(){
@@ -45,10 +46,10 @@ class LoginForm extends Component{
         {redirect}
         <form className={styles.Form}  onSubmit={this.loginAttempt}>
             <label>Admin Name</label>
-            <input type = "text" required onChange={this.updateName} autoComplete="off"></input>
+            <input type = "text" required value = {this.state.username}onChange={this.updateName} autoComplete="off"></input>
             <br/>
             <label>Password</label>
-            <input type = "password" required onChange={this.updatePassword} autoComplete="off"></input>
+            <input type = "password" required value = {this.state.password} onChange={this.updatePassword} autoComplete="off"></input>
             <input type="submit" value="Login"/>
         </form>
         </React.Fragment>
