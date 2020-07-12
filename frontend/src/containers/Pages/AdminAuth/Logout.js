@@ -24,8 +24,8 @@ const stateToProps = (state)=>{
 }
 const dispatchToProps = (dispatch)=>{
     return {
-        logout: dispatch(actionTypes.LOGOUT)
+        logout: ()=>dispatch({type: actionTypes.LOGOUT})
     };
 }
 
-export default connect(stateToProps)(LogoutForm);
+export default connect(stateToProps, dispatchToProps)(LogoutForm);

@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 
-import AddProj from './AddProj';
+import EditProj from './EditProj';
 class Editor extends Component{
 
     render(){
         return(
             <div>
-                <AddProj/>
+                <EditProj/>
             </div>
         )
     }

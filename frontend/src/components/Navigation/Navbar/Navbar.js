@@ -7,10 +7,10 @@ const Navbar = (props)=>{
     let extras = [];
     if(props.token){
         extras = [
-            <NavLink to ='/logout' activeClassName={styles.Active}>
+            <NavLink to ='/logout' key="1" activeClassName={styles.Active}>
                 <h3>Logout</h3>
             </NavLink>,
-            <NavLink to ='/editproj' activeClassName={styles.Active}>
+            <NavLink to ='/editproj' key="2" activeClassName={styles.Active}>
                 <h3>Edit Projects</h3>
             </NavLink>
 

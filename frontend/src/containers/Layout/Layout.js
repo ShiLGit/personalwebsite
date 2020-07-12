@@ -26,7 +26,7 @@ class Layout extends Component{
                         <Route path = '/' exact component = {Landing}/>
                         <Route path = '/email' exact component = {Email}/>
                         <Route path = '/login' exact component={Login}/>
-                        <Route path = '/editor' exact component = {Editor}/>
+                        <Route path = '/editproj' exact component = {Editor}/>
                         <Route path = '/logout' exact component = {Logout}/>
                     </Switch>
                 </div>

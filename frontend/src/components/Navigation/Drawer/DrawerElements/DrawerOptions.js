@@ -9,12 +9,12 @@ const DrawerOptions = (props)=>{
 const authOptions = [];
 if(props.token){
     authOptions.push
-(<NavLink to ='/logout' activeClassName={styles.Active}>
+(<NavLink to ='/logout' activeClassName={styles.Active} key="1">
     <h3 onClick={props.toggleDrawer}>Logout</h3>
 </NavLink>);
 
     authOptions.push(        
-<NavLink to ='/editproj' activeClassName={styles.Active}>
+<NavLink to ='/editproj' activeClassName={styles.Active} key="2">
     <h3 onClick={props.toggleDrawer}>Edit Projects</h3>
 </NavLink>)
 }
