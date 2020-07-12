@@ -5,11 +5,14 @@ import styles from './LoginForm.module.css'
 import {Redirect} from 'react-router-dom';
 import actions from '../../../redux/actions/actions';
 import {connect} from 'react-redux';
+
+import Loader from '../../../components/UI/Loader';
 class LoginForm extends Component{
     state = {
         username: "",
         password: "",
-        redirect: false
+        redirect: false,
+        loading: false
     }
     updateName=(e)=>{
         this.setState({username: e.target.value});
@@ -21,8 +24,11 @@ class LoginForm extends Component{
         e.preventDefault();
 
         console.log(this.state);
+        this.setState({loading: true});
         axios.post('http://localhost:5000/admin/login', this.state)
         .then(res=>{
+            this.setState({loading: false});
+
             //incorrect authentication data handler
             if(res.data.fail){
                 alert(res.data.fail);
@@ -30,10 +36,13 @@ class LoginForm extends Component{
                 this.props.updateToken(res.data.token);
                 this.setState({redirect: true});
             }
+
         })
         .catch(err=>{
+            this.setState({loading: false});
+
             this.setState({username: "", password: ""})
-            alert("ERROR" + err);
+            alert(err);
         })
     }
     render(){
@@ -41,9 +50,7 @@ class LoginForm extends Component{
     if(this.state.redirect){
         redirect = <Redirect to ="/logout"/>
     }
-    return(
-        <React.Fragment>
-        {redirect}
+    let formBody = (
         <form className={styles.Form}  onSubmit={this.loginAttempt}>
             <label>Admin Name</label>
             <input type = "text" required value = {this.state.username}onChange={this.updateName} autoComplete="off"></input>
@@ -52,6 +59,13 @@ class LoginForm extends Component{
             <input type = "password" required value = {this.state.password} onChange={this.updatePassword} autoComplete="off"></input>
             <input type="submit" value="Login"/>
         </form>
+    );
+
+
+    return(
+        <React.Fragment>
+        {redirect}
+        {this.state.loading? <Loader/>:formBody}
         </React.Fragment>
     );
     }
