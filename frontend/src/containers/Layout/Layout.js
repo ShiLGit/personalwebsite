@@ -10,6 +10,7 @@ import Login from '../Pages/AdminAuth/Login';
 import Logout from '../Pages/AdminAuth/Logout';
 import Email from '../Pages/Email/Email';
 import Editor from '../Pages/Editor/Editor';
+import Unauthorized from '../Pages/Unauthorized';
 class Layout extends Component{
     state = {
         active: '/',
@@ -28,6 +29,7 @@ class Layout extends Component{
                         <Route path = '/login' exact component={Login}/>
                         <Route path = '/editproj' exact component = {Editor}/>
                         <Route path = '/logout' exact component = {Logout}/>
+                        <Route path = '/unauthorized' exact component = {Unauthorized}/>
                     </Switch>
                 </div>
             </div>
