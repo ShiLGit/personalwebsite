@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import styles from '../FormStyles.module.css';
+import Loader from '../../../components/UI/Loader';
 
+import axios from 'axios';
 import {connect} from 'react-redux';
 import { Redirect } from 'react-router-dom';
 class EditProj extends Component{
@@ -10,8 +12,9 @@ class EditProj extends Component{
         titleDesc: "",
         icon: null,
         demoImage: null,
-        body: ""
+        body: "",
 
+        loading: false
     }
     projChangeHandler = (e)=>{
         this.setState({projName: e.target.value});
@@ -28,10 +31,30 @@ class EditProj extends Component{
     }
     demoImageChangeHandler = (e)=>{
         this.setState({demoImage: e.target.files[0]});
+        console.log(this.state);
     }
     bodyChangeHandler = (e)=>{
         this.setState({body: e.target.value});   
     }
+    onSubmitHandler = (e)=>{
+        e.preventDefault();
+        this.setState({loading: true});
+
+        //some hacky way of copying obj without loading property
+        const clone = {...this.state};
+        const {loading, ...payload} = clone;
+        console.log(payload);        
+
+        if(this.props.path == '/addproj'){
+            axios.post('/addproj', payload)
+            .then(res=>{
+                alert(res.data);
+            })
+            .catch(e=>{
+                alert(e);
+            });
+        }
+    };
     render(){
         let toRender = null;
         if(!this.props.token)
@@ -40,7 +63,7 @@ class EditProj extends Component{
         return(
             <React.Fragment>
                 {toRender}
-                <form className = {styles.Form} style ={{marginTop: '90px', minWidth: 'fit-content'}}>
+                <form className = {styles.Form} style ={{marginTop: '90px', minWidth: 'fit-content'}} onSubmit={this.onSubmitHandler}>
                     <label style ={{marginBottom: '-20px'}}>Project Name</label>
                     <input type ="text" required onChange={this.projChangeHandler} value = {this.state.projName}></input>
                     <br/>

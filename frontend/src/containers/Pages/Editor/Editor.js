@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 
 import EditProj from './EditProj';
 class Editor extends Component{
-
+    state = {
+        submitPath: '/addproj'
+    }
     render(){
         const style = {
             display: 'grid',
@@ -10,7 +12,7 @@ class Editor extends Component{
         }
         return(
             <div style ={style}>
-                <EditProj/>
+                <EditProj path={this.state.submitPath}/>
             </div>
         )
     }
