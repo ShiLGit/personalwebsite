@@ -48,9 +48,11 @@ class EditProj extends Component{
         if(this.props.path == '/addproj'){
             axios.post('/addproj', payload)
             .then(res=>{
+                this.setState({loading: false});
                 alert(res.data);
             })
             .catch(e=>{
+                this.setState({loading: false});
                 alert(e);
             });
         }
@@ -63,6 +65,7 @@ class EditProj extends Component{
         return(
             <React.Fragment>
                 {toRender}
+                {this.state.loading? <Loader style={{marginTop:"30vh"}}/>:
                 <form className = {styles.Form} style ={{marginTop: '90px', minWidth: 'fit-content'}} onSubmit={this.onSubmitHandler}>
                     <label style ={{marginBottom: '-20px'}}>Project Name</label>
                     <input type ="text" required onChange={this.projChangeHandler} value = {this.state.projName}></input>
@@ -83,6 +86,7 @@ class EditProj extends Component{
                     <textarea rows = {10} required onChange={this.bodyChangeHandler} value = {this.state.body}></textarea>
                     <input type = "submit" value = "Save"/>
                 </form>
+                }
                 </React.Fragment>
         );
     }
