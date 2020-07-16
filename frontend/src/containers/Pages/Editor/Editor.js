@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import EditProj from './EditProj';
 class Editor extends Component{
     state = {
-        submitPath: '/addproj'
+        submitPath: '/projects/add'
     }
     render(){
         const style = {

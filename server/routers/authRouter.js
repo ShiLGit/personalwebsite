@@ -21,7 +21,7 @@ authRouter.route('/login').post( async (req, res)=>{
         res.status(200).send({token});
     }catch(e){
         console.log(e);
-        res.status(201).send({fail: "Login failure: could not authenticate."});
+        res.status(200).send({fail: "Login failure: could not authenticate."});
     }
 })
 

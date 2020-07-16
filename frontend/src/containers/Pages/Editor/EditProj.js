@@ -22,8 +22,8 @@ class EditProj extends Component{
     categoryChangeHandler = (e)=>{
         this.setState({category: e.target.value});
     }
-    titleChangeHandler = (e)=>{
-        this.setState({titleDesc: ""});   
+    titleDescChangeHandler = (e)=>{
+        this.setState({titleDesc: e.target.value});   
     }
     iconChangeHandler = (e)=>{
         this.setState({icon: e.target.files[0]});  
@@ -45,8 +45,9 @@ class EditProj extends Component{
         const {loading, ...payload} = clone;
         console.log(payload);        
 
-        if(this.props.path == '/addproj'){
-            axios.post('/addproj', payload)
+        if(this.props.path == '/projects/add'){
+            alert("route")
+            axios.post('http://localhost:5000/projects/add', payload)
             .then(res=>{
                 this.setState({loading: false});
                 alert(res.data);
@@ -74,7 +75,7 @@ class EditProj extends Component{
                     <input type ="text" required onChange={this.categoryChangeHandler} value = {this.state.category}></input>
                     <br/>
                     <label style ={{marginBottom: '-20px'}}>Title Desc</label>
-                    <input type ="text" required onChange={this.titleChangeHandler} value = {this.state.title}></input>
+                    <input type ="text" required onChange={this.titleDescChangeHandler} value = {this.state.titleDesc}></input>
                     <br/>
                     <label>Icon</label>
                     <input type ="file" style = {{margin: 'auto'}} required onChange={this.iconChangeHandler}></input>
