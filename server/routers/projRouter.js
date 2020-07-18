@@ -3,7 +3,7 @@ const projRouter = require('express').Router();
 const multer = require('multer');
 const upload = multer({
     filename: 'PICTURE.png', 
-    dest: path.join(__dirname, '/img'),
+    dest: path.join(__dirname, '../img'),
     fileFilter: (req, file, cb) => {
         if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg" || file.mimetype == "image/gif") {
             cb(null, true);
@@ -14,9 +14,9 @@ const upload = multer({
     }
 });
 
-projRouter.route('/add').post(upload.single('pictures'), async (req,res)=>{
+projRouter.route('/add').post(upload.array('pictures', 2), async (req,res)=>{
     console.log(path.join(__dirname, '/img'));
-    console.log(req.file);
+    console.log(req.files);
     res.status(200).send({success: "HI!"});
 
 })

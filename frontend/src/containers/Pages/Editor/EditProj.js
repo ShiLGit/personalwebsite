@@ -45,9 +45,12 @@ class EditProj extends Component{
         const {loading, ...payload} = clone;
         console.log(payload);        
 
+        const fData = new FormData();
+        fData.append('pictures', this.state.icon);
+        fData.append('pictures', this.state.demoImage);
         if(this.props.path == '/projects/add'){
             alert("route")
-            axios.post('http://localhost:5000/projects/add', payload)
+            axios.post('http://localhost:5000/projects/add', fData)
             .then(res=>{
                 this.setState({loading: false});
                 alert(res.data);
@@ -67,7 +70,7 @@ class EditProj extends Component{
             <React.Fragment>
                 {toRender}
                 {this.state.loading? <Loader style={{marginTop:"30vh"}}/>:
-                <form className = {styles.Form} style ={{marginTop: '90px', minWidth: 'fit-content'}} onSubmit={this.onSubmitHandler}>
+                <form className = {styles.Form} style ={{marginTop: '90px', minWidth: 'fit-content'}} onSubmit={this.onSubmitHandler} encType='multipart/form-data'>
                     <label style ={{marginBottom: '-20px'}}>Project Name</label>
                     <input type ="text" required onChange={this.projChangeHandler} value = {this.state.projName}></input>
                     <br/>
