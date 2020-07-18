@@ -12,7 +12,6 @@ const cors = require('cors');
 
 //middleware
 app.use(cors());
-app.use(bodyParser());
 app.use(express.json());
 app.use('/admin', authRouter);
 app.use('/projects', projRouter);
