@@ -40,17 +40,14 @@ class EditProj extends Component{
         e.preventDefault();
         this.setState({loading: true});
 
-        //some hacky way of copying obj without loading property
-        const clone = {...this.state};
-        const {loading, ...payload} = clone;
-        console.log(payload);        
-
+        //convert state into FormData
         const fData = new FormData();
         fData.append('pictures', this.state.icon);
         fData.append('pictures', this.state.demoImage);
+        
         if(this.props.path == '/projects/add'){
-            alert("route")
-            axios.post('http://localhost:5000/projects/add', fData)
+            //upload pictures
+            axios.post('http://localhost:5000/projects/addpic', fData)
             .then(res=>{
                 this.setState({loading: false});
                 alert(res.data);
@@ -59,6 +56,9 @@ class EditProj extends Component{
                 this.setState({loading: false});
                 alert(e);
             });
+
+            //upload other projdata :/projects/addprojdata
+            
         }
     };
     render(){

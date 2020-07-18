@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 5000;
 const authRouter = require('./routers/authRouter');
 const projRouter = require('./routers/projRouter');
 const cors = require('cors');
-const bodyParser = require('body-parser');
+
 
 //middleware
 app.use(cors());

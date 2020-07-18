@@ -1,20 +1,15 @@
 const path = require('path');
 const projRouter = require('express').Router();
 const multer = require('multer');
+
 const upload = multer({
+    limits: 2000000,
     filename: 'PICTURE.png', 
-    dest: path.join(__dirname, '../img'),
-    fileFilter: (req, file, cb) => {
-        if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg" || file.mimetype == "image/gif") {
-            cb(null, true);
-        } else {
-            cb(null, false);
-            return cb(new Error('Allowed only .png, .jpg, .jpeg and .gif'));
-        }
-    }
+    dest: path.join(__dirname, '../../frontend/src/pictures'),
+
 });
 
-projRouter.route('/add').post(upload.array('pictures', 2), async (req,res)=>{
+projRouter.route('/addpic').post(upload.array('pictures', 2), async (req,res)=>{
     console.log(path.join(__dirname, '/img'));
     console.log(req.files);
     res.status(200).send({success: "HI!"});
