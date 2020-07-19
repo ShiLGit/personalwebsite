@@ -1,5 +1,6 @@
 const path = require('path');
 const projRouter = require('express').Router();
+const auth = require('../middleware/auth');
 const multer = require('multer');
 
 const storage = multer.diskStorage({
@@ -20,16 +21,14 @@ const upload = multer({
 
 });
 */
-projRouter.route('/addpic').post(upload.array('pictures', 2), async (req,res)=>{
-    console.log(path.join(__dirname, '/img'));
-    console.log(req.files);
-
+projRouter.route('/addpic').post(auth, upload.array('pictures', 2), async (req,res)=>{
+    console.log("img added");
     res.status(200).send({success: "HI!"});
 
 });
 
-projRouter.route('/addtext').post((req,res)=>{
-
+projRouter.route('/addtext').post(auth, (req,res)=>{
+  console.log(req.body);
   res.status(200).send({success: "ok"});
 })
 

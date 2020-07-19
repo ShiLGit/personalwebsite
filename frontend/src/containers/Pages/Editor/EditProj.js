@@ -12,8 +12,8 @@ class EditProj extends Component{
         titleDesc: "",
         icon: null,
         demoImage: null,
-        body: "",
-
+        bodyMarkup: "",
+        projID: "",
         loading: false
     }
     projChangeHandler = (e)=>{
@@ -34,7 +34,10 @@ class EditProj extends Component{
         console.log(this.state);
     }
     bodyChangeHandler = (e)=>{
-        this.setState({body: e.target.value});   
+        this.setState({bodyMarkup: e.target.value});   
+    }
+    identifierChangeHandler = (e)=>{
+        this.setState({projID: e.target.value});   
     }
     onSubmitHandler = (e)=>{
         e.preventDefault();
@@ -47,7 +50,7 @@ class EditProj extends Component{
         
         if(this.props.path == '/projects/add'){
             //upload pictures
-            axios.post('http://localhost:5000/projects/addpic', fData)
+            axios.post('http://localhost:5000/projects/addpic', fData, {headers: {'Authorization': `${this.props.token}`}})
             .then(res=>{
                 this.setState({loading: false});
                 alert(res.data);
@@ -57,8 +60,18 @@ class EditProj extends Component{
                 alert(e);
             });
 
+
+            //get object w/ project text properties from this.state
+            const clone = {...this.state};
+            const {loading, icon, demoImage, ...payload} = clone;
+            console.log(payload);
+
             //upload other projdata :/projects/addprojdata
-            
+            axios.post('http://localhost:5000/projects/addtext', payload, {headers: {'Authorization': `${this.props.token}`}})
+            .then(res=>{
+                alert("success!");
+                console.log(res.data);
+            }).catch(e=>alert(e));
         }
     };
     render(){
@@ -71,6 +84,9 @@ class EditProj extends Component{
                 {toRender}
                 {this.state.loading? <Loader style={{marginTop:"30vh"}}/>:
                 <form className = {styles.Form} style ={{marginTop: '90px', minWidth: 'fit-content'}} onSubmit={this.onSubmitHandler} encType='multipart/form-data'>
+                     <label style ={{marginBottom: '-20px'}}>Project Identifier</label>
+                    <input type ="text" required onChange={this.identifierChangeHandler} value = {this.state.projID}></input>
+                    
                     <label style ={{marginBottom: '-20px'}}>Project Name</label>
                     <input type ="text" required onChange={this.projChangeHandler} value = {this.state.projName}></input>
                     <br/>
@@ -87,7 +103,7 @@ class EditProj extends Component{
                     <input type = "file" style = {{margin: 'auto'}} required onChange={this.demoImageChangeHandler}></input>
                     <br/>
                     <label>Body (Markup)</label>
-                    <textarea rows = {10} required onChange={this.bodyChangeHandler} value = {this.state.body}></textarea>
+                    <textarea rows = {10} required onChange={this.bodyChangeHandler} value = {this.state.bodyMarkup}></textarea>
                     <input type = "submit" value = "Save"/>
                 </form>
                 }
