@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 
 const projTextSchema = new mongoose.Schema({
-    projName: {type: String, required},
-    category: {type: String, required},
-    titleDesc: {type: String, required},
-    bodyMarkup: {type: String, required},
-    projID: {type: String, required}
+    projName: {type: String, required: true},
+    category: {type: String, required: true},
+    titleDesc: {type: String, required: true},
+    bodyMarkup: {type: String, required: true},
+    projID: {type: String, required: true}
 })
 
-const ProjText = mongoose.model('Admin', adminSchema);
+const ProjText = mongoose.model('ProjText', projTextSchema);
 module.exports = ProjText;
