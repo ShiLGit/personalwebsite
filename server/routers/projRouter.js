@@ -4,7 +4,7 @@ const multer = require('multer');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, path.join(__dirname, '../../frontend/src/pictures'))
+        cb(null, path.join(__dirname, '../../frontend/src/pictures/proj'))
       },
       filename: function (req, file, cb) {
         cb(null, file.originalname);
@@ -26,6 +26,11 @@ projRouter.route('/addpic').post(upload.array('pictures', 2), async (req,res)=>{
 
     res.status(200).send({success: "HI!"});
 
+});
+
+projRouter.route('/addtext').post((req,res)=>{
+
+  res.status(200).send({success: "ok"});
 })
 
 module.exports = projRouter;
