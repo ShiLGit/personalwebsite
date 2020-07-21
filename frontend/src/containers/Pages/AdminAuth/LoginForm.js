@@ -3,7 +3,7 @@ import axios from 'axios'
 import styles from './LoginForm.module.css'
 
 import {Redirect} from 'react-router-dom';
-import actions from '../../../redux/actions/actions';
+import * as actionTypes from '../../../redux/actions/actionTypes';
 import {connect} from 'react-redux';
 
 import Loader from '../../../components/UI/Loader';
@@ -72,7 +72,10 @@ class LoginForm extends Component{
 }
 const dispatchToProps = dispatch=>{
     return{
-        updateToken: (token)=>dispatch(actions.updateToken(token))
+        updateToken: (token)=>dispatch({
+            type: actionTypes.UPDATE_TOKEN,
+            token
+        })
     };
 }
 export default connect(null, dispatchToProps)(LoginForm);
