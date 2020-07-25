@@ -4,10 +4,21 @@ import {BrowserRouter} from 'react-router-dom';
 
 import * as actionTypes from './redux/actions/actionTypes';
 import {connect} from 'react-redux';
+import axios from 'axios';
 
 class App extends Component{
   componentDidMount(){
-    this.props.initProjects();
+
+    axios.get('http://localhost:5000/projects/init')
+      .then(res=>{
+        alert(res.data);
+        console.log(res.data);
+        this.props.initProjects(res.data.projects);
+      })
+      .catch(e=>{
+        alert("errror!!!!");
+        console.log(e);
+      })
   }
 
   render(){
@@ -20,7 +31,7 @@ class App extends Component{
 }
 
 const dispatchToProps = dispatch=>{
-  return {initProjects: ()=>dispatch({type: actionTypes.INIT_PROJECTS})};
+  return {initProjects: (projects)=>dispatch({type: actionTypes.INIT_PROJECTS, projects})};
 }
 
 export default connect(null, dispatchToProps)(App)

@@ -15,6 +15,21 @@ const storage = multer.diskStorage({
 
 const upload = multer({storage});
 
+//get all project (JSON) data in database
+projRouter.route('/init').get(async (req,res)=>{
+  console.log("wazap");
+  try{
+    const allProj = await ProjText.find({});
+    return  res.status(200).send({projects: allProj});
+  }catch(e){
+    console.log("Database error...", e);
+    return res.status(500).send(e);
+  }
+
+}
+
+
+ )
 projRouter.route('/addpic').post(auth, upload.array('pictures', 2), async (req,res)=>{
     console.log("img added");
     res.status(200).send({success: "HI!"});
