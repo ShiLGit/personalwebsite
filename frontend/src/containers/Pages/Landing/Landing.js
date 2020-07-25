@@ -8,7 +8,7 @@ const Landing =()=>{
     return(
     <div className={styles.Body}>
         <img className={styles.Picture} alt="MY HEAD" src={portrait}/>
-            <div classNames={styles.RightHalf}>
+            <div>
             <Heading/>
             <div className={styles.Accordions}>
                 <Accordions/>

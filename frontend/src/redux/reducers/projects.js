@@ -9,11 +9,12 @@ const reducer =(state=defaultState, action)=>{
     //console.log(actionTypes.INIT_PROJECTS)
     switch(action.type){
         case actionTypes.INIT_PROJECTS:
-            console.log("HI!!!!!!");
-            alert("HI!!!!!!");
+        
+        default:
+            return state;
 
     }
-    return state;
+    
 }
 
 export default reducer;

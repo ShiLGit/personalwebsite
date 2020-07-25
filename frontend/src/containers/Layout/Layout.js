@@ -1,8 +1,5 @@
 import React, {Component} from 'react';
 import {Switch, Route} from 'react-router-dom';
-import {connect} from 'react-redux';
-import * as actionTypes from '../../redux/actions/actionTypes';
-
 import styles from './Layout.module.css';
 import Navbar from '../../components/Navigation/Navbar/Navbar';
 import Drawer from '../../components/Navigation/Drawer/Drawer';
@@ -15,12 +12,6 @@ import Editor from '../Pages/Editor/Editor';
 import MessagePage from '../../components/UI/MessagePage';
 
 class Layout extends Component{
-    state = {
-        active: '/',
-    };
-    componentDidMount(){
-        this.props.initProjects();
-    }
     render(){
         return(
             <div className={styles.All}>
@@ -47,7 +38,4 @@ class Layout extends Component{
     }
 }
 
-const dispatchToProps = dispatch=>{
-    return {initProjects: ()=>dispatch({type: actionTypes.INIT_PROJECTS})};
-}
-export default connect(null, dispatchToProps)(Layout)
+export default Layout;

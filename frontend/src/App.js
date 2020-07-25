@@ -1,13 +1,26 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Layout from './containers/Layout/Layout.js';
 import {BrowserRouter} from 'react-router-dom';
 
-function App() {
-  return (
-  <BrowserRouter>
-    <Layout/>
-  </BrowserRouter>
-  );
+import * as actionTypes from './redux/actions/actionTypes';
+import {connect} from 'react-redux';
+
+class App extends Component{
+  componentDidMount(){
+    this.props.initProjects();
+  }
+
+  render(){
+    return (
+      <BrowserRouter>
+        <Layout/>
+      </BrowserRouter>
+      );
+  }
 }
 
-export default App;
+const dispatchToProps = dispatch=>{
+  return {initProjects: ()=>dispatch({type: actionTypes.INIT_PROJECTS})};
+}
+
+export default connect(null, dispatchToProps)(App)
