@@ -5,7 +5,7 @@ const defaultState={
 }
 
 const reducer = (state=defaultState, action)=>{
-    console.log(action.type);
+
     switch(action.type){
         case actionTypes.UPDATE_TOKEN:
             console.log(action.token)
@@ -13,9 +13,11 @@ const reducer = (state=defaultState, action)=>{
     
         case actionTypes.LOGOUT:
             return{token: null};
+
+        default:
+            return state;
     }
 
-    return state;
 }
 
 export default reducer;
