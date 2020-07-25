@@ -19,7 +19,7 @@ class Layout extends Component{
         active: '/',
     };
     componentDidMount(){
-       // this.props.initProjects();
+        this.props.initProjects();
     }
     render(){
         return(

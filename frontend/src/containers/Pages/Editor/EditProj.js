@@ -48,7 +48,7 @@ class EditProj extends Component{
         fData.append('pictures', this.state.icon);
         fData.append('pictures', this.state.demoImage);
         
-        if(this.props.path == '/projects/add'){
+        if(this.props.path === '/projects/add'){
             //upload pictures
             axios.post('http://localhost:5000/projects/addpic', fData, {headers: {'Authorization': `${this.props.token}`}})
             .then(res=>{
