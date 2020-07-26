@@ -11,7 +11,6 @@ class App extends Component{
 
     axios.get('http://localhost:5000/projects/init')
       .then(res=>{
-        alert(res.data);
         console.log(res.data);
         this.props.initProjects(res.data.projects);
       })
