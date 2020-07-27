@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
-
+import ProjectList from './ProjectList';
 import EditProj from './EditProj';
+
+import axios from 'axios';
 class Editor extends Component{
     state = {
         submitPath: '/projects/add'
@@ -13,6 +15,7 @@ class Editor extends Component{
         return(
             <div style ={style}>
                 <EditProj path={this.state.submitPath}/>
+                <ProjectList/>
             </div>
         )
     }

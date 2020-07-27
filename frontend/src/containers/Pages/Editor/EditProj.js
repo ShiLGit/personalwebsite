@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import styles from '../FormStyles.module.css';
 import Loader from '../../../components/UI/Loader';
-import ProjectList from './ProjectList';
 
 import axios from 'axios';
 import {connect} from 'react-redux';
@@ -109,7 +108,6 @@ class EditProj extends Component{
                     <input type = "submit" value = "Save"/>
                 </form>
                 }
-                <ProjectList/>
                 </React.Fragment>
         );
     }
