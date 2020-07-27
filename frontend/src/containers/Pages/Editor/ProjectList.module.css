@@ -5,7 +5,26 @@
 .ListWrapper{
     overflow-y: scroll;
 }
+.ProjUnit button{
+    background-color: rgb(252, 72, 72);
+    border: none;
+    color: white;
+    cursor: pointer;
+    border: 2px solid rgb(204, 53, 53);
+    margin-left: 60px;
+
+    width: 30px;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 2;
+}
+.ProjUnit p{
+    grid-row-start: 2;
+}
 .ProjUnit{
+    display: grid;
+    grid-template-rows: 30% 45% 45%;
+    grid-template-columns: 50% 50%;
     margin-top: 10px;
     height: 100px;
     width: 200px;

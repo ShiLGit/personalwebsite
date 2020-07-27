@@ -4,7 +4,12 @@ import styles from './ProjectList.module.css';
 const ProjectList = (props)=>{
 
     const projects = props.projects;
-    const list = projects.map(p=>{return <div className = {styles.ProjUnit} key = {p._id}>{p.projID}<br/>{p.projName}</div>});
+    const list = projects.map(p=>{
+        return (
+        <div className = {styles.ProjUnit} key = {p._id}>
+            <button>X</button>
+            <p>{p.projID}</p><p>{p.projName}</p>
+        </div>)});
     console.log(list)
     return(
         <div className = {styles.Wrapper}>
