@@ -5,8 +5,16 @@ import axios from 'axios';
 import * as actionTypes from '../../../redux/actions/actionTypes';
 const ProjectList = (props)=>{
     function deleteUnit(projID){
-        console.log(projID);
-        alert("Dilete??");
+        let ans = window.confirm("Dilete??");
+        if(ans){
+            axios.delete('http://localhost:5000/projects/delete/' + projID)
+            .then(res=>{
+                console.log(res);
+                alert(res.data.success);
+                console.log(res.data.deleted);
+            })
+            .catch(e=>{alert(e)});
+        }
     }
 
 

@@ -26,10 +26,24 @@ projRouter.route('/init').get(async (req,res)=>{
     return res.status(500).send(e);
   }
 
-}
+});
 
+//USE AUTH MIDDLEWARE ONCE DONE TESTING
+projRouter.route('/delete/:projID').delete(async (req, res)=>{
 
- )
+  let err = null;
+  const deleted = await ProjText.findByIdAndDelete(req.params.projID)
+                  .catch(e=>{
+                    console.log(e);
+                    err = e;
+                  })
+  
+  if(!err)
+    return res.status(200).send({success: "Successfully deleted " + deleted.projName, deleted});
+      
+  res.status(400).send(e);
+});
+
 projRouter.route('/addpic').post(auth, upload.array('pictures', 2), async (req,res)=>{
     console.log("img added");
     res.status(200).send({success: "HI!"});

@@ -73,6 +73,7 @@ class EditProj extends Component{
                 console.log(res.data);
             }).catch(e=>alert(e));
         }
+        e.preventDefault();
     };
     render(){
         let toRender = null;
