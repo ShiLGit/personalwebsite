@@ -52,9 +52,10 @@ projRouter.route('/addpic').post(auth, upload.array('pictures', 2), async (req,r
 
 projRouter.route('/addtext').post(auth, async (req,res)=>{
   console.log(req.body);
+  let newProj;
   const duplicate = await ProjText.findOne({projID: req.body.projID});
   if(!duplicate){
-    const newProj = new ProjText({...req.body});
+    newProj = new ProjText({...req.body});
     console.log(newProj);
     newProj.save();
   }else{

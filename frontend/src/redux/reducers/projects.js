@@ -24,7 +24,16 @@ const reducer =(state=defaultState, action)=>{
             return{
                 projects: newProj
             };
-            
+        
+        case actionTypes.ADD_PROJECT:
+            for(let i = 0; i < state.projects.length; i++){
+                if(state.projects[i].projName === action.toAdd.projName){
+                    return state;
+                }
+            }
+            const newProjs = [...state.projects];
+            newProjs.push(action.toAdd);
+            return {projects: newProjs};
         default:
             return state;
 

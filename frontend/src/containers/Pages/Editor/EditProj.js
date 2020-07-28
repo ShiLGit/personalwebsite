@@ -4,7 +4,9 @@ import Loader from '../../../components/UI/Loader';
 
 import axios from 'axios';
 import {connect} from 'react-redux';
+import * as actionTypes from '../../../redux/actions/actionTypes';
 import { Redirect } from 'react-router-dom';
+
 class EditProj extends Component{
     state = {
         projName: "",
@@ -58,6 +60,7 @@ class EditProj extends Component{
             .catch(e=>{
                 this.setState({loading: false});
                 alert(e);
+                console.log(e);
             });
 
 
@@ -70,8 +73,8 @@ class EditProj extends Component{
             axios.post('http://localhost:5000/projects/addtext', payload, {headers: {'Authorization': `${this.props.token}`}})
             .then(res=>{
                 alert("success!");
-                console.log(res.data);
-            }).catch(e=>alert(e));
+                this.props.addProject(res.data.saved);
+            }).catch(e=>alert(e.message));
         }
         e.preventDefault();
     };
@@ -117,4 +120,8 @@ class EditProj extends Component{
 const stateToProps = (state)=>{
     return{token: state.authReducer.token};
 }
-export default connect(stateToProps)(EditProj);
+
+const dispatchToProps = (dispatch)=>{
+    return{addProject: (toAdd)=>dispatch({type: actionTypes.ADD_PROJECT, toAdd})};
+}
+export default connect(stateToProps, dispatchToProps)(EditProj);
