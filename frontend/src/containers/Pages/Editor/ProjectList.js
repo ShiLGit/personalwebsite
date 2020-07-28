@@ -5,13 +5,14 @@ import axios from 'axios';
 import * as actionTypes from '../../../redux/actions/actionTypes';
 const ProjectList = (props)=>{
     function deleteUnit(projID){
-        let ans = window.confirm("Dilete??");
+        let ans = window.confirm("Delete this project??");
         if(ans){
             axios.delete('http://localhost:5000/projects/delete/' + projID)
             .then(res=>{
                 console.log(res);
                 alert(res.data.success);
                 console.log(res.data.deleted);
+                props.removeProject(res.data.deleted.projID);
             })
             .catch(e=>{alert(e)});
         }
@@ -37,7 +38,9 @@ const ProjectList = (props)=>{
     )
 }
 const dispatchToProps = (dispatch)=>{
-    return {initProjects: (projects)=>dispatch({type:actionTypes.INIT_PROJECTS, projects})}
+    return {
+        removeProject: (projID)=>dispatch({type: actionTypes.REMOVE_PROJECT, removeID: projID})
+    }
 }
 const stateToProps = (state)=>{
     return {projects: state.projReducer.projects};

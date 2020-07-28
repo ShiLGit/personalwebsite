@@ -30,7 +30,9 @@ class App extends Component{
 }
 
 const dispatchToProps = dispatch=>{
-  return {initProjects: (projects)=>dispatch({type: actionTypes.INIT_PROJECTS, projects})};
+  return {
+    initProjects: (projects)=>dispatch({type: actionTypes.LOAD_PROJECTS, projects}),
+  };
 }
 
 export default connect(null, dispatchToProps)(App)

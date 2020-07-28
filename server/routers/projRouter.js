@@ -61,7 +61,7 @@ projRouter.route('/addtext').post(auth, async (req,res)=>{
     return res.status(401).send({error: "Project with given ProjID already exists. Try selecting EDIT option."});
   }
 
-  res.status(200).send({success: "ok"});
+  res.status(200).send({success: newProj.projName + " saved successfully.", saved: newProj});
 })
 
 module.exports = projRouter;
