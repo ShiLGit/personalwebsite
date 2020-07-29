@@ -63,7 +63,6 @@ class EditProj extends Component{
                 console.log(e);
             });
 
-
             //get object w/ project text properties from this.state
             const clone = {...this.state};
             const {loading, icon, demoImage, ...payload} = clone;
@@ -78,6 +77,7 @@ class EditProj extends Component{
         }
         e.preventDefault();
     };
+    
     render(){
         let toRender = null;
         /*
@@ -89,7 +89,8 @@ class EditProj extends Component{
                 {toRender}
                 {this.state.loading? <Loader style={{marginTop:"30vh"}}/>:
                 <form className = {styles.Form} style ={{marginTop: '90px', minWidth: 'fit-content'}} onSubmit={this.onSubmitHandler} encType='multipart/form-data'>
-                     <label style ={{marginBottom: '-20px'}}>Project Identifier</label>
+                    <h2 style={{textAlign: 'center', marginTop: '-10px'}}>{this.props.formTitle}</h2>
+                    <label style ={{marginBottom: '-20px'}}>Project Identifier</label>
                     <input type ="text" required onChange={this.identifierChangeHandler} value = {this.state.projID}></input>
                     
                     <label style ={{marginBottom: '-20px'}}>Project Name</label>
