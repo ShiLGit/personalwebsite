@@ -63,6 +63,11 @@ projRouter.route('/addtext').post(auth, async (req,res)=>{
   }
 
   res.status(200).send({success: newProj.projName + " saved successfully.", saved: newProj});
-})
+});
+
+projRouter.route('/edittext/:projIDName').patch((req, res)=>{
+  console.log(req.body);
+  res.send("zzz")
+});
 
 module.exports = projRouter;

@@ -7,7 +7,7 @@ class Editor extends Component{
     state = {
         curProjID: null
     }
-    loadProj = (projID)=>{
+    setCurProj = (projID)=>{
         this.setState({curProj: projID});
         alert(projID);  
     }
@@ -18,8 +18,8 @@ class Editor extends Component{
         }
         return(
             <div style ={style}>
-                <EditProj path={this.state.submitPath} formTitle = {this.state.formTitle} curProjID={this.state.curProj}/>
-                <ProjectList loadProj = {this.loadProj}/>
+                <EditProj path={this.state.submitPath} formTitle = {this.state.formTitle} curProjID={this.state.curProj} setCurProj={this.setCurProj}/>
+                <ProjectList loadProj = {this.setCurProj}/>
             </div>
         )
     }

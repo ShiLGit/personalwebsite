@@ -21,16 +21,14 @@ class EditProj extends Component{
         loading: false
     }
     componentDidUpdate(){
-
-/*        if(this.props.curProjID){
+        //load selected project from ProjectList data onto form
+        if(this.props.curProjID && this.state.projID !== this.props.curProjID){
             for(let i = 0; i < this.props.projects.length; i++){
-                console.log(this.props.projects[i]);
                 if(this.props.projects[i].projID === this.props.curProjID){
-                    console.log("match found!");
                     this.setState({...this.props.projects[i]});
                 }
             }
-        }*/
+        }
     }
 
     projChangeHandler = (e)=>{
@@ -56,6 +54,24 @@ class EditProj extends Component{
     identifierChangeHandler = (e)=>{
         this.setState({projID: e.target.value});   
     }
+
+    clearCurProj = ()=>{
+        this.props.setCurProj(null);
+        alert("WTF")
+        this.setState({
+            curProjID: this.props.curProjID,
+
+            projName: "",
+            category: "",
+            titleDesc: "",
+            icon: null,
+            demoImage: null,
+            bodyMarkup: "",
+            projID: "",
+            loading: false
+        })
+    }
+
     onSubmitHandler = (e)=>{
         e.preventDefault();
         this.setState({loading: true});
@@ -95,25 +111,19 @@ class EditProj extends Component{
     
     render(){   
         let toRender = null;
-        if(this.props.curProjID && this.state.projID !== this.props.curProjID){
-            for(let i = 0; i < this.props.projects.length; i++){
-                console.log(this.props.projects[i])
-                if(this.props.projects[i].projID === this.props.curProjID){
-                    this.setState({...this.props.projects[i]});
-                }
-            }
-        }
-        
         /*
         if(!this.props.token)
             toRender = <Redirect to = '/unauthorized'/>;
             */
+        
+
         return(
             <React.Fragment>
                 {toRender}
                 {this.state.loading? <Loader style={{marginTop:"30vh"}}/>:
                 <form className = {styles.Form} style ={{marginTop: '90px', minWidth: 'fit-content'}} onSubmit={this.onSubmitHandler} encType='multipart/form-data'>
-                    <h2 style={{textAlign: 'center', marginTop: '-10px'}}>{this.props.curProjID?"Edit " + this.props.curProjID: "Add Project"}</h2>
+                    <h2 style={{textAlign: 'center', marginTop: '-10px', display: 'inline-block'}}>{this.props.curProjID?"Edit " + this.props.curProjID: "Add Project"}</h2>
+                    <button style ={{}} onClick={this.clearCurProj}>Add Project</button>
                     <label style ={{marginBottom: '-20px'}}>Project Identifier</label>
                     <input type ="text" required onChange={this.identifierChangeHandler} value = {this.state.projID}></input>
                     
