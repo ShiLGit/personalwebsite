@@ -18,12 +18,11 @@ const ProjectList = (props)=>{
         }
     }
 
-
     const projects = props.projects;
     const list = projects.map(p=>{
         return (
-        <div className = {styles.ProjUnit} key = {p._id} onClick={props.loadProj(p.projID)}>
-            <button onClick = {(projId)=>deleteUnit(p._id)}>X</button>
+        <div className = {styles.ProjUnit} key = {p._id} onClick={()=>props.loadProj(p.projID)}>
+            <button onClick = {()=>deleteUnit(p._id)}>X</button>
             <p>{p.projID}</p><p>{p.projName}</p>
         </div>)});
     return(

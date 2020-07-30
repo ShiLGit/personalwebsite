@@ -5,13 +5,11 @@ import EditProj from './EditProj';
 import axios from 'axios';
 class Editor extends Component{
     state = {
-        submitType: 'ADD',
-        formTitle: 'Add Project',
-        curProj: null
+        curProjID: null
     }
     loadProj = (projID)=>{
-        alert("HAY")
         this.setState({curProj: projID});
+        alert(projID);  
     }
     render(){
         const style = {
@@ -20,8 +18,8 @@ class Editor extends Component{
         }
         return(
             <div style ={style}>
-                <EditProj path={this.state.submitPath} formTitle = {this.state.formTitle}/>
-                <ProjectList loadProj = {(id)=>this.loadProj(id)}/>
+                <EditProj path={this.state.submitPath} formTitle = {this.state.formTitle} curProjID={this.state.curProj}/>
+                <ProjectList loadProj = {this.loadProj}/>
             </div>
         )
     }

@@ -9,6 +9,8 @@ import { Redirect } from 'react-router-dom';
 
 class EditProj extends Component{
     state = {
+        curProjID: this.props.curProjID,
+
         projName: "",
         category: "",
         titleDesc: "",
@@ -18,6 +20,19 @@ class EditProj extends Component{
         projID: "",
         loading: false
     }
+    componentDidUpdate(){
+
+/*        if(this.props.curProjID){
+            for(let i = 0; i < this.props.projects.length; i++){
+                console.log(this.props.projects[i]);
+                if(this.props.projects[i].projID === this.props.curProjID){
+                    console.log("match found!");
+                    this.setState({...this.props.projects[i]});
+                }
+            }
+        }*/
+    }
+
     projChangeHandler = (e)=>{
         this.setState({projName: e.target.value});
     }
@@ -78,8 +93,17 @@ class EditProj extends Component{
         e.preventDefault();
     };
     
-    render(){
+    render(){   
         let toRender = null;
+        if(this.props.curProjID && this.state.projID !== this.props.curProjID){
+            for(let i = 0; i < this.props.projects.length; i++){
+                console.log(this.props.projects[i])
+                if(this.props.projects[i].projID === this.props.curProjID){
+                    this.setState({...this.props.projects[i]});
+                }
+            }
+        }
+        
         /*
         if(!this.props.token)
             toRender = <Redirect to = '/unauthorized'/>;
@@ -89,7 +113,7 @@ class EditProj extends Component{
                 {toRender}
                 {this.state.loading? <Loader style={{marginTop:"30vh"}}/>:
                 <form className = {styles.Form} style ={{marginTop: '90px', minWidth: 'fit-content'}} onSubmit={this.onSubmitHandler} encType='multipart/form-data'>
-                    <h2 style={{textAlign: 'center', marginTop: '-10px'}}>{this.props.formTitle}</h2>
+                    <h2 style={{textAlign: 'center', marginTop: '-10px'}}>{this.props.curProjID?"Edit " + this.props.curProjID: "Add Project"}</h2>
                     <label style ={{marginBottom: '-20px'}}>Project Identifier</label>
                     <input type ="text" required onChange={this.identifierChangeHandler} value = {this.state.projID}></input>
                     
@@ -119,7 +143,10 @@ class EditProj extends Component{
     
 }
 const stateToProps = (state)=>{
-    return{token: state.authReducer.token};
+    return{
+        token: state.authReducer.token,
+        projects: state.projReducer.projects
+    };
 }
 
 const dispatchToProps = (dispatch)=>{
