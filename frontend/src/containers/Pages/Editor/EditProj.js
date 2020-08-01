@@ -22,12 +22,16 @@ class EditProj extends Component{
     }
     componentDidUpdate(){
         //load selected project from ProjectList data onto form
-        if(this.props.curProjID && this.state.projID !== this.props.curProjID){
+        if(this.props.curProjID && this.state.curProjID !== this.props.curProjID){
             for(let i = 0; i < this.props.projects.length; i++){
                 if(this.props.projects[i].projID === this.props.curProjID){
                     this.setState({...this.props.projects[i]});
                 }
             }
+        }
+
+        if(this.props.curProjID !== this.state.curProjID){
+            this.state.curProjID = this.props.curProjID;
         }
     }
 
@@ -57,7 +61,6 @@ class EditProj extends Component{
 
     clearCurProj = ()=>{
         this.props.setCurProj(null);
-        alert("WTF")
         this.setState({
             curProjID: this.props.curProjID,
 
@@ -81,7 +84,8 @@ class EditProj extends Component{
         fData.append('pictures', this.state.icon);
         fData.append('pictures', this.state.demoImage);
         
-        if(this.props.path === '/projects/add'){
+        //project upload
+        if(!this.state.curProjID){
             //upload pictures
             axios.post('http://localhost:5000/projects/addpic', fData, {headers: {'Authorization': `${this.props.token}`}})
             .then(res=>{
@@ -105,6 +109,21 @@ class EditProj extends Component{
                 alert("success!");
                 this.props.addProject(res.data.saved);
             }).catch(e=>alert(e.message));
+        }else{ 
+            //edit project
+            alert("edit route")
+            axios.put('http://localhost:5000/projects/edittext/' + this.state.curProjID)
+            .then(res=>{
+                this.setState({loading: false});
+                alert("!");
+                console.log(res)
+            })
+            .catch(e=>{
+                this.setState({loading: false});
+
+                console.log(e);
+            })
+
         }
         e.preventDefault();
     };
@@ -115,15 +134,20 @@ class EditProj extends Component{
         if(!this.props.token)
             toRender = <Redirect to = '/unauthorized'/>;
             */
-        
+        const toggleAddProj = <button style ={{position: 'absolute', top: '0px', right: '0px'}} onClick={this.clearCurProj}>
+                                    Add Project
+                              </button>;
+        let required = !this.state.curProjID;
+        console.log(required, this.state.curProjID);
 
         return(
             <React.Fragment>
                 {toRender}
                 {this.state.loading? <Loader style={{marginTop:"30vh"}}/>:
-                <form className = {styles.Form} style ={{marginTop: '90px', minWidth: 'fit-content'}} onSubmit={this.onSubmitHandler} encType='multipart/form-data'>
+                <form className = {styles.Form} style ={{marginTop: '90px', minWidth: 'fit-content', position: 'relative'}} onSubmit={this.onSubmitHandler} encType='multipart/form-data'>
+                    {this.props.curProjID?toggleAddProj:null}
                     <h2 style={{textAlign: 'center', marginTop: '-10px', display: 'inline-block'}}>{this.props.curProjID?"Edit " + this.props.curProjID: "Add Project"}</h2>
-                    <button style ={{}} onClick={this.clearCurProj}>Add Project</button>
+                
                     <label style ={{marginBottom: '-20px'}}>Project Identifier</label>
                     <input type ="text" required onChange={this.identifierChangeHandler} value = {this.state.projID}></input>
                     
@@ -137,10 +161,10 @@ class EditProj extends Component{
                     <input type ="text" required onChange={this.titleDescChangeHandler} value = {this.state.titleDesc}></input>
                     <br/>
                     <label>Icon</label>
-                    <input type ="file" style = {{margin: 'auto'}} required onChange={this.iconChangeHandler}></input>
+                    <input type ="file" style = {{margin: 'auto'}} required={required} onChange={this.iconChangeHandler}></input>
                     <br/>
                     <label>Demo Image</label>
-                    <input type = "file" style = {{margin: 'auto'}} required onChange={this.demoImageChangeHandler}></input>
+                    <input type = "file" style = {{margin: 'auto'}} required={required} onChange={this.demoImageChangeHandler}></input>
                     <br/>
                     <label>Body (Markup)</label>
                     <textarea rows = {10} required onChange={this.bodyChangeHandler} value = {this.state.bodyMarkup}></textarea>
