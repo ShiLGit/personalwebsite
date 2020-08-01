@@ -17,7 +17,6 @@ const upload = multer({storage});
 
 //get all project (JSON) data in database
 projRouter.route('/init').get(async (req,res)=>{
-  console.log("wazap");
   try{
     const allProj = await ProjText.find({});
     return  res.status(200).send({projects: allProj});
@@ -65,10 +64,15 @@ projRouter.route('/addtext').post(auth, async (req,res)=>{
   res.status(200).send({success: newProj.projName + " saved successfully.", saved: newProj});
 });
 
-projRouter.route('/edittext/:projIDName').put((req, res)=>{
-  console.log(req.params.projIDName);
-  console.log(req.body);
-  res.send("zzz")
+projRouter.route('/edittext/:projIDName').put(async (req, res)=>{
+
+  try{
+    const project = await ProjText.findOneAndReplace({projID: req.params.projIDName}, req.body, {new: true});
+    return res.send({success: req.body.projName + "update successfully", updated: project});
+  }catch(e){
+    res.status(400).send(e);
+  }
+  console.log("UPDATED", project)
 });
 
 module.exports = projRouter;

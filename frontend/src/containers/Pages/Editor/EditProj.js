@@ -84,12 +84,11 @@ class EditProj extends Component{
         const {loading, icon, demoImage, ...payload} = clone;
 
          //edit project
-         alert("edit route")
          axios.put('http://localhost:5000/projects/edittext/' + this.state.curProjID, payload)
          .then(res=>{
              this.setState({loading: false});
-             alert("!");
-             console.log(res)
+             alert(res.data.success);
+             this.props.updateProject(res.data.updated)
          })
          .catch(e=>{
              this.setState({loading: false});
@@ -104,6 +103,8 @@ class EditProj extends Component{
             .then(res=>{
                 this.setState({loading: false});
                 alert(res.data);
+                console.log(res);
+                this.props.updateProject(res.data.updated);
             })
             .catch(e=>{
                 this.setState({loading: false});
@@ -161,7 +162,7 @@ class EditProj extends Component{
                     <h2 style={{textAlign: 'center', marginTop: '-10px', display: 'inline-block'}}>{this.props.curProjID?"Edit " + this.props.curProjID: "Add Project"}</h2>
                 
                     <label style ={{marginBottom: '-20px'}}>Project Identifier</label>
-                    <input type ="text" required onChange={this.identifierChangeHandler} value = {this.state.projID}></input>
+                    <input type ="text" required={required} disabled ={!required} onChange={this.identifierChangeHandler} value = {this.state.projID}></input>
                     
                     <label style ={{marginBottom: '-20px'}}>Project Name</label>
                     <input type ="text" required onChange={this.projChangeHandler} value = {this.state.projName}></input>
@@ -196,6 +197,9 @@ const stateToProps = (state)=>{
 }
 
 const dispatchToProps = (dispatch)=>{
-    return{addProject: (toAdd)=>dispatch({type: actionTypes.ADD_PROJECT, toAdd})};
+    return{
+        addProject: (toAdd)=>dispatch({type: actionTypes.ADD_PROJECT, toAdd}),
+        updateProject: (updatedProj)=>dispatch({type: actionTypes.UPDATE_PROJECT, updatedProj})
+    };
 }
 export default connect(stateToProps, dispatchToProps)(EditProj);

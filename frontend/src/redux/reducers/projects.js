@@ -34,6 +34,16 @@ const reducer =(state=defaultState, action)=>{
             const newProjs = [...state.projects];
             newProjs.push(action.toAdd);
             return {projects: newProjs};
+
+        case actionTypes.UPDATE_PROJECT:
+            let newProjsUpdated ={...state.projects};
+            for(let i = 0; i < newProjsUpdated.length; i++){
+                if(newProjsUpdated[i] === action.updatedProj.projID){
+                    newProjsUpdated.splice(i, 1, action.updatedProj);
+                }
+            }
+            console.log(newProjsUpdated);
+            return {projects: newProjsUpdated};
         default:
             return state;
 
