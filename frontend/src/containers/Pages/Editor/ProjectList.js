@@ -9,9 +9,8 @@ const ProjectList = (props)=>{
         if(ans){
             axios.delete('http://localhost:5000/projects/delete/' + projID)
             .then(res=>{
-                console.log(res);
+                props.loadProj(null);
                 alert(res.data.success);
-                console.log(res.data.deleted);
                 props.removeProject(res.data.deleted.projID);
             })
             .catch(e=>{alert(e)});

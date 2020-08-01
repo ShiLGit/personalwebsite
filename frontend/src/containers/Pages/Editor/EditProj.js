@@ -8,6 +8,7 @@ import * as actionTypes from '../../../redux/actions/actionTypes';
 import { Redirect } from 'react-router-dom';
 
 class EditProj extends Component{
+    //REALLY BADLY DESIGNED BUT CURPROJID = PROJ ID HELD BY PARENT COPONENT, projID = USER INPUT
     state = {
         curProjID: this.props.curProjID,
 
@@ -32,6 +33,8 @@ class EditProj extends Component{
 
         if(this.props.curProjID !== this.state.curProjID){
             this.state.curProjID = this.props.curProjID;
+            if(this.props.curProjID === null)
+                this.clearCurProj();
         }
     }
 
@@ -74,18 +77,28 @@ class EditProj extends Component{
             loading: false
         })
     }
+    editProj= ()=>{
 
-    onSubmitHandler = (e)=>{
-        e.preventDefault();
-        this.setState({loading: true});
+        //get object w/ project text properties from this.state
+        const clone = {...this.state};
+        const {loading, icon, demoImage, ...payload} = clone;
 
-        //convert state into FormData
-        const fData = new FormData();
-        fData.append('pictures', this.state.icon);
-        fData.append('pictures', this.state.demoImage);
-        
-        //project upload
-        if(!this.state.curProjID){
+         //edit project
+         alert("edit route")
+         axios.put('http://localhost:5000/projects/edittext/' + this.state.curProjID, payload)
+         .then(res=>{
+             this.setState({loading: false});
+             alert("!");
+             console.log(res)
+         })
+         .catch(e=>{
+             this.setState({loading: false});
+
+             console.log(e);
+         })
+
+    }
+    addProj = (fData)=>{
             //upload pictures
             axios.post('http://localhost:5000/projects/addpic', fData, {headers: {'Authorization': `${this.props.token}`}})
             .then(res=>{
@@ -101,7 +114,6 @@ class EditProj extends Component{
             //get object w/ project text properties from this.state
             const clone = {...this.state};
             const {loading, icon, demoImage, ...payload} = clone;
-            console.log(payload);
 
             //upload other projdata :/projects/addprojdata
             axios.post('http://localhost:5000/projects/addtext', payload, {headers: {'Authorization': `${this.props.token}`}})
@@ -109,21 +121,22 @@ class EditProj extends Component{
                 alert("success!");
                 this.props.addProject(res.data.saved);
             }).catch(e=>alert(e.message));
+
+    }
+    onSubmitHandler = (e)=>{
+        e.preventDefault();
+        this.setState({loading: true});
+
+        //convert state into FormData
+        const fData = new FormData();
+        fData.append('pictures', this.state.icon);
+        fData.append('pictures', this.state.demoImage);
+        
+        //project upload
+        if(!this.state.curProjID){
+            this.addProj(fData);    
         }else{ 
-            //edit project
-            alert("edit route")
-            axios.put('http://localhost:5000/projects/edittext/' + this.state.curProjID)
-            .then(res=>{
-                this.setState({loading: false});
-                alert("!");
-                console.log(res)
-            })
-            .catch(e=>{
-                this.setState({loading: false});
-
-                console.log(e);
-            })
-
+            this.editProj();
         }
         e.preventDefault();
     };
@@ -138,7 +151,6 @@ class EditProj extends Component{
                                     Add Project
                               </button>;
         let required = !this.state.curProjID;
-        console.log(required, this.state.curProjID);
 
         return(
             <React.Fragment>
