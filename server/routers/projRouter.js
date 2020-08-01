@@ -66,6 +66,7 @@ projRouter.route('/addtext').post(auth, async (req,res)=>{
 });
 
 projRouter.route('/edittext/:projIDName').put((req, res)=>{
+  console.log(req.params.projIDName);
   console.log(req.body);
   res.send("zzz")
 });
