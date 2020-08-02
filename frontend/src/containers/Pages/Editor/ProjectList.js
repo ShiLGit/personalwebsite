@@ -18,12 +18,16 @@ const ProjectList = (props)=>{
     }
 
     const projects = props.projects;
+    console.log(projects);
+    if(!projects)
+        return(<div>HI</div>)
     const list = projects.map(p=>{
         return (
         <div className = {styles.ProjUnit} key = {p._id} onClick={()=>props.loadProj(p.projID)}>
             <button onClick = {()=>deleteUnit(p._id)}>X</button>
             <p>{p.projID}</p><p>{p.projName}</p>
         </div>)});
+    
     return(
         <div className = {styles.Wrapper}>
         <p style ={{fontWeight:"bold", fontSize: 24, display: 'inline-block'}}>Projects</p>
