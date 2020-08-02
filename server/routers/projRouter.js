@@ -64,15 +64,14 @@ projRouter.route('/addtext').post(auth, async (req,res)=>{
   res.status(200).send({success: newProj.projName + " saved successfully.", saved: newProj});
 });
 
+//update project text
 projRouter.route('/edittext/:projIDName').put(async (req, res)=>{
-
   try{
     const project = await ProjText.findOneAndReplace({projID: req.params.projIDName}, req.body, {new: true});
-    return res.send({success: req.body.projName + "update successfully", updated: project});
+    return res.send({success: req.body.projName + " updated successfully.", updated: project});
   }catch(e){
     res.status(400).send(e);
   }
-  console.log("UPDATED", project)
 });
 
 module.exports = projRouter;

@@ -59,7 +59,15 @@ class EditProj extends Component{
         this.setState({bodyMarkup: e.target.value});   
     }
     identifierChangeHandler = (e)=>{
-        this.setState({projID: e.target.value});   
+        const allowedChars = /^[a-zA-Z0-9]+$/;
+        let id = e.target.value;
+        let parsedID = "";
+        for(let i = 0; i < id.length; i++){
+            if(id[i].match(allowedChars))
+                parsedID += id[i]; 
+        }
+
+        this.setState({projID: parsedID});   
     }
 
     clearCurProj = ()=>{
@@ -128,13 +136,16 @@ class EditProj extends Component{
         e.preventDefault();
         this.setState({loading: true});
 
-        //convert state into FormData
-        const fData = new FormData();
-        fData.append('pictures', this.state.icon);
-        fData.append('pictures', this.state.demoImage);
-        
         //project upload
         if(!this.state.curProjID){
+//convert state into FormData
+const fData = new FormData();
+            if(this.state.icon.type.includes('image')){
+                fData.append('pictures', this.state.icon, this.state.projID + this.state.icon.type.replace('image/', '.'));
+                fData.append('pictures', this.state.demoImage, "TESTDINAME.png" + this.state.icon.type.replace('image/', '.'));    
+            }else{
+                return alert("Error: icon/demo image must be of image file format.");
+            }
             this.addProj(fData);    
         }else{ 
             this.editProj();

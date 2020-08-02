@@ -18,9 +18,6 @@ const ProjectList = (props)=>{
     }
 
     const projects = props.projects;
-    console.log(projects);
-    if(!projects)
-        return(<div>HI</div>)
     const list = projects.map(p=>{
         return (
         <div className = {styles.ProjUnit} key = {p._id} onClick={()=>props.loadProj(p.projID)}>
