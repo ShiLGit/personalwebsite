@@ -110,13 +110,11 @@ class EditProj extends Component{
             axios.post('http://localhost:5000/projects/addpic', fData, {headers: {'Authorization': `${this.props.token}`}})
             .then(res=>{
                 this.setState({loading: false});
-                alert(res.data);
-                console.log(res);
                 this.props.updateProject(res.data.updated);
             })
             .catch(e=>{
                 this.setState({loading: false});
-                alert(e);
+                alert("addProj().." + e);
                 console.log(e);
             });
 
@@ -129,7 +127,7 @@ class EditProj extends Component{
             .then(res=>{
                 alert("success!");
                 this.props.addProject(res.data.saved);
-            }).catch(e=>alert(e.message));
+            }).catch(e=>alert("Error from addtext:" + e.message));
 
     }
     onSubmitHandler = (e)=>{
@@ -138,11 +136,12 @@ class EditProj extends Component{
 
         //project upload
         if(!this.state.curProjID){
-//convert state into FormData
-const fData = new FormData();
+            
+            const fData = new FormData();
             if(this.state.icon.type.includes('image')){
-                fData.append('pictures', this.state.icon, this.state.projID + this.state.icon.type.replace('image/', '.'));
-                fData.append('pictures', this.state.demoImage, "TESTDINAME.png" + this.state.icon.type.replace('image/', '.'));    
+                const imgName = this.state.projID;
+                fData.append('pictures', this.state.icon, imgName + "_icon"+ this.state.icon.type.replace('image/', '.'));
+                fData.append('pictures', this.state.demoImage, imgName +"_demo" + this.state.icon.type.replace('image/', '.'));    
             }else{
                 return alert("Error: icon/demo image must be of image file format.");
             }
