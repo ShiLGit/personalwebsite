@@ -40,14 +40,22 @@ projRouter.route('/delete/:docID/:projID').delete(async (req, res)=>{
                     console.log(e);
                     err = e;
                   })
+  
+  //delete all pictures in folder with projID prestr
   glob(path.join(__dirname, '../../frontend/src/pictures/proj/' +req.params.projID+ "*"), (err, files)=>{
     if(err){
       console.log(err);
     }else{
       files.forEach(f=>{
-          fs.unlink(f, err=>{
-            console.log("\nFILE DELETION ERROR: \n" + err);
-          })
+          console.log(f, `${req.params.projID + "_"}`, f.includes(req.params.projID + "_"))
+          if(f.includes(req.params.projID + "_")){
+            console.log("ATTEMPTING TO UNLINK" + f);
+            fs.unlink(f, err=>{
+              if(err)
+                console.log("\nFILE DELETION ERROR: \n" + err);
+            })
+          }
+          
       })
     }
   });
