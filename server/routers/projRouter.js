@@ -3,6 +3,9 @@ const projRouter = require('express').Router();
 const ProjText = require('../models/ProjText');
 const auth = require('../middleware/auth');
 const multer = require('multer');
+const glob = require("glob");
+const fs = require('fs');
+
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -27,16 +30,27 @@ projRouter.route('/init').get(async (req,res)=>{
 
 });
 
+//docID = _id in mongodb, projID = projId property of projText objects
 //USE AUTH MIDDLEWARE ONCE DONE TESTING
-projRouter.route('/delete/:projID').delete(async (req, res)=>{
-
+projRouter.route('/delete/:docID/:projID').delete(async (req, res)=>{
+  console.log(req.params.docID, req.params.projID);
   let err = null;
-  const deleted = await ProjText.findByIdAndDelete(req.params.projID)
+  const deleted = await ProjText.findByIdAndDelete(req.params.docID)
                   .catch(e=>{
                     console.log(e);
                     err = e;
                   })
-  
+  glob(path.join(__dirname, '../../frontend/src/pictures/proj/' +req.params.projID+ "*"), (err, files)=>{
+    if(err){
+      console.log(err);
+    }else{
+      files.forEach(f=>{
+          fs.unlink(f, err=>{
+            console.log("\nFILE DELETION ERROR: \n" + err);
+          })
+      })
+    }
+  });
   if(!err)
     return res.status(200).send({success: "Successfully deleted " + deleted.projName, deleted});
       

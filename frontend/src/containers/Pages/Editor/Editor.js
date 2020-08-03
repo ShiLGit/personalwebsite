@@ -8,8 +8,7 @@ class Editor extends Component{
         curProjID: null
     }
     setCurProj = (projID)=>{
-        this.setState({curProj: projID});
-        alert(projID);  
+        this.setState({curProj: projID}); 
     }
     render(){
         const style = {

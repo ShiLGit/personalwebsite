@@ -4,10 +4,10 @@ import styles from './ProjectList.module.css';
 import axios from 'axios';
 import * as actionTypes from '../../../redux/actions/actionTypes';
 const ProjectList = (props)=>{
-    function deleteUnit(projID){
+    function deleteUnit(docID, projID){
         let ans = window.confirm("Delete this project??");
         if(ans){
-            axios.delete('http://localhost:5000/projects/delete/' + projID)
+            axios.delete('http://localhost:5000/projects/delete/'  +docID + '/'+projID)
             .then(res=>{
                 props.loadProj(null);
                 alert(res.data.success);
@@ -21,7 +21,7 @@ const ProjectList = (props)=>{
     const list = projects.map(p=>{
         return (
         <div className = {styles.ProjUnit} key = {p._id} onClick={()=>props.loadProj(p.projID)}>
-            <button onClick = {()=>deleteUnit(p._id)}>X</button>
+            <button onClick = {()=>deleteUnit(p._id, p.projID)}>X</button>
             <p>{p.projID}</p><p>{p.projName}</p>
         </div>)});
     
