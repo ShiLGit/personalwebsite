@@ -130,7 +130,8 @@ class EditProj extends Component{
             .then(res=>{
                 alert(res.data.success);
                 let update = res.data.saved;
-
+                if(update.curProjID)
+                    delete update.curProjID;
                 console.log("Saving project: ", update);
                 this.props.addProject(update);
             }).catch(e=>alert("Error from addtext:" + e.message +"\n\tCheck if your projID is unique."));
