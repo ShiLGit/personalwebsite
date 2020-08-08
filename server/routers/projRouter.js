@@ -77,12 +77,14 @@ projRouter.route('/addtext').post(auth, async (req,res)=>{
   if(!duplicate){
     newProj = new ProjText({...req.body});
     console.log(newProj);
-    newProj.save();
+    newProj.save(()=>{
+      res.status(200).send({success: newProj.projName + " saved successfully.", saved: newProj});      
+    });
   }else{
     return res.status(401).send({error: "Project with given ProjID already exists. Try selecting EDIT option."});
   }
+  
 
-  res.status(200).send({success: newProj.projName + " saved successfully.", saved: newProj});
 });
 
 //update project text

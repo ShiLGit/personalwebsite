@@ -130,11 +130,6 @@ class EditProj extends Component{
             .then(res=>{
                 alert(res.data.success);
                 let update = res.data.saved;
-            
-                if(update.curProjID)
-                    delete update.curProjID;
-                if(update._id)
-                    delete update._id;
 
                 console.log("Saving project: ", update);
                 this.props.addProject(update);

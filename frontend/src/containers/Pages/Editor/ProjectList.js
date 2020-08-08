@@ -21,7 +21,7 @@ const ProjectList = (props)=>{
     const list = projects.map(p=>{
         return (
         <div className = {styles.ProjUnit} key = {p.projID} onClick={()=>props.loadProj(p.projID)}>
-            <button onClick = {()=>deleteUnit(p.projID)}>X</button>
+            <button onClick = {()=>deleteUnit(p._id, p.projID)}>X</button>
             <p>{p.projID}</p><p>{p.projName}</p>
         </div>)});
     
