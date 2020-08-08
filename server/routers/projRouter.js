@@ -33,8 +33,7 @@ projRouter.route('/init').get(async (req,res)=>{
 //docID = _id in mongodb, projID = projId property of projText objects
 //USE AUTH MIDDLEWARE ONCE DONE TESTING
 projRouter.route('/delete/:docID/:projID').delete(async (req, res)=>{
-  console.log(req.params.docID, req.params.projID);
-  let err = null;
+   let err = null;
   const deleted = await ProjText.findByIdAndDelete(req.params.docID)
                   .catch(e=>{
                     console.log(e);
@@ -47,9 +46,9 @@ projRouter.route('/delete/:docID/:projID').delete(async (req, res)=>{
       console.log(err);
     }else{
       files.forEach(f=>{
-          console.log(f, `${req.params.projID + "_"}`, f.includes(req.params.projID + "_"))
+         
           if(f.includes(req.params.projID + "_")){
-            console.log("ATTEMPTING TO UNLINK" + f);
+            console.log("ATTEMPTING TO UNLINK " + f);
             fs.unlink(f, err=>{
               if(err)
                 console.log("\nFILE DELETION ERROR: \n" + err);

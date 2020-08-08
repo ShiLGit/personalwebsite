@@ -106,15 +106,18 @@ class EditProj extends Component{
 
     }
     addProj = (fData)=>{
+            if(!this.props.token){
+                this.setState({loading: false});
+                return alert("aint no token...");
+            }
             //upload pictures
             axios.post('http://localhost:5000/projects/addpic', fData, {headers: {'Authorization': `${this.props.token}`}})
             .then(res=>{
                 this.setState({loading: false});
-                this.props.updateProject(res.data.updated);
             })
             .catch(e=>{
                 this.setState({loading: false});
-                alert("addProj().." + e);
+                alert("Error adding images" + e);
                 console.log(e);
             });
 
@@ -125,9 +128,17 @@ class EditProj extends Component{
             //upload other projdata :/projects/addprojdata
             axios.post('http://localhost:5000/projects/addtext', payload, {headers: {'Authorization': `${this.props.token}`}})
             .then(res=>{
-                alert("success!");
-                this.props.addProject(res.data.saved);
-            }).catch(e=>alert("Error from addtext:" + e.message));
+                alert(res.data.success);
+                let update = res.data.saved;
+            
+                if(update.curProjID)
+                    delete update.curProjID;
+                if(update._id)
+                    delete update._id;
+
+                console.log("Saving project: ", update);
+                this.props.addProject(update);
+            }).catch(e=>alert("Error from addtext:" + e.message +"\n\tCheck if your projID is unique."));
 
     }
     onSubmitHandler = (e)=>{
