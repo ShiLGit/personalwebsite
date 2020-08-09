@@ -38,14 +38,13 @@ const reducer =(state=defaultState, action)=>{
         case actionTypes.UPDATE_PROJECT:
             const projectArr = JSON.parse(JSON.stringify(state.projects));
             console.log(projectArr);
-            //console.log("WHAT THE FK", JSON.parse(JSON.stringify(state.projects)));
-            console.log("PROJECTS BEFORE UPDATE: ", projectArr, state.projects);
+        
             for(let i = 0; i < projectArr.length; i++){
-                console.log(i, "(newprojdupdatestd, actionupdateproj)", projectArr[i], action.updatedProj)
-                if(projectArr[i].projID === action.updatedProj.projID){
-                    let toAdd = {...action.updateProj};
-                    projectArr[i] = toAdd;
-                 }
+                console.log(projectArr[i]._id, action.updatedProj._id);
+                if(projectArr[i]._id === action.updatedProj._id){
+                    projectArr[i] = action.updatedProj;
+                    console.log("UPDATED");
+                }
             }
             console.log("AFTER:", projectArr);
             return {projects: projectArr};
