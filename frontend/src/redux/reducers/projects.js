@@ -37,16 +37,13 @@ const reducer =(state=defaultState, action)=>{
 
         case actionTypes.UPDATE_PROJECT:
             const projectArr = JSON.parse(JSON.stringify(state.projects));
-            console.log(projectArr);
         
             for(let i = 0; i < projectArr.length; i++){
                 console.log(projectArr[i]._id, action.updatedProj._id);
                 if(projectArr[i]._id === action.updatedProj._id){
                     projectArr[i] = action.updatedProj;
-                    console.log("UPDATED");
                 }
             }
-            console.log("AFTER:", projectArr);
             return {projects: projectArr};
         default:
             return state;

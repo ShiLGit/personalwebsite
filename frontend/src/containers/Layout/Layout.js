@@ -29,7 +29,6 @@ class Layout extends Component{
                         
                         
                         <Route path = '/unauthorized' exact render={(props)=>(<MessagePage message="You are not authorized to access this route!!!"></MessagePage>)}/>
-                        <Route path = '/notlogged' render ={(props)=>(<MessagePage message="You are not logged in."></MessagePage>)}/>
                         <Route path = '/' render ={(props)=>(<MessagePage message="This route does not exist."></MessagePage>)}/>
                     </Switch>
                 </div>

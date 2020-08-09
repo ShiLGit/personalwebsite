@@ -6,7 +6,7 @@ import * as actionTypes from '../../../redux/actions/actionTypes';
 const LogoutForm = (props)=>{
     console.log(props)
     let logoutForm = (
-        <Redirect to = "/notlogged"></Redirect>
+        <Redirect to = "/login"></Redirect>
     )
     if(props.token){
         logoutForm=(

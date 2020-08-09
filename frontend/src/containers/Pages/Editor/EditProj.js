@@ -165,10 +165,10 @@ class EditProj extends Component{
     
     render(){   
         let toRender = null;
-        /*
+        
         if(!this.props.token)
             toRender = <Redirect to = '/unauthorized'/>;
-            */
+            
         const toggleAddProj = <button style ={{position: 'absolute', top: '0px', right: '0px'}} onClick={this.clearCurProj}>
                                     Add Project
                               </button>;
