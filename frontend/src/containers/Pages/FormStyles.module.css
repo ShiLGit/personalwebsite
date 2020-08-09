@@ -5,6 +5,12 @@
     margin-top: 30px;
 
 }
+.Form select{
+    padding: 10px;
+    width: 320px;
+    text-align: center;
+    margin: auto;
+}
 .Form label{
     text-align: center;
 }

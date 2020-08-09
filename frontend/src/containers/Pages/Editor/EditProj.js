@@ -43,6 +43,7 @@ class EditProj extends Component{
     }
     categoryChangeHandler = (e)=>{
         this.setState({category: e.target.value});
+        console.log("???", this.state);
     }
     titleDescChangeHandler = (e)=>{
         this.setState({titleDesc: e.target.value});   
@@ -186,7 +187,12 @@ class EditProj extends Component{
                     <input type ="text" required onChange={this.projChangeHandler} value = {this.state.projName}></input>
                     <br/>
                     <label style ={{marginBottom: '-20px'}}>Category</label>
-                    <input type ="text" required onChange={this.categoryChangeHandler} value = {this.state.category}></input>
+                    
+                    <select name = "Category" onChange={this.categoryChangeHandler}>
+                        <option value = "Web Dev">Web Dev</option>
+                        <option value = "School">School</option>
+                        <option value = "Other">Other</option>
+                    </select>
                     <br/>
                     <label style ={{marginBottom: '-20px'}}>Title Desc</label>
                     <input type ="text" required onChange={this.titleDescChangeHandler} value = {this.state.titleDesc}></input>
