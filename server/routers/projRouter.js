@@ -32,7 +32,7 @@ projRouter.route('/init').get(async (req,res)=>{
 
 //docID = _id in mongodb, projID = projId property of projText objects
 //USE AUTH MIDDLEWARE ONCE DONE TESTING
-projRouter.route('/delete/:docID/:projID').delete(async (req, res)=>{
+projRouter.route('/delete/:docID/:projID').delete(auth,async (req, res)=>{
    let err = null;
   const deleted = await ProjText.findByIdAndDelete(req.params.docID)
                   .catch(e=>{
@@ -88,7 +88,7 @@ projRouter.route('/addtext').post(auth, async (req,res)=>{
 });
 
 //update project text
-projRouter.route('/edittext/:projIDName').put(async (req, res)=>{
+projRouter.route('/edittext/:projIDName').put(auth, async (req, res)=>{
   try{
     const project = await ProjText.findOneAndReplace({projID: req.params.projIDName}, req.body, {new: true});
     return res.send({success: req.body.projName + " updated successfully.", updated: project});

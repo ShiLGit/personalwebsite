@@ -93,15 +93,16 @@ class EditProj extends Component{
         const {loading, icon, demoImage, ...payload} = clone;
 
          //edit project
-         axios.put('http://localhost:5000/projects/edittext/' + this.state.curProjID, payload)
+         axios.put('http://localhost:5000/projects/edittext/' + this.state.curProjID, payload, {headers: {'Authorization': `${this.props.token}`}})
          .then(res=>{
              this.setState({loading: false});
              alert(res.data.success);
-             this.props.updateProject(res.data.updated)
+             this.props.updateProject(res.data.updated);
+             console.log("updated", res.data.updated);
          })
          .catch(e=>{
              this.setState({loading: false});
-
+            alert(e);
              console.log(e);
          })
 
