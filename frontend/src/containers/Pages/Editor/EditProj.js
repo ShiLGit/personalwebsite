@@ -151,7 +151,7 @@ class EditProj extends Component{
             if(this.state.icon.type.includes('image')){
                 const imgName = this.state.projID;
                 fData.append('pictures', this.state.icon, imgName + "_icon"+ this.state.icon.type.replace('image/', '.'));
-                fData.append('pictures', this.state.demoImage, imgName +"_demo" + this.state.icon.type.replace('image/', '.'));    
+                fData.append('pictures', this.state.demoImage, imgName +"_demo" + this.state.demoImage.type.replace('image/', '.'));    
             }else{
                 this.setState({loading: false});
                 return alert("Error: icon/demo image must be of image file format.");
