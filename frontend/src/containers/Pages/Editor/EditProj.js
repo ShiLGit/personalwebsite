@@ -32,7 +32,7 @@ class EditProj extends Component{
         }
 
         if(this.props.curProjID !== this.state.curProjID){
-            this.state.curProjID = this.props.curProjID;
+            this.setState({curProjID: this.props.curProjID});
             if(this.props.curProjID === null)
                 this.clearCurProj();
         }

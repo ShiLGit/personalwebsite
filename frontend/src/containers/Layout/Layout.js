@@ -10,7 +10,7 @@ import Logout from '../Pages/AdminAuth/Logout';
 import Email from '../Pages/Email/Email';
 import Editor from '../Pages/Editor/Editor';
 import MessagePage from '../../components/UI/MessagePage';
-
+import Carousel from '../../components/Carousel/Carousel';
 class Layout extends Component{
     render(){
         return(
@@ -26,7 +26,7 @@ class Layout extends Component{
                         <Route path = '/login' exact component={Login}/>
                         <Route path = '/editproj' exact component = {Editor}/>
                         <Route path = '/logout' exact component = {Logout}/>
-                        
+                        <Route path = '/carousel' component = {Carousel}/>
                         
                         <Route path = '/unauthorized' exact render={(props)=>(<MessagePage message="You are not authorized to access this route!!!"></MessagePage>)}/>
                         <Route path = '/' render ={(props)=>(<MessagePage message="This route does not exist."></MessagePage>)}/>

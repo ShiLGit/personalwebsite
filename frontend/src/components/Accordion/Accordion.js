@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './Accordion.module.css';
 
-import ProjUnit from './AccordionUnit/AccordionUnit';
+import ProjUnit from '../Carousel/ProjUnit/ProjUnit';
 
 const Accordion = (props)=>{
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './AccordionUnit.module.css';
+import classes from './ProjUnit.module.css';
 const ProjUnit = (props)=>{
     return(
     <div className={classes.Wrapper}>

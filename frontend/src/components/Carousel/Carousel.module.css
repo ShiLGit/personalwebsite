@@ -1,0 +1,37 @@
+
+.Body{
+    width: 80%;
+    height: max(250px, 15vw);
+    min-height: 200px;
+    text-align: center;
+    margin: auto;
+
+    animation: slideIn 0.5s forwards;
+}
+.Body div{
+    grid-row-start: 0;
+}
+
+@media(min-width:1000px){
+    .Body{
+        height: max(250px, 12vw);
+        width: 70%;
+    }
+    .BarClick{
+        width: 70%;
+    }
+}
+
+@keyframes slideIn{
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 0.3;
+
+    }
+    100%{
+        opacity: 1;
+    
+    }
+}
