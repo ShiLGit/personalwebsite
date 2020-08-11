@@ -13,7 +13,7 @@ class EditProj extends Component{
         curProjID: this.props.curProjID,
 
         projName: "",
-        category: "",
+        category: "Web Dev",
         titleDesc: "",
         icon: null,
         demoImage: null,
