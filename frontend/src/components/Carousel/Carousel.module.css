@@ -1,3 +1,8 @@
+/*FOR THE SVG IN Arrow COMPONENT*/
+.Body svg{
+    cursor: pointer;
+    height: 10vh;
+}
 
 .Body{
     width: 80%;
@@ -6,6 +11,7 @@
     text-align: center;
     margin: auto;
 
+    
     animation: slideIn 0.5s forwards;
 }
 .Body div{

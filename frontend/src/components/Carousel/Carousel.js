@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import ProjUnit from './ProjUnit/ProjUnit';
 import styles from './Carousel.module.css';
+import Arrow from './Arrow';
+
 //will receive projtype prop that dictates which category (web dev, school, other) gets rendered
 class Carousel extends Component{
     state = {
@@ -42,9 +44,9 @@ class Carousel extends Component{
         const indices = this.getIndices();
         return (
             <div className = {styles.Body}>
+                <Arrow clickHandler = {this.indexDecrement}/>
                 {indices.map(idx=><ProjUnit desc = {this.state.projects[idx].desc}/>)}
-                <button onClick = {this.indexIncrement}> NEXT </button>
-                <button onClick = {this.indexDecrement}>PREV</button>
+                <Arrow clickHandler = {this.indexIncrement}/>
             </div>)
     }
     
