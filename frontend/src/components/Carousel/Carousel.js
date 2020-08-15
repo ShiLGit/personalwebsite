@@ -43,10 +43,12 @@ class Carousel extends Component{
     render(){
         const indices = this.getIndices();
         return (
+            <div className = {styles.BigWrapper}>
             <div className = {styles.Body}>
-                <Arrow clickHandler = {this.indexDecrement}/>
+                <Arrow clickHandler = {this.indexIncrement} transform="scaleX(-1)"/>
                 {indices.map(idx=><ProjUnit desc = {this.state.projects[idx].desc}/>)}
-                <Arrow clickHandler = {this.indexIncrement}/>
+                <Arrow clickHandler = {this.indexDecrement}/>
+            </div>
             </div>)
     }
     

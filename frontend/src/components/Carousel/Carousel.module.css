@@ -2,14 +2,15 @@
 .Body svg{
     cursor: pointer;
     height: 10vh;
+    display: inline-block;
+    position: absolute;
 }
-
 .Body{
     width: 80%;
     height: max(250px, 15vw);
     min-height: 200px;
     text-align: center;
-    margin: auto;
+    position: relative;
 
     
     animation: slideIn 0.5s forwards;
