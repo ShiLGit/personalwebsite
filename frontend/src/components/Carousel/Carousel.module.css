@@ -4,8 +4,11 @@
     height: 10vh;
     display: inline-block;
     position: absolute;
+    top: max(48px, 7.5vw - 72px);
+    margin: 0px -20px;
 }
 .Body{
+    margin-top: 400px;
     width: 80%;
     height: max(250px, 15vw);
     min-height: 200px;
