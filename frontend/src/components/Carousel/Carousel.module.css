@@ -8,7 +8,8 @@
     margin: 0px -20px;
 }
 .Body{
-    margin-top: 400px;
+    grid-row-start: 0;
+    grid-column-start: 0;   
     width: 95%;
     height: max(250px, 15vw);
     min-height: 200px;
