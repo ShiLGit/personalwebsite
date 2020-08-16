@@ -1,12 +1,4 @@
 /*FOR THE SVG IN Arrow COMPONENT*/
-.Body svg{
-    cursor: pointer;
-    height: 10vh;
-    display: inline-block;
-    position: absolute;
-    top: max(48px, 7.5vw - 72px);
-    margin: 0px -20px;
-}
 .Body{
     grid-row-start: 0;
     grid-column-start: 0;   

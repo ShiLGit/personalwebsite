@@ -1,0 +1,53 @@
+
+.RightArrow{
+    cursor: pointer;
+    width: 3.5vw;
+    display: inline-block;
+    position: absolute;
+    margin-left: 10px;
+    right: -10px;
+}
+
+.LeftArrow{
+    cursor: pointer;
+    width: 3.5vw;
+    display: inline-block;
+    position: absolute;
+    left: 10px;
+    transform: scaleX(-1);
+}
+
+
+@media (min-width: 1000px){
+    .LeftArrow{
+        top: 50px;
+    }
+    .RightArrow{
+        top: 50px;
+    }
+}
+
+@media (max-width: 999px){
+    .LeftArrow{
+        top: 40px;
+    }
+    .RightArrow{
+        top: 40px;
+    }
+}
+@media (max-width: 870px){
+    .LeftArrow{
+        top: 30px;
+    }
+    .RightArrow{
+        top: 30px;
+    }
+}
+@media (max-width: 560px){
+    .LeftArrow{
+        top: 15px;
+    }
+    .RightArrow{
+        top: 15px;
+    }
+}

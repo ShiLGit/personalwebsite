@@ -44,9 +44,9 @@ class Carousel extends Component{
         const indices = this.getIndices();
         return (
             <div className = {styles.Body}>
-                <Arrow clickHandler = {this.indexIncrement} transform = "scaleX(-1)"/>
+                <Arrow clickHandler = {this.indexIncrement} cssClass = "LeftArrow"/>
                 {indices.map(idx=><ProjUnit desc = {this.state.projects[idx].desc}/>)}
-                <Arrow clickHandler = {this.indexDecrement}/>
+                <Arrow clickHandler = {this.indexDecrement} cssClass ="RightArrow"/>
             </div>);
     }
     

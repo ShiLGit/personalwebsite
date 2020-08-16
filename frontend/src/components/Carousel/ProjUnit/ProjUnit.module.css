@@ -45,13 +45,13 @@
         padding: 5%;
     }
 }
-@media (max-width: 500px){
+@media (max-width: 560px){
     .Image{
         height: 70px;
         width: 70px;
     
     }
     .Wrapper{
-        padding: 3%px;
+        padding: 3px;
     }
 }
