@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './Accordion.module.css';
 
 import ProjUnit from '../Carousel/ProjUnit/ProjUnit';
-
+import Carousel from '../Carousel/Carousel';
 const Accordion = (props)=>{
 
     
@@ -12,12 +12,11 @@ const Accordion = (props)=>{
             {props.displayName}
         </div>
         <div className={classes.Body} style={{display: props.active?'block':'none'}}>
-            <div className={classes.TechStack}>
+
                 {props.desc}
-            </div>
-            <ProjUnit desc="Web Game"/>
-            <ProjUnit desc="SVG Database"/>
-            <ProjUnit desc="Chrome Extension"/>
+                <Carousel/>
+
+
         </div>
         </React.Fragment>
     );

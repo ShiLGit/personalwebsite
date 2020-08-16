@@ -29,15 +29,10 @@
 
     animation: slideIn 0.5s forwards;
 }
-.Body div{
-    grid-row-start: 0;
-}
+
 .TechStack{
     padding-top: 10px;
     font-weight: bold;
-    grid-column-start: 1;
-    grid-row-start: 1;
-    grid-row-end: 3;
 }
 
 @media(min-width:1000px){

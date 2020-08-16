@@ -9,7 +9,7 @@
 }
 .Body{
     margin-top: 400px;
-    width: 80%;
+    width: 95%;
     height: max(250px, 15vw);
     min-height: 200px;
     text-align: center;
@@ -20,16 +20,6 @@
 }
 .Body div{
     grid-row-start: 0;
-}
-
-@media(min-width:1000px){
-    .Body{
-        height: max(250px, 12vw);
-        width: 70%;
-    }
-    .BarClick{
-        width: 70%;
-    }
 }
 
 @keyframes slideIn{
