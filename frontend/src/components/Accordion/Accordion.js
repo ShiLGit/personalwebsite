@@ -12,11 +12,8 @@ const Accordion = (props)=>{
             {props.displayName}
         </div>
         <div className={classes.Body} style={{display: props.active?'block':'none'}}>
-
                 {props.desc}
                 <Carousel/>
-
-
         </div>
         </React.Fragment>
     );

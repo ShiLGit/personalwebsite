@@ -5,7 +5,8 @@ const Arrow = (props)=>{
     return(
         <svg className = {styles[props.cssClass]}version="1.0" xmlns="http://www.w3.org/2000/svg"
              width="38.000000pt" height="52.000000pt" viewBox="0 0 38.000000 52.000000"
-             preserveAspectRatio="xMidYMid meet" onClick = {props.clickHandler}>
+             preserveAspectRatio="xMidYMid meet" onClick = {props.clickHandler}
+             style={{gridColumnStart: props.gridColumnStart}}>
 
         <g transform="translate(0.000000,52.000000) scale(0.100000,-0.100000)"
         fill="#000000" stroke="none">

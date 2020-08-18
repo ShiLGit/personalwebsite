@@ -13,7 +13,7 @@
 .Navbar{
     display: none;
     padding: 10px;
-
+    box-sizing: border-box;
 }
 .Active h3{
     color: #757575;
@@ -26,7 +26,7 @@
     width: 100%;
     background-color:white;
     z-index: 900;
-    height: 10vh;
+    height: max(10vh, 75px);
 }
 .Navbar h3:after{
     background: none repeat scroll 0 0 transparent;

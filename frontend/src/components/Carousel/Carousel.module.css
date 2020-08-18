@@ -7,21 +7,22 @@
     min-height: 200px;
     text-align: center;
     position: relative;
-
-    
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    margin: auto;
     animation: slideIn 0.5s forwards;
 }
 .Body div{
     grid-row-start: 0;
 }
+.ProjUnitWrapper{
+    grid-column-start: 2;
+    grid-template-columns: 33% 33% 33%;
+}
 
 @keyframes slideIn{
     0%{
         opacity: 0;
-    }
-    50%{
-        opacity: 0.3;
-
     }
     100%{
         opacity: 1;

@@ -44,9 +44,13 @@ class Carousel extends Component{
         const indices = this.getIndices();
         return (
             <div className = {styles.Body}>
-                <Arrow clickHandler = {this.indexIncrement} cssClass = "LeftArrow"/>
-                {indices.map(idx=><ProjUnit desc = {this.state.projects[idx].desc}/>)}
-                <Arrow clickHandler = {this.indexDecrement} cssClass ="RightArrow"/>
+                <Arrow clickHandler = {this.indexIncrement} cssClass = "LeftArrow" gridColumnStart={1}/>
+                <div className = {styles.ProjUnitWrapper}>
+
+                
+                {indices.map((indicesIdx, arrayIdx)=><ProjUnit desc = {this.state.projects[indicesIdx].desc} gridColumnStart={arrayIdx + 1}/>)}
+                </div>
+                <Arrow clickHandler = {this.indexDecrement} cssClass ="RightArrow" gridColumnStart={3}/>
             </div>);
     }
     
