@@ -25,12 +25,10 @@
     min-height: 200px;
     text-align: center;
     margin: auto;
+
+    line-height: 40px;
 }
 
-.TechStack{
-    padding-top: 10px;
-    font-weight: bold;
-}
 
 @media(min-width:1000px){
     .Body{

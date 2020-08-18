@@ -43,6 +43,7 @@
     }
     .Wrapper{
         padding: 3%;
+        width: 90px;
     }
 }
 @media (max-width: 560px){
