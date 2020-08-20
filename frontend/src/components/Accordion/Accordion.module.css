@@ -13,11 +13,29 @@
     margin-top: 10px;
 
     display: block;
+    display: grid;
+    grid-template-columns: 20% 80%;
 }
 .BarClick:hover{
     background-color: #3850c7;
 }
-
+.BarClick p{
+    padding: 0px;
+    margin: 0px;
+    grid-column-start: 2;
+    text-align: left;
+}
+.BarClick img{
+    grid-column-start: 1;
+    margin: auto;
+    
+}
+.ActiveImage{
+    animation: rotateArrow 0.5s forwards;
+}
+.InactiveImage{
+    animation: revertRotation 0.5s forwards;
+}
 .Body{
     background-color: #FFF5BF;
     width: 80%;
@@ -37,5 +55,19 @@
     }
     .BarClick{
         width: 70%;
+    }
+}
+
+@keyframes rotateArrow{
+    100%{
+        transform: rotate(90deg);
+    }
+}
+@keyframes revertRotation{
+    0%{
+        transform: rotate(90deg);
+    }
+    100%{
+        transform: none;
     }
 }
