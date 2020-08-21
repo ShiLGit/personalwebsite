@@ -15,7 +15,9 @@ class ProjViewer extends Component{
                 <div className={styles.CarouselWrapper}>
                     <Carousel/>
                 </div>
-                
+            </div>
+            <div className = {styles.RightWrapper}>
+
             </div>
         </div>);
     }

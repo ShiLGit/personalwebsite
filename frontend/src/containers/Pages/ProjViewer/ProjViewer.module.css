@@ -5,26 +5,37 @@
 
 .LeftWrapper{
     grid-row-start: 1;
-    background-color: red;
     margin: auto;
     display: grid;
-    grid-template-rows: 20% 50% 30%;
-
+    grid-template-rows: 20% 50%  5% 25%;
     width: 70%;
+    height: 80vh;
     
 }
 .DemoImage{
-    width: 620px;
-    height: 354px;
+    width: 100%;
+    height: 100%;
+    grid-row-end: 3;
+    margin: auto;
+
+    grid-row-start: 2;
 }
 .TitleWrapper{
     height: 90px;
     background-color: #BBC6FF;
-    margin: 10px;
     grid-row-start: 1;
 }
-.CarouselWrapper img{
-    grid-row-start: 3;
+
+.TitleWrapper h2{
+    margin-left: 50px;
+}
+.CarouselWrapper{
+    width: 100%;
+    height: 100%;
+    grid-row-start: 4;
+    margin: auto;
 }
 
-
+.RightWrapper{
+    grid-column-start: 2;
+}
