@@ -1,0 +1,30 @@
+.Wrapper{
+    display: grid;
+    grid-template-columns: 65% 35%;
+}
+
+.LeftWrapper{
+    grid-row-start: 1;
+    background-color: red;
+    margin: auto;
+    display: grid;
+    grid-template-rows: 20% 50% 30%;
+
+    width: 70%;
+    
+}
+.DemoImage{
+    width: 620px;
+    height: 354px;
+}
+.TitleWrapper{
+    height: 90px;
+    background-color: #BBC6FF;
+    margin: 10px;
+    grid-row-start: 1;
+}
+.CarouselWrapper img{
+    grid-row-start: 3;
+}
+
+
