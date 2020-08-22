@@ -7,7 +7,7 @@
 }
 
 .TitleWrapper{
-    height: 90px;
+    height: 100%;
     grid-row-start: 1;
     text-align: center;
     
@@ -54,6 +54,7 @@
         grid-row-start: 1;
         grid-column-start: 2;
         background-color: #567BFF;
+        height: 90px;
     }
 
     .DemoImage{
@@ -91,3 +92,8 @@
     }
 }
 
+@media(max-height: 750px) and (max-width: 1000px){
+    .Wrapper{
+        grid-template-rows: 15% 25% 40% 20%;
+    }
+}
