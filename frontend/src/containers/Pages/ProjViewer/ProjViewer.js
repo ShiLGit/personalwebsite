@@ -1,13 +1,12 @@
 import React, {Component} from 'react';
 import styles from './ProjViewer.module.css';
 import Carousel from '../../../components/Carousel/Carousel';
-import ProjViewerMobile from './ProjViewer_Mobile';
 class ProjViewer extends Component{
     render(){
         return(
         <div className={styles.Wrapper}>
                 <div className={styles.TitleWrapper}>
-                    <h2>PROJECT NAME</h2>
+                    <h1>PROJECT NAME</h1>
                 </div>
                 
                 <img src="https://picsum.photos/200/300?grayscale" className={styles.DemoImage}/>

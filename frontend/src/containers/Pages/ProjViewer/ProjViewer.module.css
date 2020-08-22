@@ -1,9 +1,9 @@
 .Wrapper{
-    margin-top: 15vh;
+    margin-top: max(10vh, 75px);
     height: 85vh;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 15% 35% 30% 20%;
+    grid-template-rows: 10% 30% 40% 20%;
 }
 
 .TitleWrapper{
@@ -42,45 +42,52 @@
 
 /*Desktop*/
 @media (min-width:1000px){
-
     .Wrapper{
+        margin-top: -10px;
         display: grid;
-        grid-template-columns: 65% 35%;
+        grid-template-columns: 5% 60% 30% 5%;
         grid-template-rows: 20% 50% 5% 25%;
     }
     .TitleWrapper{
         width: 70%;
         margin: auto;
         grid-row-start: 1;
-        grid-column-start: 1;
+        grid-column-start: 2;
+        background-color: #567BFF;
     }
-    .TitleWrapper h2{
-        margin-left: 50px;
-    }
-    
+
     .DemoImage{
-        max-width: 70%;
-        max-height: 100%;
+        width: 70%;
+        height: 100%;
+        
         margin: auto;
         grid-row-start: 2;
         grid-row-end: 3;
-        grid-column-start: 1;
+        grid-column-start: 2;
+        
     }
 
     .CarouselWrapper{
         width: 70%;
-        height: 100%;
+        height: 105%;
         grid-row-start: 4;
-        grid-column-start: 1;
+        grid-column-start: 2;
         margin: auto;
+        background-color: #E3E9FF;
+    }
+    .CarouselWrapper img{
+        height: 90px;
+        width: 90px;
     }
     .TextWrapper{
-        grid-column-start: 2;
+        grid-column-start: 3;
         grid-row-start: 1;
         grid-row-end: 4;
+        padding: 10px;
         text-align: center;
-
+        margin: auto;
         margin-top: max(75px, 10vh);
+        margin-left: -12%;
     }
 }
 
