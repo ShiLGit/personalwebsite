@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 //will receive projtype prop that dictates which category (web dev, school, other) gets rendered
 class Carousel extends Component{
     state = {
-        projects: this.props.projects,
+        projects: this.props.projects?this.props.projects:[],
         index: 0
     }
     indexDecrement = ()=>{
@@ -59,11 +59,11 @@ class Carousel extends Component{
                 <div className = {styles.ProjUnitWrapper}>
 
                 
-                    {indices.map(
+                    {this.state.projects.length>0?indices.map(
                         (indicesIdx, arrayIdx)=>{
-                            console.log(this.state.projects[indicesIdx]);
-                            return (<ProjUnit key = {arrayIdx} desc = {this.state.projects[indicesIdx]?this.state.projects[indicesIdx].titleDesc:"shit"} gridColumnStart={arrayIdx + 1}/>) })
-                    }
+                            console.log(indicesIdx, this.state.projects, this.state.projects[indicesIdx]);
+                            return (<ProjUnit key = {arrayIdx} desc = {this.state.projects[indicesIdx].titleDesc} gridColumnStart={arrayIdx + 1}/>) })
+                    :null}
                 </div>
                 <Arrow clickHandler = {this.indexDecrement} cssClass ="RightArrow" gridColumnStart={3}/>
             </div>);
