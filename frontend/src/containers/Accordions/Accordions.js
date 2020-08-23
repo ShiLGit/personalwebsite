@@ -8,14 +8,17 @@ class Accordions extends Component{
             {
                 displayName:"Placeholder",
                 desc:"Node.js, React.js, MongoDB, SQL",
-                key: 0
+                key: 0,
+                category:"Web Dev"
             },
             {
+                category:"School",
                 displayName:"School",
                 desc:"C, Java, Data Structures, Algorithms",
                 key: 1
             },
             {
+                category:"Other",
                 displayName: "Other",
                 desc: "I stoopid",
                 key: 2

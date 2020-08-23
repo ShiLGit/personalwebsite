@@ -13,6 +13,7 @@ class App extends Component{
       .then(res=>{
         console.log(res.data);
         this.props.initProjects(res.data.projects);
+        console.log(this.props);
       })
       .catch(e=>{
         alert("errror!!!!");
@@ -34,5 +35,7 @@ const dispatchToProps = dispatch=>{
     initProjects: (projects)=>dispatch({type: actionTypes.LOAD_PROJECTS, projects}),
   };
 }
-
-export default connect(null, dispatchToProps)(App)
+const stateToProps = state=>{
+  return({projects: state.projReducer.projects});
+}
+export default connect(stateToProps, dispatchToProps)(App)

@@ -3,10 +3,11 @@ import ProjUnit from './ProjUnit/ProjUnit';
 import styles from './Carousel.module.css';
 import Arrow from './Arrow';
 
+import {connect} from 'react-redux';
 //will receive projtype prop that dictates which category (web dev, school, other) gets rendered
 class Carousel extends Component{
     state = {
-        projects: [{desc: "p1"}, {desc: "p2"}, {desc: "p3"}, {desc: "p4"}],
+        projects: this.props.projects,
         index: 0
     }
     indexDecrement = ()=>{
@@ -20,16 +21,26 @@ class Carousel extends Component{
         }});
     }
 
-    componentDidMount(){
-        //SET STATE.PROJECTS ACCORDINGLY USING PROPS + PROJREDUCTER.STATE
+    componentDidUpdate(){
+        if(this.props.projects.length>0 && this.state.projects.length === 0){
+            
+            const projType = this.props.category;
+            if(projType ==='all'){
+                this.setState({projects: this.props.projects});
+                return;
+            }
+  
+            const projects = this.props.projects.filter(proj=>proj.category === projType);
+            console.log(projects, projType);
+            this.setState({projects});
+        }
     }
-
     //given starting index (state.index), return indices of all projects to show
     getIndices= ()=>{
         const indices = [];
         let curIndex = this.state.index;
         indices[0] = curIndex;
-        for(let i = 1; i < 3; i++){
+        for(let i = 1; i < Math.min(3, this.state.projects.length); i++){
             curIndex++;
             if(curIndex >= this.state.projects.length){
                 curIndex = 0;
@@ -48,12 +59,18 @@ class Carousel extends Component{
                 <div className = {styles.ProjUnitWrapper}>
 
                 
-                {indices.map((indicesIdx, arrayIdx)=><ProjUnit desc = {this.state.projects[indicesIdx].desc} gridColumnStart={arrayIdx + 1}/>)}
+                    {indices.map(
+                        (indicesIdx, arrayIdx)=>{
+                            console.log(this.state.projects[indicesIdx]);
+                            return (<ProjUnit key = {arrayIdx} desc = {this.state.projects[indicesIdx]?this.state.projects[indicesIdx].titleDesc:"shit"} gridColumnStart={arrayIdx + 1}/>) })
+                    }
                 </div>
                 <Arrow clickHandler = {this.indexDecrement} cssClass ="RightArrow" gridColumnStart={3}/>
             </div>);
     }
     
 };
-
-export default Carousel;
+const stateToProps = (state)=>{
+    return({projects: state.projReducer.projects});
+}
+export default connect(stateToProps)(Carousel);

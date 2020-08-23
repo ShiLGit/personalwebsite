@@ -11,7 +11,7 @@ class ProjViewer extends Component{
                 
                 <img src="https://picsum.photos/200/300?grayscale" className={styles.DemoImage}/>
                 <div className={styles.CarouselWrapper}>
-                    <Carousel/>
+                    <Carousel category="all"/>
                 </div>
             <div className = {styles.TextWrapper}>
                 <h1>HI111</h1>

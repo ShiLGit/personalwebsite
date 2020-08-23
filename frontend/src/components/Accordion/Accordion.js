@@ -15,7 +15,7 @@ const Accordion = (props)=>{
         <div className={classes.Body} style={{display: props.active?'block':'none'}}>
 
                 {props.desc}
-                <Carousel/>
+                <Carousel category={props.category}/>
         </div>
         </React.Fragment>
     );

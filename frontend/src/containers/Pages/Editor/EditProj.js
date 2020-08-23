@@ -43,7 +43,6 @@ class EditProj extends Component{
     }
     categoryChangeHandler = (e)=>{
         this.setState({category: e.target.value});
-        console.log("???", this.state);
     }
     titleDescChangeHandler = (e)=>{
         this.setState({titleDesc: e.target.value});   
