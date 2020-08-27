@@ -71,7 +71,7 @@ projRouter.route('/addpic').post(auth, upload.array('pictures', 2), async (req,r
 });
 
 projRouter.route('/addtext').post(auth, async (req,res)=>{
-  console.log(req.body);
+  console.log('...payload??', req.body);
   let newProj;
   const duplicate = await ProjText.findOne({projID: req.body.projID});
   if(!duplicate){

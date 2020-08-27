@@ -21,6 +21,7 @@ class Carousel extends Component{
         }});
     }
 
+    //filter all projects in ProjReducer state to only projs under props.category
     componentDidUpdate(){
         if(this.props.projects.length>0 && this.state.projects.length === 0){
             
@@ -62,7 +63,7 @@ class Carousel extends Component{
                     {this.state.projects.length>0?indices.map(
                         (indicesIdx, arrayIdx)=>{
                             console.log(indicesIdx, this.state.projects, this.state.projects[indicesIdx]);
-                            return (<ProjUnit key = {arrayIdx} desc = {this.state.projects[indicesIdx].titleDesc} gridColumnStart={arrayIdx + 1}/>) })
+                            return (<ProjUnit key = {arrayIdx} desc = {this.state.projects[indicesIdx].titleDesc} gridColumnStart={arrayIdx + 1} img={this.props.projID}/>) })
                     :null}
                 </div>
                 <Arrow clickHandler = {this.indexDecrement} cssClass ="RightArrow" gridColumnStart={3}/>

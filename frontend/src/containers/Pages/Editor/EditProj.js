@@ -19,7 +19,10 @@ class EditProj extends Component{
         demoImage: null,
         bodyMarkup: "",
         projID: "",
-        loading: false
+        loading: false, 
+
+        iconName: "",
+        demoImageName:""
     }
     componentDidUpdate(){
         //load selected project from ProjectList data onto form
@@ -49,11 +52,14 @@ class EditProj extends Component{
     }
     iconChangeHandler = (e)=>{
         this.setState({icon: e.target.files[0]});  
-        console.log(this.state.icon) 
+        this.setState({iconName: this.state.projID+ "_icon"+ e.target.files[0].type.replace('image/', '.')});   
+        console.log('posticonchange', this.state);
     }
     demoImageChangeHandler = (e)=>{
         this.setState({demoImage: e.target.files[0]});
-        console.log(this.state);
+        this.setState({demoImageName: this.state.projID +"_demo" + e.target.files[0].type.replace('image/', '.')});
+
+        console.log('post deomiamgechange', this.state);
     }
     bodyChangeHandler = (e)=>{
         this.setState({bodyMarkup: e.target.value});   
@@ -89,7 +95,7 @@ class EditProj extends Component{
 
         //get object w/ project text properties from this.state
         const clone = {...this.state};
-        const {loading, icon, demoImage, ...payload} = clone;
+        const {loading, icon, demoImage, curProjID, ...payload} = clone;
         console.log(this.props.projects);
          //edit project
          axios.put('http://localhost:5000/projects/edittext/' + this.state.curProjID, payload, {headers: {'Authorization': `${this.props.token}`}})
@@ -123,10 +129,11 @@ class EditProj extends Component{
                 console.log(e);
             });
 
+
             //get object w/ project text properties from this.state
             const clone = {...this.state};
-            const {loading, icon, demoImage, ...payload} = clone;
-
+            const {loading, icon, demoImage, curProjID, ...payload} = clone;
+            console.log("LINE95 ADDPROJ", this.state, payload)
             //upload other projdata :/projects/addprojdata
             axios.post('http://localhost:5000/projects/addtext', payload, {headers: {'Authorization': `${this.props.token}`}})
             .then(res=>{
@@ -145,12 +152,12 @@ class EditProj extends Component{
 
         //project upload
         if(!this.state.curProjID){
-            
             const fData = new FormData();
             if(this.state.icon.type.includes('image')){
                 const imgName = this.state.projID;
+
                 fData.append('pictures', this.state.icon, imgName + "_icon"+ this.state.icon.type.replace('image/', '.'));
-                fData.append('pictures', this.state.demoImage, imgName +"_demo" + this.state.demoImage.type.replace('image/', '.'));    
+                fData.append('pictures', this.state.demoImage, imgName +"_demo" + this.state.demoImage.type.replace('image/', '.')); 
             }else{
                 this.setState({loading: false});
                 return alert("Error: icon/demo image must be of image file format.");

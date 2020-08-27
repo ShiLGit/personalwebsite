@@ -1,7 +1,5 @@
 import React from 'react';
 import classes from './Accordion.module.css';
-
-import ProjUnit from '../Carousel/ProjUnit/ProjUnit';
 import arrowThing from '../../pictures/test.png';
 import Carousel from '../Carousel/Carousel';
 const Accordion = (props)=>{
