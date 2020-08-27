@@ -73,7 +73,18 @@ class EditProj extends Component{
                 parsedID += id[i]; 
         }
 
+        
+        //reformat image names to match projID 
+        if(this.state.demoImageName.indexOf(this.state.projID) !== -1 && this.state.projID.length > 0){
+            console.log("replacing!!!", this.state.demoImageName.indexOf(this.state.projID));
+            console.log(`([${this.state.projID}], [${parsedID}]), [${this.state.demoImageName}], FINAL:  ${this.state.demoImageName.replace(this.state.projID, parsedID)}`)
+            this.setState(prev=>({demoImageName: prev.demoImageName.replace(this.state.projID, parsedID)}));
+        }
+        if(this.state.iconName.indexOf(this.state.projID) !== -1 && this.state.projID.length > 0){
+            this.setState(prev=>({iconName: prev.iconName.replace(this.state.projID, parsedID)}));
+        }
         this.setState({projID: parsedID});   
+
     }
 
     clearCurProj = ()=>{
