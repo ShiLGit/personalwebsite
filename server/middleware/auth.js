@@ -7,7 +7,7 @@ const auth = async (req, res, next)=>{
     try{
         const token = req.header('Authorization').replace('Bearer ', '');
         const decoded = jwt.verify(token, config.JWT_SECRET);
-        console.log("FROM AUTH MIDDLEWARE: " + token);
+       // console.log("FROM AUTH MIDDLEWARE: " + token);
 
         //find an admin that has the decoded id and a matching token 
         const admin = await Admin.findOne({_id: decoded._id});
