@@ -93,7 +93,7 @@ class EditProj extends Component{
             curProjID: this.props.curProjID,
 
             projName: "",
-            category: "",
+            category: "Web Dev",
             titleDesc: "",
             icon: null,
             demoImage: null,
@@ -101,6 +101,7 @@ class EditProj extends Component{
             projID: "",
             loading: false
         })
+        console.log("nustate: ", this.state);
     }
     editProj= ()=>{
 
@@ -143,7 +144,7 @@ class EditProj extends Component{
 
             //get object w/ project text properties from this.state
             const clone = {...this.state};
-            const {loading, icon, demoImage, curProjID, ...payload} = clone;
+            const {loading, icon, demoImage, curProjID, _id, ...payload} = clone;
             console.log("LINE95 ADDPROJ", this.state, payload)
             //upload other projdata :/projects/addprojdata
             axios.post('http://localhost:5000/projects/addtext', payload, {headers: {'Authorization': `${this.props.token}`}})
@@ -173,6 +174,7 @@ class EditProj extends Component{
                 this.setState({loading: false});
                 return alert("Error: icon/demo image must be of image file format.");
             }
+            alert("addprojgin()")
             this.addProj(fData);    
         }else{ 
             this.editProj();

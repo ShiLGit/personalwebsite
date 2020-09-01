@@ -76,8 +76,13 @@ projRouter.route('/addtext').post(auth, async (req,res)=>{
   const duplicate = await ProjText.findOne({projID: req.body.projID});
   if(!duplicate){
     newProj = new ProjText({...req.body});
-    console.log(newProj);
-    newProj.save(()=>{
+    console.log("SAVING", newProj);
+    newProj.save((err)=>{
+      if(err){
+        console.log(err)
+        return res.status(400).send({error: "Error saving " +newProj.projName});
+      }
+      
       res.status(200).send({success: newProj.projName + " saved successfully.", saved: newProj});      
     });
   }else{
