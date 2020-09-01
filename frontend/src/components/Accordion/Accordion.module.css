@@ -24,11 +24,11 @@
     margin: 0px;
     grid-column-start: 2;
     text-align: left;
+    cursor: pointer;
 }
 .BarClick img{
     grid-column-start: 1;
     margin: auto;
-    
 }
 .ActiveImage{
     animation: rotateArrow 0.5s forwards;

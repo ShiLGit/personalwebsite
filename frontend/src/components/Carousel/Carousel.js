@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 //will receive projtype prop that dictates which category (web dev, school, other) gets rendered
 class Carousel extends Component{
     state = {
-        projects: [],
+        projects: this.props.projects?this.props.projects.filter(proj=>proj.category === this.props.category):[],
         init: false, //props.projects is initially null because you have to w8 for server res, this flag for indicating whether to change state.proj
         index: 0
     }
@@ -22,18 +22,12 @@ class Carousel extends Component{
         }});
     }
 
+    componentDidMount(){
+        console.log("wazap. mounted.", this.state.init)
+    }
     //filter all projects in ProjReducer state to only projs under props.category
     componentDidUpdate(){
-        if(this.props.projects.length>0 && this.state.init === false){
-            const projType = this.props.category;
-            if(projType ==='all'){
-                this.setState({projects: this.props.projects, init: true});
-                return;
-            }
-  
-            const projects = this.props.projects.filter(proj=>proj.category === projType);
-            this.setState({projects: projects, init: true});
-        }
+        
     }
     //given starting index (state.index), return indices of all projects to show
     getIndices= ()=>{
@@ -52,6 +46,7 @@ class Carousel extends Component{
     }
 
     render(){
+        console.log(this.props.category, this.state.projects)
         const indices = this.getIndices();
         return (
             <div className = {styles.Body}>
@@ -61,7 +56,6 @@ class Carousel extends Component{
                 
                     {this.state.projects.length>0?indices.map(
                         (indicesIdx, arrayIdx)=>{
-                            console.log(indicesIdx, this.state.projects, this.state.projects[indicesIdx]);
                             return (<ProjUnit key = {arrayIdx} desc = {this.state.projects[indicesIdx].titleDesc} gridColumnStart={arrayIdx + 1} img={this.props.projID}/>) })
                     :null}
                 </div>

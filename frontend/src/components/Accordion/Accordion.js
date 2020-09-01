@@ -3,8 +3,6 @@ import classes from './Accordion.module.css';
 import arrowThing from '../../pictures/test.png';
 import Carousel from '../Carousel/Carousel';
 const Accordion = (props)=>{
-
-
     return(
         <React.Fragment>
         <div className={classes.BarClick} onClick={props.clickHandler}>
