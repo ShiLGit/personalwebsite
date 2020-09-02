@@ -61,7 +61,7 @@ class Carousel extends Component{
                 
                     {this.state.projects.length>0?indices.map(
                         (indicesIdx, arrayIdx)=>{
-                            return (<ProjUnit key = {arrayIdx} desc = {this.state.projects[indicesIdx].titleDesc} gridColumnStart={arrayIdx + 1} img={this.props.projID}/>) })
+                            return (<ProjUnit key = {arrayIdx} desc = {this.state.projects[indicesIdx].titleDesc} gridColumnStart={arrayIdx + 1} img={this.state.projects[indicesIdx].iconName}/>) })
                     :null}
                 </div>
                 <Arrow clickHandler = {this.indexDecrement} cssClass ="RightArrow" gridColumnStart={3}/>
