@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 //will receive projtype prop that dictates which category (web dev, school, other) gets rendered
 class Carousel extends Component{
     state = {
-        projects: this.props.projects?this.props.projects.filter(proj=>proj.category === this.props.category):[],
+        projects: this.props.projects?this.props.projects.filter(proj=>proj.category === this.props.category || this.props.category === 'all'):[],
         init: false, //props.projects is initially null because you have to w8 for server res, this flag for indicating whether to change state.proj
         index: 0
     }
@@ -29,7 +29,7 @@ class Carousel extends Component{
     componentDidUpdate(){
         if(!this.state.init && this.props.projects.length > 0 && this.state.projects.length == 0){  
             this.setState({
-                                projects: this.props.projects.filter(proj=>proj.category === this.props.category),
+                                projects: this.props.projects.filter(proj=>proj.category === this.props.category || this.props.category === 'all'),
                                 init: true
                            });
         }        
