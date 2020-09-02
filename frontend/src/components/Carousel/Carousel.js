@@ -23,11 +23,16 @@ class Carousel extends Component{
     }
 
     componentDidMount(){
-        console.log("wazap. mounted.", this.state.init)
+        console.log("wazap. mounted.", this.state.init);
     }
     //filter all projects in ProjReducer state to only projs under props.category
     componentDidUpdate(){
-        
+        if(!this.state.init && this.props.projects.length > 0 && this.state.projects.length == 0){  
+            this.setState({
+                                projects: this.props.projects.filter(proj=>proj.category === this.props.category),
+                                init: true
+                           });
+        }        
     }
     //given starting index (state.index), return indices of all projects to show
     getIndices= ()=>{
