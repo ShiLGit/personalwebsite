@@ -1,12 +1,24 @@
 import React, {Component} from 'react';
 import styles from './ProjViewer.module.css';
 import Carousel from '../../../components/Carousel/Carousel';
+import {connect} from 'react-redux';
 class ProjViewer extends Component{
+    state={
+        curProjID: this.props.match.params.projID,
+        curProj: this.props.projects.find(p=>p.projID === this.props.match.params.projID )
+    }
+    //update projviewer if url params changed/props.projects loaded in (previously undefined, usually just applies on component init)
+    componentDidUpdate(){
+        if(this.props.match.params.projID !== this.state.curProjID || !this.state.curProj){
+            this.setState({curProjID: this.props.match.params.projID, curProj: this.props.projects.find(p=>p.projID === this.props.match.params.projID )});
+        }
+    }
+
     render(){
         return(
         <div className={styles.Wrapper}>
                 <div className={styles.TitleWrapper}>
-                    <h1>PROJECT NAME</h1>
+                    <h1>{this.state.curProj?this.state.curProj.projName:"Loading..."}</h1>
                 </div>
                 
                 <img src="https://picsum.photos/200/300?grayscale" className={styles.DemoImage}/>
@@ -14,12 +26,15 @@ class ProjViewer extends Component{
                     <Carousel category="all"/>
                 </div>
             <div className = {styles.TextWrapper}>
-                <h1>HI111</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                {this.state.curProj?this.state.curProj.bodyMarkup:"Loading.."}
             </div>
         </div>);
     }
 
 }
-
-export default ProjViewer;
+const stateToProps = (state)=>{
+    return{
+        projects: state.projReducer.projects
+    }
+}
+export default connect(stateToProps)(ProjViewer);
