@@ -10,6 +10,9 @@
 .Image:hover{
     border: 4px solid #5B71E1;
 }
+.Active img{
+    border: 4px solid #5B71E1;
+}
 .Wrapper{
     padding-top: 0px;
     padding: 4vw;
@@ -22,6 +25,7 @@
 }
 .Wrapper h5{
     margin: 10px;
+    color: black;
 }
 @media (min-width: 1000px){
     .Image{

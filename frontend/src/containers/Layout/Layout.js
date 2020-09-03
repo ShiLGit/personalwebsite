@@ -27,7 +27,6 @@ class Layout extends Component{
                         <Route path = '/login' exact component={Login}/>
                         <Route path = '/editproj' exact component = {Editor}/>
                         <Route path = '/logout' exact component = {Logout}/>
-                        <Route path = '/carousel' component = {Carousel}/>
                         <Route path = '/projects' component = {ProjViewer}/>
                         
                         <Route path = '/unauthorized' exact render={(props)=>(<MessagePage message="You are not authorized to access this route!!!"></MessagePage>)}/>
