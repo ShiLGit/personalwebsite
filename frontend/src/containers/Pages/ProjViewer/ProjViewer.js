@@ -2,10 +2,12 @@ import React, {Component} from 'react';
 import styles from './ProjViewer.module.css';
 import Carousel from '../../../components/Carousel/Carousel';
 import {connect} from 'react-redux';
+import Loader from '../../../components/UI/Loader';
+
 class ProjViewer extends Component{
     state={
         curProjID: this.props.match.params.projID,
-        curProj: this.props.projects.find(p=>p.projID === this.props.match.params.projID )
+        curProj: null
     }
     //update projviewer if url params changed/props.projects loaded in (previously undefined, usually just applies on component init)
     componentDidUpdate(){
@@ -15,20 +17,21 @@ class ProjViewer extends Component{
     }
 
     render(){
-        return(
-        <div className={styles.Wrapper}>
+        const toRender = this.state.curProj?
+        (<div className={styles.Wrapper}>
                 <div className={styles.TitleWrapper}>
-                    <h1>{this.state.curProj?this.state.curProj.projName:"Loading..."}</h1>
+                    <h1>{this.state.curProj.projName}</h1>
                 </div>
                 
-                <img src="https://picsum.photos/200/300?grayscale" className={styles.DemoImage}/>
+                <img src={require('../../../pictures/proj/' + this.state.curProj.demoImageName )} className={styles.DemoImage}/>
                 <div className={styles.CarouselWrapper}>
                     <Carousel category="all"/>
                 </div>
             <div className = {styles.TextWrapper}>
-                {this.state.curProj?this.state.curProj.bodyMarkup:"Loading.."}
+                {this.state.curProj.bodyMarkup}
             </div>
-        </div>);
+        </div>):(<div><br/><br/><br/><br/><br/><Loader/></div>)
+        return(toRender);
     }
 
 }
