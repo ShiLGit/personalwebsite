@@ -25,6 +25,8 @@ class EditProj extends Component{
         demoImageName:""
     }
     componentDidUpdate(){
+        console.log(this.state);
+
         //load selected project from ProjectList data onto form
         if(this.props.curProjID && this.state.curProjID !== this.props.curProjID){
             for(let i = 0; i < this.props.projects.length; i++){
@@ -75,14 +77,15 @@ class EditProj extends Component{
 
         
         //reformat image names to match projID 
-        if(this.state.demoImageName.indexOf(this.state.projID) !== -1 && this.state.projID.length > 0){
-            console.log("replacing!!!", this.state.demoImageName.indexOf(this.state.projID));
+        if(this.state.demoImageName.indexOf(this.state.projID) === -1 && this.state.projID.length > 0){
             console.log(`([${this.state.projID}], [${parsedID}]), [${this.state.demoImageName}], FINAL:  ${this.state.demoImageName.replace(this.state.projID, parsedID)}`)
             this.setState(prev=>({demoImageName: prev.demoImageName.replace(this.state.projID, parsedID)}));
         }
-        if(this.state.iconName.indexOf(this.state.projID) !== -1 && this.state.projID.length > 0){
+        console.log(this.state.iconName.indexOf(this.state.projID), this.state.projID.length > 0)
+        if(this.state.iconName.indexOf(this.state.projID) === -1 && this.state.projID.length > 0){
             this.setState(prev=>({iconName: prev.iconName.replace(this.state.projID, parsedID)}));
         }
+        
         this.setState({projID: parsedID});   
 
     }
@@ -162,8 +165,8 @@ class EditProj extends Component{
         e.preventDefault();
         this.setState({loading: true});
         if(this.state.projID === 'null'){
-            this.setState({projID: "", loading: false});
-            return alert("Project Identifier: 'null' is a reserved word.")
+            this.clearCurProj();
+            return alert("Project Identifier: 'null' is a reserved word.");
         }
         //project upload
         if(!this.state.curProjID){
