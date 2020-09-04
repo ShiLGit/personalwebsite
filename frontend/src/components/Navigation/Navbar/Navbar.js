@@ -22,7 +22,7 @@ const Navbar = (props)=>{
         <NavLink to='/' activeClassName={styles.Active} exact>
             <h3>About</h3>
         </NavLink>
-        <NavLink to ='/projects' activeClassName={styles.Active}>
+        <NavLink to = {'/projects/' + null} activeClassName={styles.Active}>
             <h3>Projects</h3>
         </NavLink>
         <NavLink to ='/suggestions' activeClassName={styles.Active}>

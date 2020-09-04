@@ -3,7 +3,7 @@ import styles from './ProjViewer.module.css';
 import Carousel from '../../../components/Carousel/Carousel';
 import {connect} from 'react-redux';
 import Loader from '../../../components/UI/Loader';
-
+import {Redirect} from 'react-router-dom';
 class ProjViewer extends Component{
     state={
         curProjID: this.props.match.params.projID,
@@ -17,8 +17,9 @@ class ProjViewer extends Component{
     }
 
     render(){
-        const toRender = this.state.curProj?
-        (<div className={styles.Wrapper}>
+        let toRender = (<div><br/><br/><br/><br/><br/><Loader/></div>);
+        if(this.state.curProj){
+            toRender = (<div className={styles.Wrapper}>
                 <div className={styles.TitleWrapper}>
                     <h1>{this.state.curProj.projName}</h1>
                 </div>
@@ -30,7 +31,11 @@ class ProjViewer extends Component{
             <div className = {styles.TextWrapper}>
                 {this.state.curProj.bodyMarkup}
             </div>
-        </div>):(<div><br/><br/><br/><br/><br/><Loader/></div>)
+        </div>)
+        }else if(this.props.match.params.projID === 'null' || !this.props.match.params.projID){
+            if(this.props.projects.length > 0)
+                toRender = <Redirect to = {"/projects/" + this.props.projects[0].projID}/>
+        }
         return(toRender);
     }
 
