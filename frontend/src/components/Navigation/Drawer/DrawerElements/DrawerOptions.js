@@ -24,7 +24,7 @@ return(
         <NavLink to='/' activeClassName={styles.Active} exact>
             <h3 onClick={props.toggleDrawer}>About</h3>
         </NavLink>
-        <NavLink to ='/projects' activeClassName={styles.Active}>
+        <NavLink to ='/projects/null' activeClassName={styles.Active}>
             <h3 onClick={props.toggleDrawer}>Projects</h3>
         </NavLink>
         <NavLink to ='/suggestions' activeClassName={styles.Active}>

@@ -51,7 +51,6 @@ class Carousel extends Component{
     }
 
     render(){
-        console.log(this.props.category, this.state.projects)
         const indices = this.getIndices();
         return (
             <div className = {styles.Body}>

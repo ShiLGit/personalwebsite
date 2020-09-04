@@ -16,7 +16,7 @@ class App extends Component{
         console.log(this.props);
       })
       .catch(e=>{
-        alert("errror!!!!");
+        alert("Error initializing projects...");
         console.log(e);
       })
   }

@@ -28,8 +28,7 @@ class ProjViewer extends Component{
                 <div className={styles.CarouselWrapper}>
                     <Carousel category="all"/>
                 </div>
-            <div className = {styles.TextWrapper}>
-                {this.state.curProj.bodyMarkup}
+            <div className = {styles.TextWrapper} dangerouslySetInnerHTML={{__html:this.state.curProj.bodyMarkup}}>
             </div>
         </div>)
         }else if(this.props.match.params.projID === 'null' || !this.props.match.params.projID){

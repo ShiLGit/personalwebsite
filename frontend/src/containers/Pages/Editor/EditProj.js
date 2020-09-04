@@ -161,7 +161,10 @@ class EditProj extends Component{
     onSubmitHandler = (e)=>{
         e.preventDefault();
         this.setState({loading: true});
-
+        if(this.state.projID === 'null'){
+            this.setState({projID: "", loading: false});
+            return alert("Project Identifier: 'null' is a reserved word.")
+        }
         //project upload
         if(!this.state.curProjID){
             const fData = new FormData();
