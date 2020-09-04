@@ -12,7 +12,13 @@ class ProjViewer extends Component{
     //update projviewer if url params changed/props.projects loaded in (previously undefined, usually just applies on component init)
     componentDidUpdate(){
         if(this.props.match.params.projID !== this.state.curProjID || !this.state.curProj){
-            this.setState({curProjID: this.props.match.params.projID, curProj: this.props.projects.find(p=>p.projID === this.props.match.params.projID )});
+            const target = this.props.projects.find(p=>p.projID === this.props.match.params.projID);
+            if(!target && this.state.curProjID !== null){
+                alert("Project of identifier " + this.props.match.params.projID + "does not exist.")
+                this.setState({curProjID: "null"})
+
+            }
+            this.setState({curProjID: this.props.match.params.projID, curProj: this.props.projects.find(p=>p.projID === this.props.match.params.projID)});
         }
     }
 
@@ -31,7 +37,7 @@ class ProjViewer extends Component{
             <div className = {styles.TextWrapper} dangerouslySetInnerHTML={{__html:this.state.curProj.bodyMarkup}}>
             </div>
         </div>)
-        }else if(this.props.match.params.projID === 'null' || !this.props.match.params.projID){
+        }else if(this.state.curProjID || !this.state.curProjID){
             if(this.props.projects.length > 0)
                 toRender = <Redirect to = {"/projects/" + this.props.projects[0].projID}/>
         }

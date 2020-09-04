@@ -3,7 +3,6 @@ import classes from './ProjUnit.module.css';
 import { NavLink } from 'react-router-dom';
 // + props.img
 const ProjUnit = (props)=>{
-    console.log(props.projID);
     return(
     <NavLink to = {'/projects/' + props.projID} activeClassName={classes.Active}>
 
