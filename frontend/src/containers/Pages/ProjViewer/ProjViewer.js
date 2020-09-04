@@ -13,8 +13,8 @@ class ProjViewer extends Component{
     componentDidUpdate(){
         if(this.props.match.params.projID !== this.state.curProjID || !this.state.curProj){
             const target = this.props.projects.find(p=>p.projID === this.props.match.params.projID);
-            if(!target && this.state.curProjID !== null){
-                alert("Project of identifier " + this.props.match.params.projID + "does not exist.")
+            if(!target && (this.state.curProjID !== 'null' && this.props.match.params.projID !=='null')){
+                alert("Project of identifier " + this.props.match.params.projID + " does not exist.")
                 this.setState({curProjID: "null"})
 
             }
