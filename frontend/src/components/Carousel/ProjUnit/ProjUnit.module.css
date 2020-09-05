@@ -21,7 +21,7 @@
     display: inline-block;
     overflow: hidden;
     padding-bottom: 100px;
-    font-size: 20px;
+    font-size: 17px;
 }
 .Wrapper h5{
     margin: 10px;
@@ -56,5 +56,21 @@
     }
     .Wrapper{
         padding: 3px;
+        font-size: 10px;
+    }
+}
+@media (max-width: 380px){
+    .Image{
+        height: 50px;
+        width: 50px;
+        padding: 0px;
+    }
+    .Wrapper{
+        padding: 0px;
+        width: 50px;
+        margin: 10px;
+    }
+    .Wrapper h5{
+        font-size: 10px;
     }
 }
