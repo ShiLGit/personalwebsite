@@ -11,7 +11,7 @@ class Email extends Component{
             <label>Your Name</label>
             <input type = "text" required></input>
             <br/>
-            <label>Your Email (Optional)</label>
+            <label>Your Email (Optional, For Replies)</label>
             <input type = "email"></input>
             <br/>
             <br/>
