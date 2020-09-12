@@ -1,12 +1,13 @@
 const express = require('express');
 const app = express();
 const CONFIG = require('./config.js');
-
+require('dotenv').config();
 const mongoose = require('mongoose');
 const PORT = process.env.PORT || 5000;
 
 const authRouter = require('./routers/authRouter');
 const projRouter = require('./routers/projRouter');
+const emailRouter = require('./routers/emailRouter');
 const cors = require('cors');
 
 
@@ -17,7 +18,7 @@ app.use('/admin', authRouter);
 app.use('/projects', projRouter);
 //db connection
 try{
-    mongoose.connect(CONFIG.DB_URI, {
+    mongoose.connect(process.env.DB_URI, {
         //avoid deprecation warnings
         useNewUrlParser: true,
         useCreateIndex: true,

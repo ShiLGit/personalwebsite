@@ -1,12 +1,10 @@
 //recall .. middleware runs before the route handler >> must call next() for route handler to begin 
 const jwt = require('jsonwebtoken');
-const config = require('../config');
 const Admin = require('../models/Admin');
-
 const auth = async (req, res, next)=>{
     try{
         const token = req.header('Authorization').replace('Bearer ', '');
-        const decoded = jwt.verify(token, config.JWT_SECRET);
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
        // console.log("FROM AUTH MIDDLEWARE: " + token);
 
         //find an admin that has the decoded id and a matching token 
