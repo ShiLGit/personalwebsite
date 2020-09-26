@@ -1,6 +1,5 @@
 const authRouter = require('express').Router();
 const jwt = require('jsonwebtoken');
-const config = require('../config.js');
 
 const auth = require('../middleware/auth');
 const Admin = require('../models/Admin');
@@ -15,7 +14,7 @@ authRouter.route('/login').post( async (req, res)=>{
             throw new Error('Unmatching PW');
         }
 
-        const token = jwt.sign({_id: adminInstance._id.toString()}, config.JWT_SECRET);
+        const token = jwt.sign({_id: adminInstance._id.toString()}, process.env.JWT_SECRET);
         adminInstance.token = token;
         adminInstance.save();
         res.status(200).send({token});
