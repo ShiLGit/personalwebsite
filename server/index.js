@@ -15,6 +15,7 @@ app.use(cors());
 app.use(express.json());
 app.use('/admin', authRouter);
 app.use('/projects', projRouter);
+app.use('/email', emailRouter);
 //db connection
 try{
     mongoose.connect(process.env.DB_URI, {
