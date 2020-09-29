@@ -28,19 +28,26 @@ emailRouter.route('/send').post(async (req, res)=>{
   });
 
   const mailOptions = {
-    from: emailData.senderEmail? emailData.senderEmail: process.env.EMAIL_USER,
+    from: emailData.senderEmail?emailData.senderEmail: process.env.EMAIL_USER,
     to: process.env.EMAIL_USER,
-    subject: `Persweb email from ${emailData.senderName?emailData.senderName:"Anonymous"}`,
-    text: emailData.emailBody + emailData.senderEmail? `\n\nSender email: ${emailData.senderEmail}`:null
+    subject: `Persweb email from ${emailData.senderName}`,
+    text: emailData.emailBody + ((emailData.senderEmail && senderEmail !== "")? `\n\nSender email: ${emailData.senderEmail}`:null)
   };
-  
+  let emailResponse={success:false, response: null};
   transporter.sendMail(mailOptions, (err, res)=>{
-    if(err)
+    if(err){
+      emailResponse.respsonse=err;
       console.log(err);
-    if(res)
-      console.log(res)
+      //      return res.status(500).send(err);
+    }
+    if(res){
+      console.log("res.")
+      emailResponse ={success: true, response: res}
+    }
+    console.log("wat")
+    res.send({error: "Did not receive success affirmation - email probably unsuccessfull..."});
+
   })
-  res.send({mailOptions});
 });
 /*
 async function main() {
