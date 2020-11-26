@@ -9,6 +9,9 @@ class ProjViewer extends Component{
         curProjID: this.props.match.params.projID,
         curProj: null
     }
+    componentDidMount(){
+        console.log(this.state.curProjID, this.props.projects.find(p=>p.projID === this.props.match.params.projID));
+    }
     //update projviewer if url params changed/props.projects loaded in (previously undefined, usually just applies on component init)
     componentDidUpdate(){
         if(this.props.match.params.projID !== this.state.curProjID || !this.state.curProj){
