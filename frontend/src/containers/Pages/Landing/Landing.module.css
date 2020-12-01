@@ -1,48 +1,54 @@
-.Picture{
-    background-color: #d1d8ff;
-    border-radius: 9000px;
-    width: 50vw;
-    margin: auto;
-    margin-top: 200px;
-    margin-bottom:30px;
+.Picture {
+	background-color: #d1d8ff;
+	border-radius: 9000px;
+	width: 50vw;
+	margin: auto;
+	margin-left: 25vw;
+	margin-right: 25vw;
+	margin-top: 100px;
 }
 
-.Body{
-    display: grid;
-    height: 100%;
-    width: 100%;
-
+.Body {
+	display: grid;
+	height: 100%;
+	width: 100%;
+}
+.ProfileDesc {
+	text-align: center;
+	color: rgb(104, 104, 104);
+	margin: 0px 10vw;
+}
+.RightHalf {
+	grid-column-start: 2;
+	width: 100px;
+	color: red;
+}
+@media (min-width: 1000px) {
+	.Picture {
+		grid-column-start: 1;
+		width: 25vw;
+		vertical-align: center;
+		margin-top: 30px;
+		margin-left: 30%;
+	}
+	.Body {
+		grid-template-columns: 40vw 60vw;
+		grid-row-start: 2;
+		padding: 2%;
+	}
+	.Accordions {
+		grid-column-start: 2;
+	}
+	.BottomBar {
+		position: absolute;
+		bottom: 0px;
+		display: "block";
+	}
+	.ProfileDesc {
+		margin-left: 10vw;
+	}
 }
 
-.RightHalf{
-    grid-column-start: 2;
-    width: 100px;
-    color: red;
-}
-@media (min-width: 1000px){
-    .Picture{
-        grid-column-start: 1;
-        width: 33vw;
-        vertical-align: center;
-        margin-top: 30px;
-        margin-left: 10%;
-
-    }
-    .Body{
-        grid-template-columns: 40vw 60vw;
-        grid-row-start: 2;
-        padding: 2%;
-    }
-    .Accordions{
-        grid-column-start: 2;
-    }
-    .BottomBar{
-        position: absolute;
-        bottom: 0px;
-        display: 'block';
-    }
-}
-
-.BottomBar{
-    display: none;
+.BottomBar {
+	display: none;
 }

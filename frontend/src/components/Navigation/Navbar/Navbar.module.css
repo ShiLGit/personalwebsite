@@ -1,59 +1,59 @@
+.Navbar h3 {
+	font-size: 20px;
+	display: inline-block;
+	color: #adadad;
+	margin: 1vw 3vw 2vw 3vw;
+	font-weight: lighter;
 
-.Navbar h3{
-    font-size: 20px;
-    display: inline-block;
-    color: #ADADAD;
-    margin: 1vw 3vw 2vw 3vw;
-    font-weight: lighter;
+	cursor: pointer;
 
-    cursor: pointer;
-
-    transition: 0.3s ease-out;
+	transition: 0.3s ease-out;
 }
-.Navbar{
-    display: none;
-    padding: 10px;
-    box-sizing: border-box;
+.Navbar {
+	display: none;
+	padding: 10px;
+	box-sizing: border-box;
+	margin-right: 4vw;
 }
-.Active h3{
-    color: #757575;
-    font-weight:bold;
-    transition: 0.3s ease-in;
+.Active h3 {
+	color: #757575;
+	font-weight: bold;
+	transition: 0.3s ease-in;
 }
-.Wrapper{
-    position: fixed;
-    display: none;
-    width: 100%;
-    background-color:white;
-    z-index: 900;
-    height: max(10vh, 75px);
+.Wrapper {
+	position: fixed;
+	display: none;
+	width: 100%;
+	background-color: white;
+	z-index: 900;
+	height: max(10vh, 75px);
 }
-.Navbar h3:after{
-    background: none repeat scroll 0 0 transparent;
-    bottom: 0;
-    content: "";
-    display: block;
-    height: 3px;
-    background: #757575;
-    transition: width 0.3s ease 0s;
-    width: 0;
-    margin: 0 auto;
+.Navbar h3:after {
+	background: none repeat scroll 0 0 transparent;
+	bottom: 0;
+	content: "";
+	display: block;
+	height: 3px;
+	background: #757575;
+	transition: width 0.3s ease 0s;
+	width: 0;
+	margin: 0 auto;
 }
-.Navbar h3:hover:after{
-    width: 100%; 
-    left: 0; 
+.Navbar h3:hover:after {
+	width: 100%;
+	left: 0;
 }
-.Navbar h3:hover{
-    color: #757575;
+.Navbar h3:hover {
+	color: #757575;
 }
 
 /*Everything for big screens*/
-@media (min-width: 1000px){
-    .Navbar{
-        float: right;
-        display: block;
-    }
-    .Wrapper{
-        display: block;
-    }   
+@media (min-width: 1000px) {
+	.Navbar {
+		float: right;
+		display: block;
+	}
+	.Wrapper {
+		display: block;
+	}
 }
