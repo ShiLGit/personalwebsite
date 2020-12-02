@@ -1,33 +1,33 @@
 /*FOR THE SVG IN Arrow COMPONENT*/
-.Body{
-    grid-row-start: 0;
-    grid-column-start: 0;   
-    width: 95%;
-    height: max(250px, 15vw);
-    min-height: 200px;
-    text-align: center;
-    position: relative;
-    display: grid;
-    grid-template-columns: 10% 80% 10%;
-    margin: auto;
-    animation: slideIn 0.5s forwards;
+.Body {
+	grid-row-start: 0;
+	grid-column-start: 0;
+	width: 95%;
+	min-height: 200px;
+	max-height: 200px;
+	text-align: center;
+	position: relative;
+	display: grid;
+	grid-template-columns: 10% 80% 10%;
+	margin: auto;
+	animation: slideIn 0.5s forwards;
 }
 
-.Body div{
-    grid-row-start: 0;
+.Body div {
+	grid-row-start: 0;
 }
 
-.ProjUnitWrapper{
-    grid-column-start: 2;
-    grid-template-columns: 33% 33% 33%;
-    height: 100%;
+.ProjUnitWrapper {
+	grid-column-start: 2;
+	grid-template-columns: 33% 33% 33%;
+	height: 100%;
 }
 
-@keyframes slideIn{
-    0%{
-        opacity: 0;
-    }
-    100%{
-        opacity: 1;    
-    }
+@keyframes slideIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }

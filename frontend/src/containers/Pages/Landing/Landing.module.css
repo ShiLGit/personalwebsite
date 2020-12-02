@@ -16,7 +16,8 @@
 .ProfileDesc {
 	text-align: center;
 	color: rgb(104, 104, 104);
-	margin: 0px 10vw;
+	margin: 0px 20px 0px 20px;
+	font-size: 14px;
 }
 .RightHalf {
 	grid-column-start: 2;
@@ -45,7 +46,9 @@
 		display: "block";
 	}
 	.ProfileDesc {
-		margin-left: 10vw;
+		margin-left: 25%;
+		margin-right: 10%;
+		margin-top: 10px;
 	}
 }
 
