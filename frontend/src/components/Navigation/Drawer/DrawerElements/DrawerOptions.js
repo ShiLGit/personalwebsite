@@ -9,6 +9,11 @@ const DrawerOptions = (props) => {
 	const authOptions = [];
 	if (props.token) {
 		authOptions.push(
+			<NavLink to='/editfpage' activeClassName={styles.Active} key='3'>
+				<h3 onClick={props.toggleDrawer}>Edit Front Page</h3>
+			</NavLink>
+		);
+		authOptions.push(
 			<NavLink to='/editproj' activeClassName={styles.Active} key='2'>
 				<h3 onClick={props.toggleDrawer}>Edit Projects</h3>
 			</NavLink>

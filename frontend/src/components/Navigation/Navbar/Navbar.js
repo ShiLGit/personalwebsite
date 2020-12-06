@@ -8,9 +8,14 @@ const Navbar = (props) => {
 	if (props.token) {
 		//if logged in, add extra routes to navbar
 		extras = [
+			<NavLink to='/editfpage' activeClassName={styles.Active} key='3'>
+				<h3 onClick={props.toggleDrawer}>Edit Front Page</h3>
+			</NavLink>,
+
 			<NavLink to='/editproj' key='2' activeClassName={styles.Active}>
 				<h3>Edit Projects</h3>
 			</NavLink>,
+
 			<NavLink to='/logout' key='1' activeClassName={styles.Active}>
 				<h3>Logout</h3>
 			</NavLink>

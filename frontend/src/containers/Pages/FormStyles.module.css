@@ -1,38 +1,43 @@
-.Form input[type=text], input[type=password]{
-    padding: 8px;
-    width: min(300px, 80%);
-    margin: auto;
-    margin-top: 30px;
-
+.Form input[type="text"],
+input[type="password"] {
+	padding: 8px;
+	width: min(300px, 80%);
+	margin: auto;
+	margin-top: 30px;
 }
-.Form select{
-    padding: 10px;
-    width: 320px;
-    text-align: center;
-    margin: auto;
+.Form select {
+	padding: 10px;
+	width: 320px;
+	text-align: center;
+	margin: auto;
 }
-.Form label{
-    text-align: center;
+.Form label {
+	text-align: center;
 }
-.Form input[type=submit]{
-    margin: auto;
-    margin-top: 30px;
-    padding: 10px;
-    width: 400px;
-    background-color: rgb(49, 49, 49);
-    border: 2px solid black;
-    font-weight: bold;
-    font-size: 15px;
-    color: white;
-    cursor: pointer;
-    border-radius: 3px;
-    
+.Form input[type="submit"] {
+	margin: auto;
+	margin-top: 30px;
+	padding: 10px;
+	width: 400px;
+	background-color: rgb(49, 49, 49);
+	border: 2px solid black;
+	font-weight: bold;
+	font-size: 15px;
+	color: white;
+	cursor: pointer;
+	border-radius: 3px;
 }
-.Form{
-    display: grid;
-    padding: 30px;
-    border: 1px solid rgb(223, 223, 223);
-    width: 50%;
-    margin: auto;
+.Form {
+	display: grid;
+	padding: 30px;
+	border: 1px solid rgb(223, 223, 223);
+	width: 50%;
+	margin: auto;
 }
-
+.Form h1 {
+	text-align: center;
+}
+.InputLabel {
+	margin-bottom: -25px;
+	margin-top: 10px;
+}

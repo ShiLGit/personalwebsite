@@ -1,3 +1,5 @@
+/*This dictates general layout (navbar placement) and is responsible for handling all routes in the app */
+
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
 import styles from "./Layout.module.css";
@@ -8,7 +10,8 @@ import Landing from "../Pages/Landing/Landing";
 import Login from "../Pages/AdminAuth/Login";
 import Logout from "../Pages/AdminAuth/Logout";
 import Email from "../Pages/Email/Email";
-import Editor from "../Pages/Editor/Editor";
+import Editor from "../Pages/ProjEditor/Editor";
+import FPageEditor from "../Pages/FPageEditor/FPageEditor";
 import ProjViewer from "../Pages/ProjViewer/ProjViewer";
 import MessagePage from "../../components/UI/MessagePage";
 class Layout extends Component {
@@ -24,6 +27,7 @@ class Layout extends Component {
 						<Route path='/' exact component={Landing} />
 						<Route path='/email' exact component={Email} />
 						<Route path='/login' exact component={Login} />
+						<Route path='/editfpage' component={FPageEditor} />
 						<Route path='/editproj' exact component={Editor} />
 						<Route path='/logout' exact component={Logout} />
 						<Route path='/projects/:projID' component={ProjViewer} />
