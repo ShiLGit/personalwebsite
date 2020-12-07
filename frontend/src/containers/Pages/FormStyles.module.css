@@ -5,10 +5,8 @@ input[type="password"] {
 	margin: auto;
 	margin-top: 30px;
 }
-input[type="textarea"] {
-	width: min(550px, 95%);
-	height: 150px;
-	margin: auto;
+textarea {
+	resize: none;
 }
 .Form select {
 	padding: 10px;

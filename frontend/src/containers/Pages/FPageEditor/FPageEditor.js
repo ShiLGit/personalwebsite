@@ -15,14 +15,16 @@ class FPageEditor extends Component {
 		stateUpdate[field] = e.target.value;
 		this.setState(stateUpdate);
 	};
-	submitHandler = () => {};
+	submitHandler = () => {
+		alert("fake submit handling");
+	};
 	render() {
 		//let toRender = <Redirect to='unauthorized' />;
 		let toRender;
 		if (1)
 			toRender = (
 				<>
-					<form className={formStyle.Form} style={{ marginTop: "80px" }}>
+					<form className={formStyle.Form} style={{ marginTop: "80px" }} onSubmit={this.submitHandler}>
 						<h1>Edit Front Page</h1>
 						<label className={formStyle.InputLabel}>Tech Stack: Web Dev</label>
 						<input
@@ -55,14 +57,15 @@ class FPageEditor extends Component {
 						></input>
 						<br />
 						<label>Bio</label>
-						<input
+						<textarea
 							type='textarea'
+							rows={5}
 							value={this.state.bio}
 							onChange={(e) => {
 								this.changeStateField(e, "bio");
 							}}
 							required
-						></input>
+						></textarea>
 
 						<input type='submit' value='Save'></input>
 					</form>
