@@ -5,14 +5,17 @@ import { Redirect } from "react-router-dom";
 
 class FPageEditor extends Component {
 	state = {
-		webDevTS: "",
-		schoolTS: "",
-		otherTS: "",
+		techStack: {
+			webDevTS: "",
+			schoolTS: "",
+			otherTS: ""
+		},
 		bio: ""
 	};
 	changeStateField = (e, field) => {
-		const stateUpdate = {};
-		stateUpdate[field] = e.target.value;
+		const stateUpdate = { ...this.state };
+		if (field !== "bio") stateUpdate.techStack[field] = e.target.value;
+		else stateUpdate[field] = e.target.value;
 		this.setState(stateUpdate);
 	};
 	submitHandler = () => {
