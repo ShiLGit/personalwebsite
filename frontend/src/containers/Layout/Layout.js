@@ -31,7 +31,7 @@ class Layout extends Component {
 						<Route path='/editproj' exact component={Editor} />
 						<Route path='/logout' exact component={Logout} />
 						<Route path='/projects/:projID' component={ProjViewer} />
-
+						<Route path='/projects/' component={ProjViewer} />
 						<Route
 							path='/unauthorized'
 							exact

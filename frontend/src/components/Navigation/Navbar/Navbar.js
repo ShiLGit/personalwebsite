@@ -21,13 +21,16 @@ const Navbar = (props) => {
 			</NavLink>
 		];
 	}
+	const checkIfActive = (match) => {
+		console.log(match);
+	};
 	return (
 		<div className={styles.Wrapper}>
 			<div className={styles.Navbar}>
 				<NavLink to='/' activeClassName={styles.Active} exact>
-					<h3>Home</h3>
+					<h3 onClick={() => console.log(props)}> Home</h3>
 				</NavLink>
-				<NavLink to={"/projects/" + null} activeClassName={styles.Active}>
+				<NavLink to={"/projects"} activeClassName={styles.Active}>
 					<h3>Coding Projects</h3>
 				</NavLink>
 				<NavLink to='/email' activeClassName={styles.Active}>

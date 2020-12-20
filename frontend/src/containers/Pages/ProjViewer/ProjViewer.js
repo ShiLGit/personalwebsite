@@ -10,10 +10,6 @@ class ProjViewer extends Component {
 		curProj: null
 	};
 	componentDidMount() {
-		console.log(
-			this.state.curProjID,
-			this.props.projects.find((p) => p.projID === this.props.match.params.projID)
-		);
 		this.setState({
 			curProjID: this.props.match.params.projID,
 			curProj: this.props.projects.find((p) => p.projID === this.props.match.params.projID)
