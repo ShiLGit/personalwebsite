@@ -20,13 +20,10 @@ fpageRouter.route("/setinfo").post(async (req, res) => {
 			}
 		}
 
-		//save data
-		const savedData = await saveData.save();
+		await saveData.save();
 	} catch (e) {
-		//console.log("ERREUR", JSON.stringify(e));
 		returnStatusCode = 400;
 		returnData = { error: e };
-		console.log("WTF II");
 
 		if (e.message) {
 			returnData = { error: e.message };
@@ -37,9 +34,14 @@ fpageRouter.route("/setinfo").post(async (req, res) => {
 });
 
 fpageRouter.route("/getinfo").get(async (req, res) => {
-	console.log("wtf");
+	let returnData = null;
 	const data = await FPageData.find();
-	console.log(data.length);
-	res.send({ wot: "WAZZZZZZA" });
+	if (data.length > 0) {
+		returnData = {
+			techStack: data[0].techStack,
+			bio: data[0].bio
+		};
+	}
+	res.send(returnData);
 });
 module.exports = fpageRouter;
