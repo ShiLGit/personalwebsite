@@ -7,7 +7,7 @@ fpageRouter.route("/setinfo").post(async (req, res) => {
 		return res.status(400).send({ error: "Missing body." });
 	}
 	let returnStatusCode = 200;
-	let returnData = { success: "New frontpage data saved successfully." };
+	let returnData = {};
 	const saveData = new FPageData({ ...req.body });
 
 	try {
@@ -20,7 +20,8 @@ fpageRouter.route("/setinfo").post(async (req, res) => {
 			}
 		}
 
-		await saveData.save();
+		const saved = await saveData.save();
+		returnData = { success: "New frontpage data saved successfuly. Bio = " + saved.bio };
 	} catch (e) {
 		returnStatusCode = 400;
 		returnData = { error: e };

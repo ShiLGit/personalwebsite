@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import formStyle from "../FormStyles.module.css";
-import { Redirect } from "react-router-dom";
-
+import axios from "axios";
 class FPageEditor extends Component {
 	state = {
 		techStack: {
@@ -18,8 +17,16 @@ class FPageEditor extends Component {
 		else stateUpdate[field] = e.target.value;
 		this.setState(stateUpdate);
 	};
-	submitHandler = () => {
-		alert("fake submit handling");
+	submitHandler = (e) => {
+		e.preventDefault();
+		axios
+			.post("http://localhost:5000/fpage/setinfo", this.state, {
+				headers: { Authorization: `${this.props.token}` }
+			})
+			.then((res) => {
+				if (res.data.success) alert(res.data.success);
+				else alert("Error: " + res.data.error);
+			});
 	};
 	render() {
 		//let toRender = <Redirect to='unauthorized' />;
