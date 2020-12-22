@@ -21,9 +21,7 @@ const Navbar = (props) => {
 			</NavLink>
 		];
 	}
-	const checkIfActive = (match) => {
-		console.log(match);
-	};
+
 	return (
 		<div className={styles.Wrapper}>
 			<div className={styles.Navbar}>

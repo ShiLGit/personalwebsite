@@ -6,7 +6,7 @@ const techStackSchema = new mongoose.Schema({
 	otherTS: { type: String, required: true }
 });
 const projTextSchema = new mongoose.Schema({
-	techStack: techStackSchema,
+	techStack: { type: techStackSchema, required: true },
 	bio: { type: String, required: true }
 });
 

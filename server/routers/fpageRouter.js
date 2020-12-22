@@ -14,20 +14,23 @@ fpageRouter.route("/setinfo").post(async (req, res) => {
 		//step 1: existing entries? make sure there won't be more than 1
 		const existingData = await FPageData.find();
 		if (existingData.length >= 1) {
-			console.log("in block #1");
 			for (let i = 0; i < existingData.length; i++) {
-				console.log("deleting", existingData[i].bio);
+				console.log("deleting doc with bio =", existingData[i].bio);
 				await FPageData.findByIdAndDelete(existingData[i]._id);
 			}
 		}
 
 		//save data
-		await saveData.save((err) => {
-			if (err) returnData = { error: "Error saving request body. Check if request is valid?." };
-		});
+		const savedData = await saveData.save();
 	} catch (e) {
-		console.log(e);
-		returnStatusCode = 200;
+		//console.log("ERREUR", JSON.stringify(e));
+		returnStatusCode = 400;
+		returnData = { error: e };
+		console.log("WTF II");
+
+		if (e.message) {
+			returnData = { error: e.message };
+		}
 	} finally {
 		res.status(returnStatusCode).send(returnData);
 	}
