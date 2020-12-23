@@ -1,8 +1,7 @@
 const fpageRouter = require("express").Router();
-const { findOne, findByIdAndDelete } = require("../models/FPageData");
 const FPageData = require("../models/FPageData");
-
-fpageRouter.route("/setinfo").post(async (req, res) => {
+const auth = require("../middleware/auth");
+fpageRouter.route("/setinfo").post(auth, async (req, res) => {
 	if (!req.body) {
 		return res.status(400).send({ error: "Missing body." });
 	}

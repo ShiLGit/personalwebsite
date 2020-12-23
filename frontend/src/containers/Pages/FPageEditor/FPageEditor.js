@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import formStyle from "../FormStyles.module.css";
 import axios from "axios";
+import { Redirect } from "react-router-dom";
+
+import formStyle from "../FormStyles.module.css";
+
 class FPageEditor extends Component {
 	state = {
 		techStack: {
@@ -29,9 +32,8 @@ class FPageEditor extends Component {
 			});
 	};
 	render() {
-		//let toRender = <Redirect to='unauthorized' />;
-		let toRender;
-		if (1)
+		let toRender = <Redirect to='unauthorized' />;
+		if (this.props.token)
 			toRender = (
 				<>
 					<form className={formStyle.Form} style={{ marginTop: "80px" }} onSubmit={this.submitHandler}>
