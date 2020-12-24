@@ -27,8 +27,20 @@ class FPageEditor extends Component {
 				headers: { Authorization: `${this.props.token}` }
 			})
 			.then((res) => {
-				if (res.data.success) alert(res.data.success);
-				else alert("Error: " + res.data.error);
+				if (res.data.success) {
+					alert(res.data.success);
+					this.setState({
+						techStack: {
+							webDevTS: "",
+							schoolTS: "",
+							otherTS: ""
+						},
+						bio: ""
+					});
+				} else alert("Error: " + res.data.error);
+			})
+			.catch((e) => {
+				alert(e);
 			});
 	};
 	render() {
