@@ -1,12 +1,9 @@
 const mongoose = require("mongoose");
 
-const techStackSchema = new mongoose.Schema({
+const projTextSchema = new mongoose.Schema({
 	webDevTS: { type: String, required: true },
 	schoolTS: { type: String, required: true },
-	otherTS: { type: String, required: true }
-});
-const projTextSchema = new mongoose.Schema({
-	techStack: { type: techStackSchema, required: true },
+	otherTS: { type: String, required: true },
 	bio: { type: String, required: true }
 });
 

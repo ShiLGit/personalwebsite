@@ -7,17 +7,14 @@ import formStyle from "../FormStyles.module.css";
 
 class FPageEditor extends Component {
 	state = {
-		techStack: {
-			webDevTS: "",
-			schoolTS: "",
-			otherTS: ""
-		},
+		webDevTS: "",
+		schoolTS: "",
+		otherTS: "",
 		bio: ""
 	};
 	changeStateField = (e, field) => {
 		const stateUpdate = { ...this.state };
-		if (field !== "bio") stateUpdate.techStack[field] = e.target.value;
-		else stateUpdate[field] = e.target.value;
+		stateUpdate[field] = e.target.value;
 		this.setState(stateUpdate);
 	};
 	submitHandler = (e) => {
@@ -30,11 +27,9 @@ class FPageEditor extends Component {
 				if (res.data.success) {
 					alert(res.data.success);
 					this.setState({
-						techStack: {
-							webDevTS: "",
-							schoolTS: "",
-							otherTS: ""
-						},
+						webDevTS: "",
+						schoolTS: "",
+						otherTS: "",
 						bio: ""
 					});
 				} else alert("Error: " + res.data.error);

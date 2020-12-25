@@ -8,7 +8,7 @@ fpageRouter.route("/setinfo").post(auth, async (req, res) => {
 	let returnStatusCode = 200;
 	let returnData = {};
 	const saveData = new FPageData({ ...req.body });
-
+	console.log(req.body);
 	try {
 		//step 1: existing entries? make sure there won't be more than 1
 		const existingData = await FPageData.find();
@@ -38,7 +38,9 @@ fpageRouter.route("/getinfo").get(async (req, res) => {
 	const data = await FPageData.find();
 	if (data.length > 0) {
 		returnData = {
-			techStack: data[0].techStack,
+			webDevTS: data[0].webDevTS,
+			schoolTS: data[0].schoolTS,
+			otherTS: data[0].otherTS,
 			bio: data[0].bio
 		};
 	}
