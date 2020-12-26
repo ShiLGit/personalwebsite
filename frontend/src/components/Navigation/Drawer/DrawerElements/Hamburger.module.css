@@ -1,123 +1,123 @@
-.LineStyle{
-    background-color: black;
-    height: 2px;
-    width: 40px;
-    margin: 10px;
-    box-sizing: border-box;
+.LineStyle {
+	background-color: black;
+	height: 2px;
+	width: 40px;
+	margin: 10px;
+	box-sizing: border-box;
 }
-.Header{
-    grid-column-start: 2;
-    font-size: 8vw;
-    margin: auto;
-    color: black;
-    cursor: pointer;
+.Header {
+	grid-column-start: 2;
+	font-size: 8vw;
+	margin: auto;
+	color: black;
+	cursor: pointer;
 
-    display: inline-block;
-    vertical-align:middle;
+	display: inline-block;
+	vertical-align: middle;
 }
-.Image{
-    height: 50%;
-    display: inline-block;
-    padding-left: 1%;
-    vertical-align: middle;
+.Image {
+	height: 50%;
+	display: inline-block;
+	padding-left: 1%;
+	vertical-align: middle;
 }
-.TopLine{
-    height: 5px;
-    margin: 8px;
-    animation: rotateRight 0.3s forwards;    
-    display: absolute;
+.TopLine {
+	height: 5px;
+	margin: 8px;
+	animation: rotateRight 0.3s forwards;
+	display: absolute;
 }
-.MiddleLine{
-    opacity: 0;
+.MiddleLine {
+	opacity: 0;
 }
-.BottomLine{
-    height: 5px;
-    margin: 8px;
-    animation: rotateLeft 0.3s forwards;    
-    display: absolute;
+.BottomLine {
+	height: 5px;
+	margin: 8px;
+	animation: rotateLeft 0.3s forwards;
+	display: absolute;
 }
-@keyframes rotateLeft{
-    20%{
-        transform: rotate(-30deg) translate(5px, -10px);
-    }
-    100%{
-        transform: rotate(-45deg) translate(8px, -15px);
-    }
+@keyframes rotateLeft {
+	20% {
+		transform: rotate(-30deg) translate(5px, -10px);
+	}
+	100% {
+		transform: rotate(-45deg) translate(8px, -15px);
+	}
 }
-@keyframes rotateRight{
-    20%{
-        transform: rotate(30deg) translate(5px, 10px);
-    }
-    100%{
-        transform: rotate(45deg) translate(5px, 10px);
-    }
-}
-
-.ButtonWrapper{
-    cursor: pointer;
-    box-sizing: border-box;
-    padding: 10px;
-    height: 50px;
-    vertical-align: center;
-    margin: auto;
-    margin-top: 15px;
-    position: absolute;
-    top: -10px;
-    right: 20px;
-    grid-column-start: 3;
-}
-.Wrapper{
-    display: grid;
-    height: 80px;
-
-    z-index: 900;
-
-    margin-bottom: 60px;
-    width: 100%;
-    background-color: orange;
-    box-sizing: border-box;
-    position: fixed;
-    top: 0px;
-
-    color: black;
-    margin-bottom: 0px;
-    font-size: 60px;
-    font-weight: normal;
-    grid-column-start: 2;
-
-    padding-left: 10%;
-    display: inline-block;
+@keyframes rotateRight {
+	20% {
+		transform: rotate(30deg) translate(5px, 10px);
+	}
+	100% {
+		transform: rotate(45deg) translate(5px, 10px);
+	}
 }
 
-.ButtonWrapper:hover > .LineStyle{
-    transition: 0.1s ease-in;
-    height: 5px;
-    margin: 8px;
+.ButtonWrapper {
+	cursor: pointer;
+	box-sizing: border-box;
+	padding: 10px;
+	height: 50px;
+	vertical-align: center;
+	margin: auto;
+	margin-top: 15px;
+	position: absolute;
+	top: -10px;
+	right: 20px;
+	grid-column-start: 3;
+}
+.Wrapper {
+	display: grid;
+	height: 80px;
+
+	z-index: 900;
+
+	margin-bottom: 60px;
+	width: 100%;
+	background-color: #fff;
+	box-sizing: border-box;
+	position: fixed;
+	top: 0px;
+
+	color: black;
+	margin-bottom: 0px;
+	font-size: 60px;
+	font-weight: normal;
+	grid-column-start: 2;
+
+	padding-left: 10%;
+	display: inline-block;
 }
 
-@media (min-width: 1000px){
-    .Wrapper{
-        display: none;
-    }
+.ButtonWrapper:hover > .LineStyle {
+	transition: 0.1s ease-in;
+	height: 5px;
+	margin: 8px;
 }
 
-@media (min-width: 650px){
-    .Header{
-        font-size: 8vw;
-        line-height: 0.95;
-        margin-bottom: 10px;
-    }
-    .Image{
-        margin-bottom: 10px;
-    }
+@media (min-width: 1000px) {
+	.Wrapper {
+		display: none;
+	}
 }
 
-@media (max-width: 450px){
-    .Image{
-        height:30%;
-        margin-bottom: 20px;
-    }   
-    .Header{
-        margin-bottom: 20px;
-    }
+@media (min-width: 650px) {
+	.Header {
+		font-size: 8vw;
+		line-height: 0.95;
+		margin-bottom: 10px;
+	}
+	.Image {
+		margin-bottom: 10px;
+	}
+}
+
+@media (max-width: 450px) {
+	.Image {
+		height: 30%;
+		margin-bottom: 20px;
+	}
+	.Header {
+		margin-bottom: 20px;
+	}
 }

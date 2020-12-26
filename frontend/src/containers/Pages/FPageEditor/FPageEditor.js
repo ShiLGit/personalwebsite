@@ -7,10 +7,10 @@ import formStyle from "../FormStyles.module.css";
 
 class FPageEditor extends Component {
 	state = {
-		webDevTS: "",
-		schoolTS: "",
-		otherTS: "",
-		bio: ""
+		webDevTS: this.props.fpageData.webDevTS ? this.props.fpageData.webDevTS : "",
+		schoolTS: this.props.fpageData.schoolTS ? this.props.fpageData.schoolTS : "",
+		otherTS: this.props.fpageData.otherTS ? this.props.fpageData.otherTS : "",
+		bio: this.props.fpageData.bio ? this.props.fpageData.bio : ""
 	};
 	changeStateField = (e, field) => {
 		const stateUpdate = { ...this.state };
@@ -25,7 +25,7 @@ class FPageEditor extends Component {
 			})
 			.then((res) => {
 				if (res.data.success) {
-					alert(res.data.success);
+					alert(res.data.success + "\nRefresh page to see updates. I WAS TOO LAZY TO CODE UPDATE IN!!!");
 					this.setState({
 						webDevTS: "",
 						schoolTS: "",
@@ -97,7 +97,8 @@ class FPageEditor extends Component {
 const stateToProps = (state) => {
 	return {
 		token: state.authReducer.token,
-		projects: state.projReducer.projects
+		projects: state.projReducer.projects,
+		fpageData: state.fpageReducer
 	};
 };
 export default connect(stateToProps)(FPageEditor);
