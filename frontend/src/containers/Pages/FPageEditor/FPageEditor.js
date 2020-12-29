@@ -4,7 +4,7 @@ import axios from "axios";
 import { Redirect } from "react-router-dom";
 
 import formStyle from "../FormStyles.module.css";
-
+import { BASE_REQ_URL } from "../../../textConstants";
 class FPageEditor extends Component {
 	state = {
 		webDevTS: this.props.fpageData.webDevTS ? this.props.fpageData.webDevTS : "",
@@ -20,7 +20,7 @@ class FPageEditor extends Component {
 	submitHandler = (e) => {
 		e.preventDefault();
 		axios
-			.post("http://localhost:5000/fpage/setinfo", this.state, {
+			.post(BASE_REQ_URL + "/fpage/setinfo", this.state, {
 				headers: { Authorization: `${this.props.token}` }
 			})
 			.then((res) => {

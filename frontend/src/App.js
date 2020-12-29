@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 import axios from "axios";
 
 import Loader from "../src/components/UI/Loader";
+import { BASE_REQ_URL } from "./textConstants";
 
 class App extends Component {
 	state = { loadingProj: false, loadingFPage: false };
@@ -15,7 +16,7 @@ class App extends Component {
 	componentDidMount() {
 		this.setState({ loadingProj: true, loadingFPage: true });
 		axios
-			.get("http://localhost:5000/projects/init")
+			.get(BASE_REQ_URL + "/projects/init")
 			.then((res) => {
 				this.props.initProjects(res.data.projects);
 				this.setState({ loadingProj: false });
@@ -26,7 +27,7 @@ class App extends Component {
 			});
 
 		axios
-			.get("http://localhost:5000/fpage/getinfo")
+			.get(BASE_REQ_URL + "/fpage/getinfo")
 			.then((res) => {
 				this.setState({ loadingFPage: false });
 				this.props.initFPage(res.data);
