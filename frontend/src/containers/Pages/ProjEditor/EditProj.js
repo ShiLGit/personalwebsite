@@ -6,7 +6,7 @@ import axios from 'axios';
 import {connect} from 'react-redux';
 import * as actionTypes from '../../../redux/actions/actionTypes';
 import { Redirect } from 'react-router-dom';
-
+const allowedFileExts = ['.png', '.jpg', '.gif', 'jpeg'];
 class EditProj extends Component{
     //REALLY BADLY DESIGNED BUT CURPROJID = PROJ ID HELD BY PARENT COPONENT, projID = USER INPUT
     state = {
@@ -56,6 +56,7 @@ class EditProj extends Component{
         this.setState({icon: e.target.files[0]});  
         this.setState({iconName: this.state.projID+ "_icon"+ e.target.files[0].type.replace('image/', '.')});   
         console.log('posticonchange', this.state);
+
     }
     demoImageChangeHandler = (e)=>{
         this.setState({demoImage: e.target.files[0]});
@@ -111,7 +112,6 @@ class EditProj extends Component{
         //get object w/ project text properties from this.state
         const clone = {...this.state};
         const {loading, icon, demoImage, curProjID, ...payload} = clone;
-        console.log(this.props.projects);
          //edit project
          axios.put('http://localhost:5000/projects/edittext/' + this.state.curProjID, payload, {headers: {'Authorization': `${this.props.token}`}})
          .then(res=>{
@@ -148,7 +148,6 @@ class EditProj extends Component{
             //get object w/ project text properties from this.state
             const clone = {...this.state};
             const {loading, icon, demoImage, curProjID, _id, ...payload} = clone;
-            console.log("LINE95 ADDPROJ", this.state, payload)
             //upload other projdata :/projects/addprojdata
             axios.post('http://localhost:5000/projects/addtext', payload, {headers: {'Authorization': `${this.props.token}`}})
             .then(res=>{
@@ -167,6 +166,9 @@ class EditProj extends Component{
         if(this.state.projID === 'null'){
             this.clearCurProj();
             return alert("Project Identifier: 'null' is a reserved word.");
+        }else if (allowedFileExts.indexOf(this.state.iconName.slice(-4))!= -1 || allowedFileExts.indexOf(this.state.demoImageName.slice(-4))!= -1){
+            this.setState({loading: false});
+            return alert("Invalid file extension on either icon or demo image!");
         }
         //project upload
         if(!this.state.curProjID){
